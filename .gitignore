@@ -5,6 +5,9 @@
 [Ll]og/
 [Ll]ogs/
 artifacts/
+# WiX / installer
+installer/bin/
+installer/obj/
 publish/
 
 # .NET / MSBuild

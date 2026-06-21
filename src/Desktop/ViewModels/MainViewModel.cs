@@ -49,6 +49,7 @@ public partial class MainViewModel(
         Settings.Initialize();
         Inquiry.Initialize();
         Results.ApplyLocalization();
+        ProposalWorkspace.Initialize();
 
         Settings.RescanCompleted += OnRescanCompleted;
         Settings.LocalizationChanged += OnLocalizationChanged;
@@ -71,6 +72,7 @@ public partial class MainViewModel(
     private void OnAnalysisCompleted(object? sender, AnalyzeInquiryResult result)
     {
         Results.DisplayResults(result);
+        ProposalWorkspace.LoadFromAnalysis(result);
         SelectedTabIndex = (int)PrimaryTab.Results;
     }
 
@@ -79,6 +81,7 @@ public partial class MainViewModel(
         ApplyLocalization();
         Inquiry.ApplyLocalization();
         Results.ApplyLocalization();
+        ProposalWorkspace.ApplyLocalization();
     }
 
     private void ApplyLocalization()

@@ -1,6 +1,7 @@
 namespace QuotationAccelerator.Desktop.ViewModels;
 
 using System.Collections.ObjectModel;
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Options;
@@ -42,6 +43,15 @@ public partial class InquiryViewModel(
     private string? _partDescription;
 
     [ObservableProperty]
+    private string? _deliveryDeadline;
+
+    [ObservableProperty]
+    private string? _specialRequirements;
+
+    [ObservableProperty]
+    private string? _notes;
+
+    [ObservableProperty]
     private string? _drawingFileName;
 
     [ObservableProperty]
@@ -58,6 +68,18 @@ public partial class InquiryViewModel(
 
     [ObservableProperty]
     private string _detailsSectionTitle = string.Empty;
+
+    [ObservableProperty]
+    private string _optionalSectionTitle = string.Empty;
+
+    [ObservableProperty]
+    private string _deliveryDeadlineLabel = string.Empty;
+
+    [ObservableProperty]
+    private string _specialRequirementsLabel = string.Empty;
+
+    [ObservableProperty]
+    private string _notesLabel = string.Empty;
 
     [ObservableProperty]
     private string _quantityLabel = string.Empty;
@@ -137,6 +159,10 @@ public partial class InquiryViewModel(
         Subtitle = uiText.Get(UiTextKeys.InquirySubtitle, language);
         BasicsSectionTitle = uiText.Get(UiTextKeys.InquiryBasicsSection, language);
         DetailsSectionTitle = uiText.Get(UiTextKeys.InquiryDetailsSection, language);
+        OptionalSectionTitle = uiText.Get(UiTextKeys.InquiryOptionalSection, language);
+        DeliveryDeadlineLabel = uiText.Get(UiTextKeys.DeliveryDeadlineLabel, language);
+        SpecialRequirementsLabel = uiText.Get(UiTextKeys.SpecialRequirementsLabel, language);
+        NotesLabel = uiText.Get(UiTextKeys.NotesLabel, language);
         QuantityLabel = uiText.Get(UiTextKeys.QuantityLabel, language);
         MaterialLabel = uiText.Get(UiTextKeys.MaterialLabel, language);
         SurfaceTreatmentLabel = uiText.Get(UiTextKeys.SurfaceTreatmentLabel, language);
@@ -191,6 +217,9 @@ public partial class InquiryViewModel(
             Quantity = quantity,
             SurfaceTreatment = SurfaceTreatment,
             PartDescription = PartDescription,
+            DeliveryDeadline = DeliveryDeadline,
+            SpecialRequirements = SpecialRequirements,
+            Notes = Notes,
             DrawingFilePath = DrawingFileName,
             ManufacturingProcesses = ManufacturingProcesses
                 .Where(process => process.IsSelected)

@@ -39,6 +39,18 @@
   <data name="InquiryDetailsSection" xml:space="preserve">
     <value>Beschreibung und Zeichnung</value>
   </data>
+  <data name="InquiryOptionalSection" xml:space="preserve">
+    <value>Zusätzliche Angaben (optional)</value>
+  </data>
+  <data name="DeliveryDeadlineLabel" xml:space="preserve">
+    <value>Liefertermin</value>
+  </data>
+  <data name="SpecialRequirementsLabel" xml:space="preserve">
+    <value>Besondere Anforderungen</value>
+  </data>
+  <data name="NotesLabel" xml:space="preserve">
+    <value>Notizen</value>
+  </data>
   <data name="ManufacturingProcessesLabel" xml:space="preserve">
     <value>Fertigungsprozesse</value>
   </data>
@@ -206,5 +218,23 @@
   </data>
   <data name="ResultsEmptySubtitle" xml:space="preserve">
     <value>Füllen Sie die Anfrage aus und starten Sie die Analyse, um ähnliche Projekte zu sehen.</value>
+  </data>
+  <data name="ProposalStepFormat" xml:space="preserve">
+    <value>• {0}</value>
+  </data>
+  <data name="ProposalQuotationDraftFormat" xml:space="preserve">
+    <value>Basierend auf {0} — {1}&#xD;&#xA;Material: {2}&#xD;&#xA;Stückzahl (Referenzprojekt): {3}&#xD;&#xA;Oberfläche: {4}&#xD;&#xA;Ähnlichkeit: {5}%</value>
+  </data>
+  <data name="ProposalDocumentLineFormat" xml:space="preserve">
+    <value>• {0}</value>
+  </data>
+  <data name="ProposalNoStepsFromMatch" xml:space="preserve">
+    <value>Für den besten Treffer sind keine Fertigungsschritte hinterlegt.</value>
+  </data>
+  <data name="ProposalNoDocumentsListed" xml:space="preserve">
+    <value>Im Projektordner des besten Treffers sind keine Dokumente indexiert.</value>
+  </data>
+  <data name="ProposalPreviewPathFormat" xml:space="preserve">
+    <value>Ordner des besten Treffers: {0}</value>
   </data>
 </root>

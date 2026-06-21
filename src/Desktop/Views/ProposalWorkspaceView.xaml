@@ -1,38 +1,51 @@
 <UserControl x:Class="QuotationAccelerator.Desktop.Views.ProposalWorkspaceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ScrollViewer Padding="24">
-    <StackPanel>
-      <TextBlock Text="Proposal Workspace"
-                 FontSize="24"
-                 FontWeight="SemiBold"
-                 Margin="0,0,0,16" />
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource PageBackgroundBrush}">
+  <ScrollViewer Padding="32">
+    <StackPanel MaxWidth="1100" HorizontalAlignment="Center">
+      <TextBlock Text="{Binding Heading}" Style="{StaticResource PageTitleStyle}" />
+      <TextBlock Text="{Binding Subtitle}" Style="{StaticResource PageSubtitleStyle}" Margin="0,0,0,24" />
 
-      <GroupBox Header="Manufacturing Steps">
-        <TextBox Text="{Binding ManufacturingSteps, UpdateSourceTrigger=PropertyChanged}"
-                 AcceptsReturn="True"
-                 MinHeight="120"
-                 TextWrapping="Wrap" />
-      </GroupBox>
+      <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
+        <StackPanel>
+          <TextBlock Text="{Binding ManufacturingStepsGroup}" Style="{StaticResource SectionTitleStyle}" />
+          <TextBox Text="{Binding ManufacturingSteps, UpdateSourceTrigger=PropertyChanged}"
+                   AcceptsReturn="True"
+                   MinHeight="140"
+                   TextWrapping="Wrap"
+                   VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
+      </Border>
 
-      <GroupBox Header="Suggested Quotation">
-        <TextBox Text="{Binding SuggestedQuotation, UpdateSourceTrigger=PropertyChanged}"
-                 AcceptsReturn="True"
-                 MinHeight="120"
-                 TextWrapping="Wrap" />
-      </GroupBox>
+      <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
+        <StackPanel>
+          <TextBlock Text="{Binding SuggestedQuotationGroup}" Style="{StaticResource SectionTitleStyle}" />
+          <TextBox Text="{Binding SuggestedQuotation, UpdateSourceTrigger=PropertyChanged}"
+                   AcceptsReturn="True"
+                   MinHeight="140"
+                   TextWrapping="Wrap"
+                   VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
+      </Border>
 
-      <GroupBox Header="Referenced Documents">
-        <TextBox Text="{Binding ReferencedDocuments, UpdateSourceTrigger=PropertyChanged}"
-                 AcceptsReturn="True"
-                 MinHeight="80"
-                 TextWrapping="Wrap" />
-      </GroupBox>
+      <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
+        <StackPanel>
+          <TextBlock Text="{Binding ReferencedDocumentsGroup}" Style="{StaticResource SectionTitleStyle}" />
+          <TextBox Text="{Binding ReferencedDocuments, UpdateSourceTrigger=PropertyChanged}"
+                   AcceptsReturn="True"
+                   MinHeight="100"
+                   TextWrapping="Wrap"
+                   VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
+      </Border>
 
-      <GroupBox Header="Document Preview">
-        <TextBlock Text="{Binding DocumentPreviewStatus}"
-                   TextWrapping="Wrap" />
-      </GroupBox>
+      <Border Style="{StaticResource CardBorderStyle}">
+        <StackPanel>
+          <TextBlock Text="{Binding DocumentPreviewGroup}" Style="{StaticResource SectionTitleStyle}" />
+          <TextBlock Text="{Binding DocumentPreviewStatus}" TextWrapping="Wrap" Style="{StaticResource HintTextStyle}" />
+        </StackPanel>
+      </Border>
     </StackPanel>
   </ScrollViewer>
 </UserControl>

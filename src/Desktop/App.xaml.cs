@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using QuotationAccelerator.Desktop.Services;
+using QuotationAccelerator.Desktop.DependencyInjection;
 using QuotationAccelerator.Desktop.ViewModels;
 using QuotationAccelerator.Infrastructure.DependencyInjection;
 
@@ -24,13 +24,7 @@ public partial class App : Application
             .ConfigureServices((context, services) =>
             {
                 services.AddQuotationAcceleratorInfrastructure(context.Configuration);
-                services.AddSingleton<ApplicationPreferences>();
-                services.AddSingleton<IUiTextProvider, UiTextProvider>();
-                services.AddSingleton<MainViewModel>();
-                services.AddTransient<InquiryViewModel>();
-                services.AddTransient<ResultsViewModel>();
-                services.AddTransient<ProposalWorkspaceViewModel>();
-                services.AddTransient<SettingsViewModel>();
+                services.AddQuotationAcceleratorDesktop();
             })
             .Build();
 

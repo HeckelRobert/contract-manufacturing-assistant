@@ -9,7 +9,6 @@ using QuotationAccelerator.Catalog.Configuration;
 using QuotationAccelerator.Infrastructure.Dispatching;
 using QuotationAccelerator.Infrastructure.FileSystem;
 using QuotationAccelerator.Infrastructure.Persistence;
-using QuotationAccelerator.Matching.Application.DependencyInjection;
 using QuotationAccelerator.SharedKernel.Abstractions;
 using QuotationAccelerator.SharedKernel.Configuration;
 
@@ -36,8 +35,7 @@ public static class InfrastructureServiceCollectionExtensions
             options.UseSqlite($"Data Source={paths.GetDatabasePath()}");
         });
 
-        services.AddCatalogApplication();
-        services.AddMatchingApplication();
+        services.AddApplicationModules();
 
         return services;
     }

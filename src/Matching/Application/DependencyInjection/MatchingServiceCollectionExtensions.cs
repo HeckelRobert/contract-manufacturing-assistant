@@ -12,7 +12,7 @@ using QuotationAccelerator.SharedKernel.Results;
 
 public static class MatchingServiceCollectionExtensions
 {
-    public static IServiceCollection AddMatchingApplication(this IServiceCollection services)
+    public static IServiceCollection AddMatchingModule(this IServiceCollection services)
     {
         services.AddScoped<IValidator<AnalyzeInquiryCommand>, AnalyzeInquiryValidator>();
         services.AddScoped<ICommandHandler<AnalyzeInquiryCommand, Result<AnalyzeInquiryResult>>, AnalyzeInquiryHandler>();

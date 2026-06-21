@@ -5,13 +5,25 @@ Portable Windows desktop prototype for reusing historical manufacturing project 
 ## Prerequisites
 
 - Windows 10 or 11
-- [.NET 10 SDK](https://dotnet.microsoft.com/download) (pinned in `global.json`)
-- [WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/web-view2/) (for PDF preview — upcoming)
-- [Ollama](https://ollama.com/) (optional, for AI-assisted and hybrid matching)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download) (developers only — pinned in `global.json`)
 
-## Quick start
+## For end users
 
-```bash
+1. Run the installer build once on a developer machine:
+
+```powershell
+.\scripts\publish-installer.ps1
+```
+
+2. Share `publish/installer/Quotation Accelerator Setup.msi` with pilot users.
+
+3. End users double-click the installer, follow the wizard, then start **Quotation Accelerator** from the Windows Start menu.
+
+The installed app includes bundled `sample-data/` and creates `quotation-accelerator.db` beside the executable on first run. Uninstall via **Settings → Apps**.
+
+## For developers
+
+```powershell
 dotnet restore QuotationAccelerator.sln
 dotnet build QuotationAccelerator.sln
 dotnet run --project src/Desktop/QuotationAccelerator.Desktop.csproj
@@ -29,15 +41,13 @@ On first launch the application:
 src/
   Desktop/           WPF shell (four tabs)
   Catalog/           Project discovery and indexing
-  Inquiry/           Customer inquiry capture
-  Matching/          Similarity strategies (planned)
-  Proposal/          Manufacturing steps and quotation draft (planned)
-  Documents/         PDF preview and file access (planned)
-  Export/            Clipboard and PDF export (planned)
-  Settings/          Configuration slice (planned)
-  Infrastructure/    SQLite, file system, dispatcher, AI adapters
+  Inquiry/           Customer inquiry domain
+  Matching/          Rule-based and hybrid similarity search
+  Infrastructure/    SQLite, file system, dispatcher, module registration
   SharedKernel/      Dispatcher abstractions and shared types
+installer/           WiX MSI installer project
 sample-data/         Bundled demonstration projects
+scripts/             Installer publish script
 tests/               Unit and architecture tests
 ```
 
@@ -48,14 +58,10 @@ tests/               Unit and architecture tests
 - [Security](docs/security.md)
 - [Operations](docs/operations.md)
 
-## Publish (portable)
+## Manual installer build
 
-```bash
-dotnet publish src/Desktop/QuotationAccelerator.Desktop.csproj `
-  -c Release `
-  -r win-x64 `
-  --self-contained true `
-  -o ./publish
+```powershell
+dotnet build installer/QuotationAccelerator.Installer.wixproj -c Release
 ```
 
-Copy `sample-data/` into the publish folder for demonstrations.
+The MSI is written to `installer/bin/Release/Quotation Accelerator Setup.msi`.

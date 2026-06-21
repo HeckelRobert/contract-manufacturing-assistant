@@ -7,8 +7,9 @@
         Width="1280"
         MinHeight="700"
         MinWidth="1024"
-        WindowStartupLocation="CenterScreen">
-  <TabControl SelectedIndex="{Binding SelectedTabIndex}">
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PageBackgroundBrush}">
+  <TabControl SelectedIndex="{Binding SelectedTabIndex}" Background="{StaticResource PageBackgroundBrush}">
     <TabItem Header="{Binding TabInquiryHeader}">
       <views:InquiryView DataContext="{Binding Inquiry}" />
     </TabItem>

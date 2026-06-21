@@ -27,12 +27,21 @@ public partial class ResultsViewModel(
     [ObservableProperty]
     private bool _hasMatches;
 
+    [ObservableProperty]
+    private string _emptyTitle = string.Empty;
+
+    [ObservableProperty]
+    private string _emptySubtitle = string.Empty;
+
     public void ApplyLocalization()
     {
         ResultsHeading = uiText.Format(
             UiTextKeys.ResultsHeadingFormat,
             preferences.UiLanguage,
             matchingOptions.Value.TopResultsCount);
+
+        EmptyTitle = uiText.Get(UiTextKeys.ResultsEmptyTitle, preferences.UiLanguage);
+        EmptySubtitle = uiText.Get(UiTextKeys.ResultsEmptySubtitle, preferences.UiLanguage);
 
         if (!HasMatches)
         {

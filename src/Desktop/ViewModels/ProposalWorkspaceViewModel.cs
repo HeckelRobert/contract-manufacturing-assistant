@@ -3,12 +3,16 @@ namespace QuotationAccelerator.Desktop.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using QuotationAccelerator.Desktop.Resources;
 using QuotationAccelerator.Desktop.Services;
+using QuotationAccelerator.Matching.Domain;
 using QuotationAccelerator.SharedKernel.Enums;
 
 public partial class ProposalWorkspaceViewModel(
     IUiTextProvider uiText,
-    ApplicationPreferences preferences) : ObservableObject
+    ApplicationPreferences preferences,
+    ProposalDraftBuilder proposalDraftBuilder) : ObservableObject
 {
+    private bool _hasLoadedProposal;
+
     [ObservableProperty]
     private string _heading = string.Empty;
 
@@ -39,6 +43,27 @@ public partial class ProposalWorkspaceViewModel(
     [ObservableProperty]
     private string _documentPreviewStatus = string.Empty;
 
+    public void Initialize()
+    {
+        _hasLoadedProposal = false;
+        ApplyLocalization();
+    }
+
+    public void LoadFromAnalysis(AnalyzeInquiryResult result)
+    {
+        var language = preferences.UiLanguage;
+        var draft = proposalDraftBuilder.Build(result, language);
+
+        ManufacturingSteps = draft.ManufacturingSteps;
+        SuggestedQuotation = draft.SuggestedQuotation;
+        ReferencedDocuments = draft.ReferencedDocuments;
+        DocumentPreviewStatus = uiText.Format(
+            UiTextKeys.ProposalPreviewPathFormat,
+            language,
+            draft.PrimaryProjectFolder);
+        _hasLoadedProposal = true;
+    }
+
     public void ApplyLocalization()
     {
         var language = preferences.UiLanguage;
@@ -48,9 +73,13 @@ public partial class ProposalWorkspaceViewModel(
         SuggestedQuotationGroup = uiText.Get(UiTextKeys.SuggestedQuotationGroup, language);
         ReferencedDocumentsGroup = uiText.Get(UiTextKeys.ReferencedDocumentsGroup, language);
         DocumentPreviewGroup = uiText.Get(UiTextKeys.DocumentPreviewGroup, language);
-        ManufacturingSteps = uiText.Get(UiTextKeys.ProposalWorkspaceEmptySteps, language);
-        SuggestedQuotation = uiText.Get(UiTextKeys.ProposalWorkspaceEmptyQuotation, language);
-        ReferencedDocuments = uiText.Get(UiTextKeys.ProposalWorkspaceEmptyDocuments, language);
-        DocumentPreviewStatus = uiText.Get(UiTextKeys.ProposalWorkspacePreviewPlaceholder, language);
+
+        if (!_hasLoadedProposal)
+        {
+            ManufacturingSteps = uiText.Get(UiTextKeys.ProposalWorkspaceEmptySteps, language);
+            SuggestedQuotation = uiText.Get(UiTextKeys.ProposalWorkspaceEmptyQuotation, language);
+            ReferencedDocuments = uiText.Get(UiTextKeys.ProposalWorkspaceEmptyDocuments, language);
+            DocumentPreviewStatus = uiText.Get(UiTextKeys.ProposalWorkspacePreviewPlaceholder, language);
+        }
     }
 }

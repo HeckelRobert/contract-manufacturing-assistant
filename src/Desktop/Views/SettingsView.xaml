@@ -1,40 +1,44 @@
 <UserControl x:Class="QuotationAccelerator.Desktop.Views.SettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ScrollViewer Padding="24">
-    <StackPanel MaxWidth="900" HorizontalAlignment="Left">
-      <TextBlock Text="{Binding Heading}"
-                 FontSize="24"
-                 FontWeight="SemiBold"
-                 Margin="0,0,0,16" />
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource PageBackgroundBrush}">
+  <ScrollViewer Padding="32">
+    <StackPanel MaxWidth="900" HorizontalAlignment="Center">
+      <TextBlock Text="{Binding Heading}" Style="{StaticResource PageTitleStyle}" Margin="0,0,0,24" />
 
-      <GroupBox Header="{Binding ProjectCatalogGroup}">
+      <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
         <StackPanel>
-          <DockPanel Margin="0,0,0,8">
+          <TextBlock Text="{Binding ProjectCatalogGroup}" Style="{StaticResource SectionTitleStyle}" />
+          <DockPanel Margin="0,0,0,12">
             <Button Content="{Binding BrowseButtonText}"
                     Command="{Binding BrowseProjectRootCommand}"
                     DockPanel.Dock="Right"
-                    Margin="8,0,0,0" />
+                    Margin="8,0,0,0"
+                    Style="{StaticResource SecondaryButtonStyle}" />
             <TextBox Text="{Binding ProjectRoot, UpdateSourceTrigger=PropertyChanged}" />
           </DockPanel>
-          <TextBlock Text="{Binding IndexedProjectsLabel}"
-                     Margin="0,0,0,8" />
+          <TextBlock Text="{Binding IndexedProjectsLabel}" Style="{StaticResource HintTextStyle}" Margin="0,0,0,12" />
           <Button Content="{Binding RescanProjectsButtonText}"
                   Command="{Binding RescanCommand}"
-                  HorizontalAlignment="Left" />
+                  HorizontalAlignment="Left"
+                  Style="{StaticResource SecondaryButtonStyle}" />
         </StackPanel>
-      </GroupBox>
+      </Border>
 
-      <GroupBox Header="{Binding AiProviderStatusGroup}">
-        <TextBlock Text="{Binding AiProviderStatus}"
-                   FontFamily="Consolas"
-                   TextWrapping="Wrap" />
-      </GroupBox>
+      <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
+        <StackPanel>
+          <TextBlock Text="{Binding AiProviderStatusGroup}" Style="{StaticResource SectionTitleStyle}" />
+          <TextBlock Text="{Binding AiProviderStatus}"
+                     FontFamily="Consolas"
+                     TextWrapping="Wrap"
+                     LineHeight="22" />
+        </StackPanel>
+      </Border>
 
-      <GroupBox Header="{Binding MatchingAndModelsGroup}">
+      <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
         <Grid>
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
           <Grid.RowDefinitions>
@@ -42,33 +46,30 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
           </Grid.RowDefinitions>
 
-          <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding ChatModelLabel}" Margin="0,8" />
-          <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ChatModel}" Margin="0,8" IsReadOnly="True" />
+          <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding ChatModelLabel}" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center" />
+          <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ChatModel}" IsReadOnly="True" Margin="0,0,0,12" />
 
-          <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding EmbeddingModelLabel}" Margin="0,8" />
-          <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EmbeddingModel}" Margin="0,8" IsReadOnly="True" />
+          <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding EmbeddingModelLabel}" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center" />
+          <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EmbeddingModel}" IsReadOnly="True" Margin="0,0,0,12" />
 
-          <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding MatchingStrategyLabel}" Margin="0,8" />
+          <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding MatchingStrategyLabel}" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center" />
           <ComboBox Grid.Row="2" Grid.Column="1"
                     ItemsSource="{Binding MatchingStrategies}"
                     SelectedItem="{Binding MatchingStrategy}"
-                    Margin="0,8" />
+                    Margin="0,0,0,12" />
 
-          <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding UiLanguageLabel}" Margin="0,8" />
+          <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding UiLanguageLabel}" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center" />
           <ComboBox Grid.Row="3" Grid.Column="1"
                     ItemsSource="{Binding UiLanguages}"
-                    SelectedItem="{Binding UiLanguage}"
-                    Margin="0,8" />
+                    SelectedItem="{Binding UiLanguage}" />
         </Grid>
-      </GroupBox>
+      </Border>
 
-      <TextBlock Text="{Binding StatusMessage}"
-                 Margin="0,8,0,0"
-                 TextWrapping="Wrap"
-                 Foreground="#666666" />
+      <Border Style="{StaticResource InfoBannerStyle}">
+        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+      </Border>
     </StackPanel>
   </ScrollViewer>
 </UserControl>

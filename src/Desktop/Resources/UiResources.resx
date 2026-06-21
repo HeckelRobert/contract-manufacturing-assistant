@@ -39,6 +39,18 @@
   <data name="InquiryDetailsSection" xml:space="preserve">
     <value>Description and drawing</value>
   </data>
+  <data name="InquiryOptionalSection" xml:space="preserve">
+    <value>Additional details (optional)</value>
+  </data>
+  <data name="DeliveryDeadlineLabel" xml:space="preserve">
+    <value>Delivery deadline</value>
+  </data>
+  <data name="SpecialRequirementsLabel" xml:space="preserve">
+    <value>Special requirements</value>
+  </data>
+  <data name="NotesLabel" xml:space="preserve">
+    <value>Notes</value>
+  </data>
   <data name="ManufacturingProcessesLabel" xml:space="preserve">
     <value>Manufacturing processes</value>
   </data>
@@ -206,5 +218,23 @@
   </data>
   <data name="ResultsEmptySubtitle" xml:space="preserve">
     <value>Complete the inquiry form and run analysis to see similar historical projects.</value>
+  </data>
+  <data name="ProposalStepFormat" xml:space="preserve">
+    <value>• {0}</value>
+  </data>
+  <data name="ProposalQuotationDraftFormat" xml:space="preserve">
+    <value>Based on {0} — {1}&#xD;&#xA;Material: {2}&#xD;&#xA;Quantity (reference project): {3}&#xD;&#xA;Surface: {4}&#xD;&#xA;Similarity: {5}%</value>
+  </data>
+  <data name="ProposalDocumentLineFormat" xml:space="preserve">
+    <value>• {0}</value>
+  </data>
+  <data name="ProposalNoStepsFromMatch" xml:space="preserve">
+    <value>No manufacturing steps recorded for the primary match.</value>
+  </data>
+  <data name="ProposalNoDocumentsListed" xml:space="preserve">
+    <value>No documents indexed for the primary match project folder.</value>
+  </data>
+  <data name="ProposalPreviewPathFormat" xml:space="preserve">
+    <value>Primary match folder: {0}</value>
   </data>
 </root>

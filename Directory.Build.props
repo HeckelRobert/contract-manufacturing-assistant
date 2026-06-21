@@ -14,9 +14,20 @@
     <InformationalVersion>0.1.0</InformationalVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
+    <MicrosoftExtensionsVersion>10.0.9</MicrosoftExtensionsVersion>
+    <SqliteBundleVersion>3.0.3</SqliteBundleVersion>
+    <EntityFrameworkVersion>10.0.9</EntityFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Update="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.11" />
+    <PackageReference Update="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Hosting" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Logging.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="$(EntityFrameworkVersion)" />
+    <PackageReference Update="SQLitePCLRaw.bundle_e_sqlite3" Version="$(SqliteBundleVersion)" />
   </ItemGroup>
 </Project>

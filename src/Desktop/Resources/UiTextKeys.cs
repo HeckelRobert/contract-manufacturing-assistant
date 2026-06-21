@@ -11,6 +11,10 @@ public static class UiTextKeys
     public const string InquirySubtitle = nameof(InquirySubtitle);
     public const string InquiryBasicsSection = nameof(InquiryBasicsSection);
     public const string InquiryDetailsSection = nameof(InquiryDetailsSection);
+    public const string InquiryOptionalSection = nameof(InquiryOptionalSection);
+    public const string DeliveryDeadlineLabel = nameof(DeliveryDeadlineLabel);
+    public const string SpecialRequirementsLabel = nameof(SpecialRequirementsLabel);
+    public const string NotesLabel = nameof(NotesLabel);
     public const string ManufacturingProcessesLabel = nameof(ManufacturingProcessesLabel);
     public const string ManufacturingProcessesHint = nameof(ManufacturingProcessesHint);
     public const string PartDescriptionHint = nameof(PartDescriptionHint);
@@ -67,4 +71,10 @@ public static class UiTextKeys
     public const string ProposalWorkspacePreviewPlaceholder = nameof(ProposalWorkspacePreviewPlaceholder);
     public const string ResultsEmptyTitle = nameof(ResultsEmptyTitle);
     public const string ResultsEmptySubtitle = nameof(ResultsEmptySubtitle);
+    public const string ProposalStepFormat = nameof(ProposalStepFormat);
+    public const string ProposalQuotationDraftFormat = nameof(ProposalQuotationDraftFormat);
+    public const string ProposalDocumentLineFormat = nameof(ProposalDocumentLineFormat);
+    public const string ProposalNoStepsFromMatch = nameof(ProposalNoStepsFromMatch);
+    public const string ProposalNoDocumentsListed = nameof(ProposalNoDocumentsListed);
+    public const string ProposalPreviewPathFormat = nameof(ProposalPreviewPathFormat);
 }

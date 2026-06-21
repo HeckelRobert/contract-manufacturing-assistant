@@ -1,68 +1,146 @@
 <UserControl x:Class="QuotationAccelerator.Desktop.Views.InquiryView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d">
-  <ScrollViewer Padding="24">
-    <StackPanel MaxWidth="720" HorizontalAlignment="Left">
-      <TextBlock Text="{Binding Heading}"
-                 FontSize="24"
-                 FontWeight="SemiBold"
-                 Margin="0,0,0,16" />
+             Background="{StaticResource PageBackgroundBrush}">
+  <ScrollViewer Padding="32">
+    <StackPanel MaxWidth="1100" HorizontalAlignment="Center">
+      <TextBlock Text="{Binding Heading}" Style="{StaticResource PageTitleStyle}" />
+      <TextBlock Text="{Binding Subtitle}" Style="{StaticResource PageSubtitleStyle}" Margin="0,0,0,24" />
 
-      <Grid Margin="0,0,0,12">
+      <Grid>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="180" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="24" />
           <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding QuantityLabel}" VerticalAlignment="Center" Margin="0,8" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Margin="0,8" />
+        <!-- Basic data -->
+        <Border Grid.Column="0" Style="{StaticResource CardBorderStyle}">
+          <StackPanel>
+            <TextBlock Text="{Binding BasicsSectionTitle}" Style="{StaticResource SectionTitleStyle}" />
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding MaterialLabel}" VerticalAlignment="Center" Margin="0,8" />
-        <ComboBox Grid.Row="1" Grid.Column="1"
-                  ItemsSource="{Binding Materials}"
-                  SelectedItem="{Binding Material}"
-                  Margin="0,8" />
+            <TextBlock Text="{Binding QuantityLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,16" />
 
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding SurfaceTreatmentLabel}" VerticalAlignment="Center" Margin="0,8" />
-        <ComboBox Grid.Row="2" Grid.Column="1"
-                  ItemsSource="{Binding SurfaceTreatments}"
-                  SelectedItem="{Binding SurfaceTreatment}"
-                  Margin="0,8" />
+            <TextBlock Text="{Binding MaterialLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <ComboBox ItemsSource="{Binding Materials}"
+                      SelectedItem="{Binding Material}"
+                      Margin="0,0,0,16" />
 
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding PartDescriptionLabel}" VerticalAlignment="Center" Margin="0,8" />
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding PartDescription, UpdateSourceTrigger=PropertyChanged}" Margin="0,8" />
+            <TextBlock Text="{Binding SurfaceTreatmentLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <ComboBox ItemsSource="{Binding SurfaceTreatmentOptions}"
+                      DisplayMemberPath="Display"
+                      SelectedValuePath="Value"
+                      SelectedValue="{Binding SurfaceTreatment}"
+                      Margin="0,0,0,16" />
 
-        <TextBlock Grid.Row="4" Grid.Column="0" Text="{Binding DrawingLabel}" VerticalAlignment="Center" Margin="0,8" />
-        <DockPanel Grid.Row="4" Grid.Column="1" Margin="0,8">
-          <Button Content="{Binding SelectPdfButtonText}"
-                  Command="{Binding SelectDrawingCommand}"
-                  DockPanel.Dock="Right"
-                  Margin="8,0,0,0" />
-          <TextBox Text="{Binding DrawingFileName, Mode=OneWay}"
-                   IsReadOnly="True"
-                   ToolTip="{Binding DrawingFileName}" />
-        </DockPanel>
+            <TextBlock Text="{Binding ManufacturingProcessesLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <TextBlock Text="{Binding ManufacturingProcessesHint}" Style="{StaticResource HintTextStyle}" Margin="0,0,0,8" />
+            <ItemsControl ItemsSource="{Binding ManufacturingProcesses}">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                  <WrapPanel />
+                </ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <CheckBox Content="{Binding Name}" IsChecked="{Binding IsSelected}" />
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </StackPanel>
+        </Border>
+
+        <!-- Description, drawing, optional fields -->
+        <Border Grid.Column="2" Style="{StaticResource CardBorderStyle}">
+          <StackPanel>
+            <TextBlock Text="{Binding DetailsSectionTitle}" Style="{StaticResource SectionTitleStyle}" />
+
+            <TextBlock Text="{Binding PartDescriptionLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <TextBlock Text="{Binding PartDescriptionHint}" Style="{StaticResource HintTextStyle}" Margin="0,0,0,8" />
+            <TextBox Text="{Binding PartDescription, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     MinHeight="120"
+                     Margin="0,0,0,16" />
+
+            <TextBlock Text="{Binding DrawingLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <TextBlock Text="{Binding DrawingHint}" Style="{StaticResource HintTextStyle}" Margin="0,0,0,8" />
+
+            <Border Background="#F8FAFC"
+                    BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="16"
+                    MinHeight="88"
+                    Margin="0,0,0,12">
+              <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="{Binding DrawingDisplayText}"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap" />
+                <TextBlock Text="{Binding DrawingFileName}"
+                           TextTrimming="CharacterEllipsis"
+                           ToolTip="{Binding DrawingFileName}"
+                           FontSize="12"
+                           Foreground="{StaticResource MutedForegroundBrush}"
+                           Margin="0,4,0,0">
+                  <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                      <Setter Property="Visibility" Value="Collapsed" />
+                      <Style.Triggers>
+                        <DataTrigger Binding="{Binding HasDrawingSelected}" Value="True">
+                          <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                      </Style.Triggers>
+                    </Style>
+                  </TextBlock.Style>
+                </TextBlock>
+              </StackPanel>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+              <Button Content="{Binding SelectPdfButtonText}"
+                      Command="{Binding SelectDrawingCommand}"
+                      Style="{StaticResource SecondaryButtonStyle}"
+                      Margin="0,0,8,0" />
+              <Button Content="{Binding ClearDrawingButtonText}"
+                      Command="{Binding ClearDrawingCommand}"
+                      Style="{StaticResource SecondaryButtonStyle}"
+                      IsEnabled="{Binding HasDrawingSelected}" />
+            </StackPanel>
+
+            <TextBlock Text="{Binding OptionalSectionTitle}" Style="{StaticResource FieldLabelStyle}" Margin="0,0,0,8" />
+
+            <TextBlock Text="{Binding DeliveryDeadlineLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <TextBox Text="{Binding DeliveryDeadline, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,12" />
+
+            <TextBlock Text="{Binding SpecialRequirementsLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <TextBox Text="{Binding SpecialRequirements, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     MinHeight="64"
+                     Margin="0,0,0,12" />
+
+            <TextBlock Text="{Binding NotesLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <TextBox Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     MinHeight="64" />
+          </StackPanel>
+        </Border>
       </Grid>
 
-      <StackPanel Orientation="Horizontal" Margin="0,16,0,0">
+      <StackPanel Orientation="Horizontal" Margin="0,24,0,0">
         <Button Content="{Binding AnalyzeInquiryButtonText}"
-                Command="{Binding AnalyzeInquiryCommand}" />
+                Command="{Binding AnalyzeInquiryCommand}"
+                Style="{StaticResource PrimaryButtonStyle}"
+                MinWidth="220" />
       </StackPanel>
 
-      <TextBlock Text="{Binding StatusMessage}"
-                 Margin="0,20,0,0"
-                 TextWrapping="Wrap"
-                 Foreground="#666666" />
+      <Border Style="{StaticResource InfoBannerStyle}">
+        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+      </Border>
     </StackPanel>
   </ScrollViewer>
 </UserControl>

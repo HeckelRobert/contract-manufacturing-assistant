@@ -8,7 +8,7 @@ using QuotationAccelerator.SharedKernel.Results;
 
 public static class CatalogServiceCollectionExtensions
 {
-    public static IServiceCollection AddCatalogApplication(this IServiceCollection services)
+    public static IServiceCollection AddCatalogModule(this IServiceCollection services)
     {
         services.AddScoped<ICommandHandler<RescanProjectsCommand, Result<RescanProjectsResult>>, RescanProjectsHandler>();
         services.AddScoped<IQueryHandler<GetCatalogSummaryQuery, CatalogSummaryResult>, GetCatalogSummaryHandler>();

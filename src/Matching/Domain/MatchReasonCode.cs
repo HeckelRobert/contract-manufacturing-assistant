@@ -10,4 +10,5 @@ public enum MatchReasonCode
     ComparableAssembly,
     ContainsWeldingOperations,
     ExistingBendingSetup,
+    PartDescriptionSimilarity,
 }

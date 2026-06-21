@@ -18,6 +18,12 @@ public sealed class ProjectIndexEntity
 
     public string? Customer { get; set; }
 
+    public string? PartDescription { get; set; }
+
+    public string? DrawingNumber { get; set; }
+
+    public string? Dimensions { get; set; }
+
     public string FolderPath { get; set; } = string.Empty;
 
     public string FolderName { get; set; } = string.Empty;

@@ -45,5 +45,6 @@ public static class InfrastructureServiceCollectionExtensions
         await using var scope = serviceProvider.CreateAsyncScope();
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         await db.Database.EnsureCreatedAsync();
+        await ProjectCatalogSchemaPatcher.ApplyAsync(db, CancellationToken.None);
     }
 }

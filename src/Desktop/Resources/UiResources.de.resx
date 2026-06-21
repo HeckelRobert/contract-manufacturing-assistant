@@ -279,4 +279,49 @@
   <data name="ProposalPreviewDrawingAvailableFormat" xml:space="preserve">
     <value>{0} liegt im Projektordner vor. Mit Zeichnung öffnen im PDF-Viewer anzeigen.&#xD;&#xA;{1}</value>
   </data>
+  <data name="ProjectProfileSectionLabel" xml:space="preserve">
+    <value>Historisches Projektprofil</value>
+  </data>
+  <data name="MatchExplanationsSectionLabel" xml:space="preserve">
+    <value>Warum dieser Treffer</value>
+  </data>
+  <data name="ProfileCustomerLabel" xml:space="preserve">
+    <value>Kunde</value>
+  </data>
+  <data name="ProfileMaterialLabel" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="ProfileQuantityLabel" xml:space="preserve">
+    <value>Stückzahl</value>
+  </data>
+  <data name="ProfileSurfaceLabel" xml:space="preserve">
+    <value>Oberflächenbehandlung</value>
+  </data>
+  <data name="ProfileProcessesLabel" xml:space="preserve">
+    <value>Prozesse</value>
+  </data>
+  <data name="ProfileDrawingNumberLabel" xml:space="preserve">
+    <value>Zeichnungsnr.</value>
+  </data>
+  <data name="ProfileDimensionsLabel" xml:space="preserve">
+    <value>Abmessungen</value>
+  </data>
+  <data name="ProfilePartDescriptionLabel" xml:space="preserve">
+    <value>Teilebeschreibung</value>
+  </data>
+  <data name="ProfileDocumentsLabel" xml:space="preserve">
+    <value>Dokumente</value>
+  </data>
+  <data name="PdfPreviewNoDrawing" xml:space="preserve">
+    <value>Für dieses Projekt liegt keine Zeichnungs-PDF vor. Über Projektordner öffnen können Sie weitere Dateien prüfen.</value>
+  </data>
+  <data name="PdfPreviewFileMissing" xml:space="preserve">
+    <value>Drawing.pdf ist eingetragen, wurde aber nicht gefunden. Der Projektordner kann weiterhin extern geöffnet werden.</value>
+  </data>
+  <data name="PdfPreviewRuntimeMissing" xml:space="preserve">
+    <value>Für die PDF-Vorschau wird die Microsoft Edge WebView2 Runtime benötigt. Installieren Sie sie von microsoft.com/edge/webview2 und starten Sie die Anwendung neu. Dokumente können weiterhin mit Zeichnung öffnen geöffnet werden.</value>
+  </data>
+  <data name="ResultsDrawingPreviewLabel" xml:space="preserve">
+    <value>Zeichnungsvorschau</value>
+  </data>
 </root>

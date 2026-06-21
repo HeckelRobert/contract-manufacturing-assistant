@@ -14,7 +14,8 @@ using QuotationAccelerator.SharedKernel.Configuration;
 using QuotationAccelerator.SharedKernel.Enums;
 
 public partial class ResultsViewModel(
-    IMatchReasonFormatter reasonFormatter,
+    IMatchExplanationFormatter explanationFormatter,
+    ProjectProfileFormatter profileFormatter,
     IUiTextProvider uiText,
     ApplicationPreferences preferences,
     IOptions<MatchingOptions> matchingOptions) : ObservableObject
@@ -53,6 +54,18 @@ public partial class ResultsViewModel(
     [ObservableProperty]
     private ProjectMatchItemViewModel? _selectedMatch;
 
+    [ObservableProperty]
+    private string _drawingPreviewLabel = string.Empty;
+
+    [ObservableProperty]
+    private string? _previewPdfPath;
+
+    [ObservableProperty]
+    private string _previewPlaceholderMessage = string.Empty;
+
+    [ObservableProperty]
+    private string _pdfPreviewRuntimeMissingMessage = string.Empty;
+
     public void ApplyLocalization()
     {
         ResultsHeading = uiText.Format(
@@ -66,6 +79,8 @@ public partial class ResultsViewModel(
         OpenFolderButtonText = uiText.Get(UiTextKeys.OpenProjectFolderButton, preferences.UiLanguage);
         OpenDrawingButtonText = uiText.Get(UiTextKeys.OpenDrawingButton, preferences.UiLanguage);
         UseForProposalButtonText = uiText.Get(UiTextKeys.UseForProposalButton, preferences.UiLanguage);
+        DrawingPreviewLabel = uiText.Get(UiTextKeys.ResultsDrawingPreviewLabel, preferences.UiLanguage);
+        PdfPreviewRuntimeMissingMessage = uiText.Get(UiTextKeys.PdfPreviewRuntimeMissing, preferences.UiLanguage);
 
         foreach (var match in Matches)
         {
@@ -88,17 +103,22 @@ public partial class ResultsViewModel(
 
         foreach (var match in result.Matches)
         {
-            var reasons = reasonFormatter.FormatAll(match.Reasons, language);
+            var profileText = profileFormatter.Format(match.Project, language);
+            var explanations = explanationFormatter.FormatExplanations(result.Inquiry, match, language);
             Matches.Add(new ProjectMatchItemViewModel(
                 match,
                 uiText.Format(UiTextKeys.SimilarityPercentFormat, language, match.SimilarityPercent),
-                string.Join(Environment.NewLine, reasons),
+                profileText,
+                string.Join(Environment.NewLine, explanations.Select(line => $"• {line}")),
+                uiText.Get(UiTextKeys.ProjectProfileSectionLabel, language),
+                uiText.Get(UiTextKeys.MatchExplanationsSectionLabel, language),
                 bestMatchBadge,
                 selectedBadge));
         }
 
         HasMatches = Matches.Count > 0;
         SelectedMatch = Matches.FirstOrDefault();
+        UpdateDrawingPreview();
         StatusMessage = HasMatches
             ? string.Empty
             : uiText.Get(UiTextKeys.ResultsStatusPrompt, language);
@@ -110,6 +130,8 @@ public partial class ResultsViewModel(
         Matches.Clear();
         SelectedMatch = null;
         HasMatches = false;
+        PreviewPdfPath = null;
+        PreviewPlaceholderMessage = string.Empty;
         ApplyLocalization();
     }
 
@@ -124,6 +146,38 @@ public partial class ResultsViewModel(
         {
             PrimaryMatchChanged?.Invoke(this, value.Match);
         }
+
+        UpdateDrawingPreview();
+    }
+
+    private void UpdateDrawingPreview()
+    {
+        var language = preferences.UiLanguage;
+
+        if (SelectedMatch is null)
+        {
+            PreviewPdfPath = null;
+            PreviewPlaceholderMessage = string.Empty;
+            return;
+        }
+
+        if (!SelectedMatch.HasDrawing)
+        {
+            PreviewPdfPath = null;
+            PreviewPlaceholderMessage = uiText.Get(UiTextKeys.PdfPreviewNoDrawing, language);
+            return;
+        }
+
+        var drawingPath = ProjectDocumentPaths.GetDrawingPath(SelectedMatch.FolderPath);
+        if (drawingPath is null)
+        {
+            PreviewPdfPath = null;
+            PreviewPlaceholderMessage = uiText.Get(UiTextKeys.PdfPreviewFileMissing, language);
+            return;
+        }
+
+        PreviewPdfPath = drawingPath;
+        PreviewPlaceholderMessage = string.Empty;
     }
 
     [RelayCommand]

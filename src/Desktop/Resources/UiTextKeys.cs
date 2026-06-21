@@ -91,4 +91,19 @@ public static class UiTextKeys
     public const string ProposalFixtureAvailable = nameof(ProposalFixtureAvailable);
     public const string ProposalCncProgramAvailable = nameof(ProposalCncProgramAvailable);
     public const string ProposalPreviewDrawingAvailableFormat = nameof(ProposalPreviewDrawingAvailableFormat);
+    public const string ProjectProfileSectionLabel = nameof(ProjectProfileSectionLabel);
+    public const string MatchExplanationsSectionLabel = nameof(MatchExplanationsSectionLabel);
+    public const string ProfileCustomerLabel = nameof(ProfileCustomerLabel);
+    public const string ProfileMaterialLabel = nameof(ProfileMaterialLabel);
+    public const string ProfileQuantityLabel = nameof(ProfileQuantityLabel);
+    public const string ProfileSurfaceLabel = nameof(ProfileSurfaceLabel);
+    public const string ProfileProcessesLabel = nameof(ProfileProcessesLabel);
+    public const string ProfileDrawingNumberLabel = nameof(ProfileDrawingNumberLabel);
+    public const string ProfileDimensionsLabel = nameof(ProfileDimensionsLabel);
+    public const string ProfilePartDescriptionLabel = nameof(ProfilePartDescriptionLabel);
+    public const string ProfileDocumentsLabel = nameof(ProfileDocumentsLabel);
+    public const string PdfPreviewNoDrawing = nameof(PdfPreviewNoDrawing);
+    public const string PdfPreviewFileMissing = nameof(PdfPreviewFileMissing);
+    public const string PdfPreviewRuntimeMissing = nameof(PdfPreviewRuntimeMissing);
+    public const string ResultsDrawingPreviewLabel = nameof(ResultsDrawingPreviewLabel);
 }

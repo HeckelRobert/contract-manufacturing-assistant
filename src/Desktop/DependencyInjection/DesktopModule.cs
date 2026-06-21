@@ -9,6 +9,7 @@ public static class DesktopModule
     public static IServiceCollection AddQuotationAcceleratorDesktop(this IServiceCollection services)
     {
         services.AddSingleton<ProposalDraftBuilder>();
+        services.AddSingleton<ProjectProfileFormatter>();
         services.AddSingleton<ApplicationPreferences>();
         services.AddSingleton<IUiTextProvider, UiTextProvider>();
         services.AddSingleton<MainViewModel>();

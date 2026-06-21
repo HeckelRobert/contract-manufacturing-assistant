@@ -91,6 +91,12 @@ public sealed class ProjectFolderScanner(
 
         public string? Customer { get; set; }
 
+        public string? PartDescription { get; set; }
+
+        public string? DrawingNumber { get; set; }
+
+        public string? Dimensions { get; set; }
+
         public ProjectMetadata ToDomain() => new()
         {
             ProjectNumber = ProjectNumber,
@@ -100,6 +106,9 @@ public sealed class ProjectFolderScanner(
             Processes = Processes,
             SurfaceTreatment = SurfaceTreatment,
             Customer = Customer,
+            PartDescription = PartDescription,
+            DrawingNumber = DrawingNumber,
+            Dimensions = Dimensions,
         };
     }
 }

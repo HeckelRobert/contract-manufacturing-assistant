@@ -5,5 +5,8 @@
   "Quantity": 12,
   "Processes": ["Laser Cutting", "Bending", "Welding"],
   "SurfaceTreatment": "Galvanized",
-  "Customer": "Sample Customer D"
+  "Customer": "Sample Customer D",
+  "DrawingNumber": "DWG-2018-0201-A",
+  "Dimensions": "1200 x 800 x 60 mm",
+  "PartDescription": "Galvanized welded support frame for conveyor section"
 }

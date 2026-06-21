@@ -21,19 +21,19 @@ Bundled sample data is included so you can see results **without configuring any
 You receive **`Quotation Accelerator Setup.msi`** from your presenter or IT (not from building this repository).
 
 1. Double-click the installer and complete the wizard.
-2. Start **Quotation Accelerator** from the Windows Start menu.
+2. Start **Quotation Accelerator** from the desktop shortcut or the Windows Start menu.
 3. Follow the short demo below — no SDK, no command line, no repository checkout required.
 
 Uninstall later via **Windows Settings → Apps** if needed.
 
 ### 5-minute demo path
 
-1. Tab **Anfrage**: Material *Stainless Steel 1.4301*, Oberfläche *Pulverbeschichtet*, Stückzahl *20*, Beschreibung *Stainless enclosure*.
-2. Click **Anfrage analysieren**.
-3. Tab **Ergebnisse**: best match **PRJ-2019-0142** — try another match, then **Projektordner öffnen** or **Zeichnung öffnen**.
-4. Tab **Angebotsarbeitsplatz**: review the draft → **Angebot in Zwischenablage kopieren**.
+1. Tab **Inquiry**: Material *Stainless Steel 1.4301*, surface *Powder Coated*, quantity *20*, description *Stainless enclosure*.
+2. Click **Analyze Inquiry**.
+3. Tab **Results**: best match **PRJ-2019-0142** — try another match, review the drawing preview, then **Open project folder** or **Open drawing**.
+4. Tab **Proposal Workspace**: review the draft → **Copy proposal to clipboard**.
 
-Default language is German; English is available under **Einstellungen**.
+Default UI language is German (labels differ slightly); switch to English under **Settings**.
 
 ## Requirements (pilot PC)
 

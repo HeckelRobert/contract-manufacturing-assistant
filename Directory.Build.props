@@ -17,6 +17,7 @@
     <MicrosoftExtensionsVersion>10.0.9</MicrosoftExtensionsVersion>
     <SqliteBundleVersion>3.0.3</SqliteBundleVersion>
     <EntityFrameworkVersion>10.0.9</EntityFrameworkVersion>
+    <WebView2Version>1.0.2903.40</WebView2Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,5 +30,6 @@
     <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="$(EntityFrameworkVersion)" />
     <PackageReference Update="SQLitePCLRaw.bundle_e_sqlite3" Version="$(SqliteBundleVersion)" />
+    <PackageReference Update="Microsoft.Web.WebView2" Version="$(WebView2Version)" />
   </ItemGroup>
 </Project>

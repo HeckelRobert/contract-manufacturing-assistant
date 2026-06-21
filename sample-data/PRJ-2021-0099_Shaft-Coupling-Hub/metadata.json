@@ -5,5 +5,8 @@
   "Quantity": 150,
   "Processes": ["Turning", "Milling"],
   "SurfaceTreatment": "None",
-  "Customer": "Sample Customer G"
+  "Customer": "Sample Customer G",
+  "DrawingNumber": "DWG-2021-0099-A",
+  "Dimensions": "OD 85 x 42 mm",
+  "PartDescription": "Stainless coupling hub with keyway and bore 30 H7"
 }

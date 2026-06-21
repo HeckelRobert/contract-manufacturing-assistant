@@ -1,6 +1,7 @@
 <UserControl x:Class="QuotationAccelerator.Desktop.Views.ProposalWorkspaceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:QuotationAccelerator.Desktop.Controls"
              Background="{StaticResource PageBackgroundBrush}">
   <ScrollViewer Padding="32">
     <StackPanel MaxWidth="1100" HorizontalAlignment="Center">
@@ -58,11 +59,13 @@
       <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
         <StackPanel>
           <TextBlock Text="{Binding DocumentPreviewGroup}" Style="{StaticResource SectionTitleStyle}" />
-          <TextBlock Text="{Binding DocumentPreviewStatus}" TextWrapping="Wrap" Style="{StaticResource HintTextStyle}" />
+          <controls:PdfPreviewControl SourcePath="{Binding PreviewPdfPath}"
+                                      PlaceholderMessage="{Binding PreviewPlaceholderMessage}"
+                                      RuntimeMissingMessage="{Binding PdfPreviewRuntimeMissingMessage}" />
         </StackPanel>
       </Border>
 
-      <Border Style="{StaticResource InfoBannerStyle}">
+      <Border Style="{StaticResource CollapsibleInfoBannerStyle}">
         <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
       </Border>
     </StackPanel>

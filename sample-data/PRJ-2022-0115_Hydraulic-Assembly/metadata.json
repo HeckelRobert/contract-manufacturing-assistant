@@ -5,5 +5,8 @@
   "Quantity": 8,
   "Processes": ["Turning", "Milling", "Assembly"],
   "SurfaceTreatment": "None",
-  "Customer": "Sample Customer E"
+  "Customer": "Sample Customer E",
+  "DrawingNumber": "DWG-2022-0115-A",
+  "Dimensions": "Assembly per BOM",
+  "PartDescription": "Hydraulic manifold assembly with stainless fittings"
 }

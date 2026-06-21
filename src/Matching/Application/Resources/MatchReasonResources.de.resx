@@ -36,4 +36,34 @@
   <data name="ExistingBendingSetup" xml:space="preserve">
     <value>Vorhandene Biegevorrichtung</value>
   </data>
+  <data name="PartDescriptionSimilarity" xml:space="preserve">
+    <value>Ähnliche Teilebeschreibung</value>
+  </data>
+  <data name="SameMaterialDetail" xml:space="preserve">
+    <value>Material stimmt überein: Anfrage {0}, historisches Projekt {1}.</value>
+  </data>
+  <data name="SameSurfaceTreatmentDetail" xml:space="preserve">
+    <value>Oberfläche stimmt überein: Anfrage {0}, Projekt {1}.</value>
+  </data>
+  <data name="SharedManufacturingProcessDetail" xml:space="preserve">
+    <value>Gemeinsame, bereits dokumentierte Prozesse: {0}.</value>
+  </data>
+  <data name="SimilarQuantityDetail" xml:space="preserve">
+    <value>Stückzahl ist nah beieinander: Anfrage {0} Stk. vs. historisch {1} Stk. — Rüstung und Losgröße sind vergleichbar.</value>
+  </data>
+  <data name="KeywordMatchInTitleDetail" xml:space="preserve">
+    <value>Teilebeschreibung „{0}" überschneidet sich mit Projekttitel „{1}".</value>
+  </data>
+  <data name="ComparableAssemblyDetail" xml:space="preserve">
+    <value>Baugruppentyp passt zu „{0}" ({1}).</value>
+  </data>
+  <data name="ContainsWeldingOperationsDetail" xml:space="preserve">
+    <value>Projekt enthält dokumentierte Schweißschritte und Nahtvorbereitung.</value>
+  </data>
+  <data name="ExistingBendingSetupDetail" xml:space="preserve">
+    <value>Biegevorrichtung und Programm liegen im Projektordner vor.</value>
+  </data>
+  <data name="PartDescriptionSimilarityDetail" xml:space="preserve">
+    <value>Teilebeschreibungen passen zusammen: Anfrage „{0}" vs. Projekt „{1}".</value>
+  </data>
 </root>

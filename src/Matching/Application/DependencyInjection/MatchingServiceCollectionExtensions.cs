@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using QuotationAccelerator.Matching.Application.Abstractions;
 using QuotationAccelerator.Matching.Application.AnalyzeInquiry;
 using QuotationAccelerator.Matching.Application.Resources;
+using QuotationAccelerator.Matching.Application.Scoring;
 using QuotationAccelerator.Matching.Application.Strategies;
 using QuotationAccelerator.Matching.Domain;
 using QuotationAccelerator.SharedKernel.Abstractions;
@@ -26,6 +27,7 @@ public static class MatchingServiceCollectionExtensions
         services.AddScoped<IMatchingStrategy>(sp => sp.GetRequiredService<AiAssistedMatchingStrategy>());
 
         services.AddSingleton<IMatchReasonFormatter, MatchReasonFormatter>();
+        services.AddSingleton<IMatchExplanationFormatter, MatchExplanationFormatter>();
         services.AddSingleton<IMatchingTextProvider, MatchingTextProvider>();
 
         return services;

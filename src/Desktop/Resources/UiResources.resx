@@ -279,4 +279,49 @@
   <data name="ProposalPreviewDrawingAvailableFormat" xml:space="preserve">
     <value>{0} is available in the project folder. Use Open drawing to view it in your PDF viewer.&#xD;&#xA;{1}</value>
   </data>
+  <data name="ProjectProfileSectionLabel" xml:space="preserve">
+    <value>Historical project profile</value>
+  </data>
+  <data name="MatchExplanationsSectionLabel" xml:space="preserve">
+    <value>Why this match</value>
+  </data>
+  <data name="ProfileCustomerLabel" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="ProfileMaterialLabel" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="ProfileQuantityLabel" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="ProfileSurfaceLabel" xml:space="preserve">
+    <value>Surface treatment</value>
+  </data>
+  <data name="ProfileProcessesLabel" xml:space="preserve">
+    <value>Processes</value>
+  </data>
+  <data name="ProfileDrawingNumberLabel" xml:space="preserve">
+    <value>Drawing no.</value>
+  </data>
+  <data name="ProfileDimensionsLabel" xml:space="preserve">
+    <value>Dimensions</value>
+  </data>
+  <data name="ProfilePartDescriptionLabel" xml:space="preserve">
+    <value>Part description</value>
+  </data>
+  <data name="ProfileDocumentsLabel" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="PdfPreviewNoDrawing" xml:space="preserve">
+    <value>No drawing PDF is available for this project. Use Open project folder to inspect other files.</value>
+  </data>
+  <data name="PdfPreviewFileMissing" xml:space="preserve">
+    <value>Drawing.pdf was listed but could not be found on disk. You can still open the project folder externally.</value>
+  </data>
+  <data name="PdfPreviewRuntimeMissing" xml:space="preserve">
+    <value>PDF preview requires the Microsoft Edge WebView2 Runtime. Install it from microsoft.com/edge/webview2, then restart the application. You can still open documents with Open drawing.</value>
+  </data>
+  <data name="ResultsDrawingPreviewLabel" xml:space="preserve">
+    <value>Drawing preview</value>
+  </data>
 </root>

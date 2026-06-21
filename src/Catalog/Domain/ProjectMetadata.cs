@@ -15,4 +15,10 @@ public sealed class ProjectMetadata
     public string? SurfaceTreatment { get; init; }
 
     public string? Customer { get; init; }
+
+    public string? PartDescription { get; init; }
+
+    public string? DrawingNumber { get; init; }
+
+    public string? Dimensions { get; init; }
 }

@@ -8,6 +8,7 @@
         MinHeight="700"
         MinWidth="1024"
         WindowStartupLocation="CenterScreen"
+        Icon="Assets/app-icon.ico"
         Background="{StaticResource PageBackgroundBrush}">
   <TabControl SelectedIndex="{Binding SelectedTabIndex}" Background="{StaticResource PageBackgroundBrush}">
     <TabItem Header="{Binding TabInquiryHeader}">

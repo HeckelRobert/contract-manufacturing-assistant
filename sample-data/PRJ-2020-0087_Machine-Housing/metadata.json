@@ -5,5 +5,8 @@
   "Quantity": 5,
   "Processes": ["Laser Cutting", "Bending", "Welding", "Painting"],
   "SurfaceTreatment": "Wet Paint",
-  "Customer": "Sample Customer B"
+  "Customer": "Sample Customer B",
+  "DrawingNumber": "DWG-2020-0087-B",
+  "Dimensions": "620 x 450 x 280 mm",
+  "PartDescription": "Painted machine housing with access panels and ventilation slots"
 }

@@ -13,6 +13,9 @@
 
     <MediaTemplate EmbedCab="yes" />
 
+    <Icon Id="AppIcon" SourceFile="$(var.ProjectDir)..\src\Desktop\Assets\app-icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+
     <ui:WixUI Id="WixUI_InstallDir" />
     <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)License.rtf" />
 
@@ -26,17 +29,35 @@
       <Directory Id="ApplicationProgramsFolder" Name="Quotation Accelerator" />
     </StandardDirectory>
 
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="d4e5f6a7-b8c9-4012-9def-1234567890de">
+        <Shortcut Id="DesktopLauncherShortcut"
+                  Name="Quotation Accelerator"
+                  Description="Manufacturing quotation preparation prototype"
+                  Target="[INSTALLFOLDER]Quotation Accelerator.exe"
+                  Icon="AppIcon"
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\Heckel Informatik\Quotation Accelerator"
+                       Name="desktop"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="StartMenuShortcut" Guid="b8c9d0e1-f2a3-4567-8901-234567890abc">
         <Shortcut Id="ApplicationStartMenuShortcut"
                   Name="Quotation Accelerator"
                   Description="Manufacturing quotation preparation prototype"
                   Target="[INSTALLFOLDER]Quotation Accelerator.exe"
+                  Icon="AppIcon"
                   WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="RemoveApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU"
                        Key="Software\Heckel Informatik\Quotation Accelerator"
-                       Name="installed"
+                       Name="startmenu"
                        Type="integer"
                        Value="1"
                        KeyPath="yes" />
@@ -46,6 +67,7 @@
     <Feature Id="Main" Title="Quotation Accelerator" Level="1">
       <ComponentGroupRef Id="AppFiles" />
       <ComponentRef Id="StartMenuShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
     </Feature>
 
   </Package>

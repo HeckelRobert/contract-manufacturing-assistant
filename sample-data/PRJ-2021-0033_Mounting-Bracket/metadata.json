@@ -5,5 +5,8 @@
   "Quantity": 200,
   "Processes": ["Laser Cutting", "Bending", "Milling"],
   "SurfaceTreatment": "Anodized",
-  "Customer": "Sample Customer C"
+  "Customer": "Sample Customer C",
+  "DrawingNumber": "DWG-2021-0033-B",
+  "Dimensions": "120 x 80 x 6 mm",
+  "PartDescription": "Anodized aluminium mounting bracket with slotted holes"
 }

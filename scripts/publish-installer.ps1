@@ -19,6 +19,9 @@ try {
     Write-Host "Ensuring demonstration PDFs..."
     & (Join-Path $PSScriptRoot "generate-sample-pdfs.ps1")
 
+    Write-Host "Ensuring application icon..."
+    & (Join-Path $PSScriptRoot "convert-app-icon.ps1")
+
     $outputPath = Join-Path $repoRoot $OutputDirectory
     if (Test-Path $outputPath) {
         Remove-Item $outputPath -Recurse -Force

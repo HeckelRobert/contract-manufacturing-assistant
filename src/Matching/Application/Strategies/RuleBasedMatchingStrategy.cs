@@ -94,6 +94,12 @@ public sealed class RuleBasedMatchingStrategy(
             reasons.Add(MatchReasonCode.KeywordMatchInTitle);
         }
 
+        if (ComparableTextMatcher.SharesSignificantTokens(inquiry.PartDescription, metadata.PartDescription))
+        {
+            score += RuleBasedScoringWeights.TitleKeyword;
+            reasons.Add(MatchReasonCode.PartDescriptionSimilarity);
+        }
+
         if (ComparableTextMatcher.SharesSignificantTokens(
                 inquiry.PartDescription,
                 metadata.Title,

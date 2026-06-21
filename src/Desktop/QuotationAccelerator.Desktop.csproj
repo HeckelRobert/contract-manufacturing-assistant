@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <RootNamespace>QuotationAccelerator.Desktop</RootNamespace>
     <AssemblyName>Quotation Accelerator</AssemblyName>
-    <ApplicationIcon />
+    <ApplicationIcon>Assets\app-icon.ico</ApplicationIcon>
     <StartupObject>QuotationAccelerator.Desktop.App</StartupObject>
   </PropertyGroup>
 
@@ -15,6 +15,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsVersion)" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +24,15 @@
     <ProjectReference Include="..\Inquiry\QuotationAccelerator.Inquiry.csproj" />
     <ProjectReference Include="..\Matching\QuotationAccelerator.Matching.csproj" />
     <ProjectReference Include="..\SharedKernel\QuotationAccelerator.SharedKernel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\app-icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\app-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

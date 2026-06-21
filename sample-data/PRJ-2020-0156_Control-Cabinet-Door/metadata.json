@@ -5,5 +5,8 @@
   "Quantity": 40,
   "Processes": ["Laser Cutting", "Bending", "Painting"],
   "SurfaceTreatment": "Powder Coated",
-  "Customer": "Sample Customer F"
+  "Customer": "Sample Customer F",
+  "DrawingNumber": "DWG-2020-0156-A",
+  "Dimensions": "600 x 400 x 2 mm",
+  "PartDescription": "Powder coated cabinet door with window cut-out and hinges"
 }

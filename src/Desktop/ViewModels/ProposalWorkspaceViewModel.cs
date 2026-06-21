@@ -61,6 +61,15 @@ public partial class ProposalWorkspaceViewModel(
     private string _openDrawingButtonText = string.Empty;
 
     [ObservableProperty]
+    private string? _previewPdfPath;
+
+    [ObservableProperty]
+    private string _previewPlaceholderMessage = string.Empty;
+
+    [ObservableProperty]
+    private string _pdfPreviewRuntimeMissingMessage = string.Empty;
+
+    [ObservableProperty]
     private bool _canOpenDrawing;
 
     public void Initialize()
@@ -82,7 +91,7 @@ public partial class ProposalWorkspaceViewModel(
         ReferencedDocuments = draft.ReferencedDocuments;
         _primaryProjectFolder = draft.PrimaryProjectFolder;
         CanOpenDrawing = draft.HasDrawing;
-        DocumentPreviewStatus = BuildPreviewStatus(draft, language);
+        UpdateDrawingPreview(draft.HasDrawing);
         StatusMessage = uiText.Format(
             UiTextKeys.ProposalLoadedFromProjectFormat,
             language,
@@ -102,6 +111,7 @@ public partial class ProposalWorkspaceViewModel(
         CopyToClipboardButtonText = uiText.Get(UiTextKeys.CopyToClipboardButton, language);
         OpenProjectFolderButtonText = uiText.Get(UiTextKeys.OpenProjectFolderButton, language);
         OpenDrawingButtonText = uiText.Get(UiTextKeys.OpenDrawingButton, language);
+        PdfPreviewRuntimeMissingMessage = uiText.Get(UiTextKeys.PdfPreviewRuntimeMissing, language);
 
         if (!_hasLoadedProposal)
         {
@@ -109,8 +119,14 @@ public partial class ProposalWorkspaceViewModel(
             SuggestedQuotation = uiText.Get(UiTextKeys.ProposalWorkspaceEmptyQuotation, language);
             ReferencedDocuments = uiText.Get(UiTextKeys.ProposalWorkspaceEmptyDocuments, language);
             DocumentPreviewStatus = uiText.Get(UiTextKeys.ProposalWorkspacePreviewPlaceholder, language);
+            PreviewPdfPath = null;
+            PreviewPlaceholderMessage = DocumentPreviewStatus;
             StatusMessage = string.Empty;
             CanOpenDrawing = false;
+        }
+        else
+        {
+            UpdateDrawingPreview(CanOpenDrawing);
         }
     }
 
@@ -150,17 +166,26 @@ public partial class ProposalWorkspaceViewModel(
         }
     }
 
-    private string BuildPreviewStatus(ProposalDraft draft, UiLanguage language)
+    private void UpdateDrawingPreview(bool hasDrawing)
     {
-        if (draft.HasDrawing)
+        var language = preferences.UiLanguage;
+
+        if (!hasDrawing)
         {
-            return uiText.Format(
-                UiTextKeys.ProposalPreviewDrawingAvailableFormat,
-                language,
-                ProjectDocumentFileNames.Drawing,
-                draft.PrimaryProjectFolder);
+            PreviewPdfPath = null;
+            PreviewPlaceholderMessage = uiText.Get(UiTextKeys.PdfPreviewNoDrawing, language);
+            return;
         }
 
-        return uiText.Format(UiTextKeys.ProposalPreviewPathFormat, language, draft.PrimaryProjectFolder);
+        var drawingPath = ProjectDocumentPaths.GetDrawingPath(_primaryProjectFolder);
+        if (drawingPath is null)
+        {
+            PreviewPdfPath = null;
+            PreviewPlaceholderMessage = uiText.Get(UiTextKeys.PdfPreviewFileMissing, language);
+            return;
+        }
+
+        PreviewPdfPath = drawingPath;
+        PreviewPlaceholderMessage = string.Empty;
     }
 }

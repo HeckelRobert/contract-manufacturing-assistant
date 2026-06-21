@@ -36,4 +36,34 @@
   <data name="ExistingBendingSetup" xml:space="preserve">
     <value>Existing bending fixture available</value>
   </data>
+  <data name="PartDescriptionSimilarity" xml:space="preserve">
+    <value>Similar part description</value>
+  </data>
+  <data name="SameMaterialDetail" xml:space="preserve">
+    <value>Material matches: inquiry specifies {0}, historical project used {1}.</value>
+  </data>
+  <data name="SameSurfaceTreatmentDetail" xml:space="preserve">
+    <value>Surface treatment matches: inquiry {0}, project {1}.</value>
+  </data>
+  <data name="SharedManufacturingProcessDetail" xml:space="preserve">
+    <value>Shared processes already documented: {0}.</value>
+  </data>
+  <data name="SimilarQuantityDetail" xml:space="preserve">
+    <value>Quantity is close: inquiry {0} pcs vs. historical {1} pcs — setup and batch planning are comparable.</value>
+  </data>
+  <data name="KeywordMatchInTitleDetail" xml:space="preserve">
+    <value>Part description "{0}" overlaps with project title "{1}".</value>
+  </data>
+  <data name="ComparableAssemblyDetail" xml:space="preserve">
+    <value>Assembly type aligns with "{0}" ({1}).</value>
+  </data>
+  <data name="ContainsWeldingOperationsDetail" xml:space="preserve">
+    <value>Project includes documented welding steps and seam preparation.</value>
+  </data>
+  <data name="ExistingBendingSetupDetail" xml:space="preserve">
+    <value>Bending fixture and program are available in the project folder.</value>
+  </data>
+  <data name="PartDescriptionSimilarityDetail" xml:space="preserve">
+    <value>Part descriptions align: inquiry "{0}" vs. project "{1}".</value>
+  </data>
 </root>

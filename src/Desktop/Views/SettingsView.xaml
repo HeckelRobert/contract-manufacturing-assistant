@@ -67,7 +67,7 @@
         </Grid>
       </Border>
 
-      <Border Style="{StaticResource InfoBannerStyle}">
+      <Border Style="{StaticResource CollapsibleInfoBannerStyle}">
         <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
       </Border>
     </StackPanel>

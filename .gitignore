@@ -1,3 +1,6 @@
+# Editor / AI tooling (local or team-specific; standards live in ai/ and docs/)
+.cursor/
+
 # Build output
 [Bb]in/
 [Oo]bj/

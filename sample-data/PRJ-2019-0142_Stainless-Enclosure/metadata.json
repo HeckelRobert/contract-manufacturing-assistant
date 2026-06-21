@@ -5,5 +5,8 @@
   "Quantity": 25,
   "Processes": ["Laser Cutting", "Bending", "Welding", "Painting"],
   "SurfaceTreatment": "Powder Coated",
-  "Customer": "Sample Customer A"
+  "Customer": "Sample Customer A",
+  "DrawingNumber": "DWG-2019-0142-A",
+  "Dimensions": "480 x 320 x 120 mm",
+  "PartDescription": "Stainless enclosure with hinged door, cable glands M20, powder coat RAL 9016"
 }

@@ -2,32 +2,41 @@
 
 Project-specific coding guidance for AI assistants and developers.
 
-Platform defaults are in the Heckel Platform handbook `standards/coding-standard.md`. This file documents project-specific overrides only.
+Platform defaults are in the Heckel Platform handbook `standards/coding-standard.md`.
 
 ---
 
 ## Overrides
 
-{List any deliberate deviations from platform standards with ADR references}
-
-None by default.
+None.
 
 ---
 
 ## Module Boundaries
 
-{Describe which modules exist and what they must not depend on}
+| Module | May depend on | Must not depend on |
+|--------|---------------|-------------------|
+| SharedKernel | — | Infrastructure, Desktop, other modules |
+| Catalog, Inquiry, Matching, Proposal, Documents, Export, Settings | SharedKernel; Matching may use Catalog | Infrastructure, Desktop |
+| Infrastructure | SharedKernel, Catalog (interfaces) | Desktop |
+| Desktop | Application modules, Infrastructure (composition root only) | — |
+
+View models must call application logic through `IDispatcher`, not infrastructure types directly.
 
 ---
 
 ## Naming
 
-Follow platform `standards/coding-standard.md` unless noted here.
+- Display name: **Quotation Accelerator**
+- Technical identifiers: **QuotationAccelerator** (namespaces, solution, ZIP file names)
+- Executable: `Quotation Accelerator.exe`
 
 ---
 
 ## Patterns Used in This Project
 
-* Command/Query handlers via internal dispatcher
-* Validators colocated with features
-* Repository interfaces in Application layer
+* Internal `IDispatcher` with `ICommand` / `IQuery` handlers (Heckel ADR-002)
+* FluentValidation for input validation (Heckel ADR-003)
+* Mapster for non-trivial mapping (Heckel ADR-001)
+* `Result` / `Result<T>` for business validation outcomes
+* MVVM in WPF presentation layer (project ADR-001)

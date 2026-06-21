@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2019-0064",
+  "Title": "Tank Support Frame",
+  "Material": "S235",
+  "Quantity": 6,
+  "Processes": ["Laser Cutting", "Bending", "Welding", "Painting"],
+  "SurfaceTreatment": "Wet Paint",
+  "Customer": "Sample Customer H"
+}

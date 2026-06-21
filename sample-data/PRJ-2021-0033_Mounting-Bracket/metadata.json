@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2021-0033",
+  "Title": "Mounting Bracket",
+  "Material": "EN AW-5754",
+  "Quantity": 200,
+  "Processes": ["Laser Cutting", "Bending", "Milling"],
+  "SurfaceTreatment": "Anodized",
+  "Customer": "Sample Customer C"
+}

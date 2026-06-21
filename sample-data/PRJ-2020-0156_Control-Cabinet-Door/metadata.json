@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2020-0156",
+  "Title": "Control Cabinet Door",
+  "Material": "S355",
+  "Quantity": 40,
+  "Processes": ["Laser Cutting", "Bending", "Painting"],
+  "SurfaceTreatment": "Powder Coated",
+  "Customer": "Sample Customer F"
+}

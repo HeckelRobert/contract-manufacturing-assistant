@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2018-0201",
+  "Title": "Welded Frame",
+  "Material": "S235",
+  "Quantity": 12,
+  "Processes": ["Laser Cutting", "Bending", "Welding"],
+  "SurfaceTreatment": "Galvanized",
+  "Customer": "Sample Customer D"
+}

@@ -1,0 +1,88 @@
+<UserControl x:Class="QuotationAccelerator.Desktop.Views.ResultsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ScrollViewer Padding="24">
+    <StackPanel>
+      <TextBlock Text="{Binding ResultsHeading}"
+                 FontSize="24"
+                 FontWeight="SemiBold"
+                 Margin="0,0,0,16" />
+
+      <ItemsControl ItemsSource="{Binding Matches}">
+        <ItemsControl.Style>
+          <Style TargetType="ItemsControl">
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
+              <DataTrigger Binding="{Binding HasMatches}" Value="True">
+                <Setter Property="Visibility" Value="Visible" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </ItemsControl.Style>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Border BorderBrush="#E5E7EB"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20"
+                    Margin="0,0,0,12">
+              <StackPanel>
+                <DockPanel Margin="0,0,0,8">
+                  <TextBlock Text="{Binding PrimaryMatchBadge}"
+                             DockPanel.Dock="Right"
+                             FontWeight="SemiBold"
+                             Foreground="#047857">
+                    <TextBlock.Style>
+                      <Style TargetType="TextBlock">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                          <DataTrigger Binding="{Binding IsPrimaryMatch}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                        </Style.Triggers>
+                      </Style>
+                    </TextBlock.Style>
+                  </TextBlock>
+                  <StackPanel>
+                    <TextBlock Text="{Binding ProjectNumber}"
+                               FontWeight="SemiBold"
+                               FontSize="16" />
+                    <TextBlock Text="{Binding Title}"
+                               Foreground="#374151" />
+                    <TextBlock Text="{Binding FolderName}"
+                               Foreground="#6B7280"
+                               FontSize="12" />
+                  </StackPanel>
+                </DockPanel>
+                <TextBlock Text="{Binding SimilarityLabel}"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,8" />
+                <TextBlock Text="{Binding ReasonsText}"
+                           TextWrapping="Wrap"
+                           Foreground="#4B5563" />
+              </StackPanel>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+
+      <Border BorderBrush="#E5E7EB"
+              BorderThickness="1"
+              CornerRadius="8"
+              Padding="20">
+        <Border.Style>
+          <Style TargetType="Border">
+            <Setter Property="Visibility" Value="Visible" />
+            <Style.Triggers>
+              <DataTrigger Binding="{Binding HasMatches}" Value="True">
+                <Setter Property="Visibility" Value="Collapsed" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </Border.Style>
+        <TextBlock Text="{Binding StatusMessage}"
+                   TextWrapping="Wrap" />
+      </Border>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

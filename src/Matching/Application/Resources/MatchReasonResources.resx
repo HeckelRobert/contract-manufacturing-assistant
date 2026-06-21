@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SameMaterial" xml:space="preserve">
+    <value>Same material as inquiry</value>
+  </data>
+  <data name="SameSurfaceTreatment" xml:space="preserve">
+    <value>Same surface treatment</value>
+  </data>
+  <data name="SharedManufacturingProcess" xml:space="preserve">
+    <value>Shared manufacturing process</value>
+  </data>
+  <data name="SimilarQuantity" xml:space="preserve">
+    <value>Similar production quantity</value>
+  </data>
+  <data name="KeywordMatchInTitle" xml:space="preserve">
+    <value>Keyword match in project title</value>
+  </data>
+  <data name="ComparableAssembly" xml:space="preserve">
+    <value>Comparable assembly type</value>
+  </data>
+  <data name="ContainsWeldingOperations" xml:space="preserve">
+    <value>Contains welding operations</value>
+  </data>
+  <data name="ExistingBendingSetup" xml:space="preserve">
+    <value>Existing bending fixture available</value>
+  </data>
+</root>

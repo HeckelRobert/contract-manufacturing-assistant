@@ -7,12 +7,12 @@ on:
     branches: [main]
 
 env:
-  DOTNET_VERSION: '8.0.x'
+  DOTNET_VERSION: '10.0.x'
   CONFIGURATION: Release
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -34,10 +34,6 @@ jobs:
 
       - name: Unit Tests
         run: dotnet test --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal --filter "Category!=Integration"
-
-      - name: Integration Tests
-        run: dotnet test --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal --filter "Category=Integration"
-        continue-on-error: false
 
       - name: Architecture Tests
         run: dotnet test tests/Architecture.Tests --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal

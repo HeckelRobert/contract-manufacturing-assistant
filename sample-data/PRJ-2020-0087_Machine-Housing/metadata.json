@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2020-0087",
+  "Title": "Machine Housing",
+  "Material": "S355",
+  "Quantity": 5,
+  "Processes": ["Laser Cutting", "Bending", "Welding", "Painting"],
+  "SurfaceTreatment": "Wet Paint",
+  "Customer": "Sample Customer B"
+}

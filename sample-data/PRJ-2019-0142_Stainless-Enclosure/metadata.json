@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2019-0142",
+  "Title": "Stainless Steel Enclosure",
+  "Material": "1.4301",
+  "Quantity": 25,
+  "Processes": ["Laser Cutting", "Bending", "Welding", "Painting"],
+  "SurfaceTreatment": "Powder Coated",
+  "Customer": "Sample Customer A"
+}

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Quotation Accelerator</value>
+  </data>
+  <data name="TabInquiry" xml:space="preserve">
+    <value>Anfrage</value>
+  </data>
+  <data name="TabResults" xml:space="preserve">
+    <value>Ergebnisse</value>
+  </data>
+  <data name="TabProposalWorkspace" xml:space="preserve">
+    <value>Angebotsarbeitsplatz</value>
+  </data>
+  <data name="TabSettings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="InquiryHeading" xml:space="preserve">
+    <value>Kundenanfrage</value>
+  </data>
+  <data name="InquirySubtitle" xml:space="preserve">
+    <value>Beschreiben Sie das angefragte Bauteil und starten Sie die Ähnlichkeitssuche im Projektkatalog.</value>
+  </data>
+  <data name="InquiryBasicsSection" xml:space="preserve">
+    <value>Basisdaten</value>
+  </data>
+  <data name="InquiryDetailsSection" xml:space="preserve">
+    <value>Beschreibung und Zeichnung</value>
+  </data>
+  <data name="ManufacturingProcessesLabel" xml:space="preserve">
+    <value>Fertigungsprozesse</value>
+  </data>
+  <data name="ManufacturingProcessesHint" xml:space="preserve">
+    <value>Erwartete Operationen auswählen, um das Matching zu verbessern (optional).</value>
+  </data>
+  <data name="PartDescriptionHint" xml:space="preserve">
+    <value>z. B. Schweißrahmen, Edelstahlgehäuse, Montagehalter</value>
+  </data>
+  <data name="DrawingHint" xml:space="preserve">
+    <value>Lokale Kundenzeichnung als PDF referenzieren (optional).</value>
+  </data>
+  <data name="NoDrawingSelected" xml:space="preserve">
+    <value>Keine Zeichnung ausgewählt</value>
+  </data>
+  <data name="ClearDrawingButton" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="SurfaceTreatment_None" xml:space="preserve">
+    <value>Keine</value>
+  </data>
+  <data name="SurfaceTreatment_PowderCoated" xml:space="preserve">
+    <value>Pulverbeschichtet</value>
+  </data>
+  <data name="SurfaceTreatment_WetPaint" xml:space="preserve">
+    <value>Nasslack</value>
+  </data>
+  <data name="SurfaceTreatment_Galvanized" xml:space="preserve">
+    <value>Verzinkt</value>
+  </data>
+  <data name="SurfaceTreatment_Anodized" xml:space="preserve">
+    <value>Eloxiert</value>
+  </data>
+  <data name="ResultsHeadingFormat" xml:space="preserve">
+    <value>Top {0} ähnliche Projekte</value>
+  </data>
+  <data name="QuantityLabel" xml:space="preserve">
+    <value>Stückzahl</value>
+  </data>
+  <data name="MaterialLabel" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="SurfaceTreatmentLabel" xml:space="preserve">
+    <value>Oberflächenbehandlung</value>
+  </data>
+  <data name="PartDescriptionLabel" xml:space="preserve">
+    <value>Bauteilbeschreibung</value>
+  </data>
+  <data name="DrawingLabel" xml:space="preserve">
+    <value>Zeichnung</value>
+  </data>
+  <data name="SelectPdfButton" xml:space="preserve">
+    <value>PDF auswählen...</value>
+  </data>
+  <data name="AnalyzeInquiryButton" xml:space="preserve">
+    <value>Anfrage analysieren</value>
+  </data>
+  <data name="InquiryStatusPrompt" xml:space="preserve">
+    <value>Anfragedaten eingeben und Anfrage analysieren wählen.</value>
+  </data>
+  <data name="ResultsStatusPrompt" xml:space="preserve">
+    <value>Führen Sie eine Anfrageanalyse aus, um ähnliche Projekte zu sehen.</value>
+  </data>
+  <data name="SettingsHeading" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="ProjectCatalogGroup" xml:space="preserve">
+    <value>Projektkatalog</value>
+  </data>
+  <data name="BrowseButton" xml:space="preserve">
+    <value>Durchsuchen...</value>
+  </data>
+  <data name="IndexedProjectsFormat" xml:space="preserve">
+    <value>Indexierte Projekte: {0}</value>
+  </data>
+  <data name="RescanProjectsButton" xml:space="preserve">
+    <value>Projekte neu scannen</value>
+  </data>
+  <data name="AiProviderStatusGroup" xml:space="preserve">
+    <value>KI-Anbieterstatus</value>
+  </data>
+  <data name="MatchingAndModelsGroup" xml:space="preserve">
+    <value>Matching und Modelle</value>
+  </data>
+  <data name="ChatModelLabel" xml:space="preserve">
+    <value>Chat-Modell</value>
+  </data>
+  <data name="EmbeddingModelLabel" xml:space="preserve">
+    <value>Embedding-Modell</value>
+  </data>
+  <data name="MatchingStrategyLabel" xml:space="preserve">
+    <value>Matching-Strategie</value>
+  </data>
+  <data name="SettingsStatusPrompt" xml:space="preserve">
+    <value>Projektpfad und KI-Anbieter konfigurieren.</value>
+  </data>
+  <data name="RescannedProjectsFormat" xml:space="preserve">
+    <value>{0} Projekte neu gescannt.</value>
+  </data>
+  <data name="IndexedProjectsStatusFormat" xml:space="preserve">
+    <value>{0} Projekte indexiert.</value>
+  </data>
+  <data name="SelectDrawingDialogTitle" xml:space="preserve">
+    <value>Kundenzeichnung auswählen</value>
+  </data>
+  <data name="SelectProjectRootDialogTitle" xml:space="preserve">
+    <value>Projektstammverzeichnis auswählen</value>
+  </data>
+  <data name="PdfFileDialogFilter" xml:space="preserve">
+    <value>PDF-Dateien (*.pdf)|*.pdf</value>
+  </data>
+  <data name="AiStatusRuleBasedAvailable" xml:space="preserve">
+    <value>Regelbasiertes Matching: verfügbar</value>
+  </data>
+  <data name="AiStatusOllamaNotChecked" xml:space="preserve">
+    <value>Ollama: noch nicht geprüft</value>
+  </data>
+  <data name="AiStatusAzureOpenAiNotConfigured" xml:space="preserve">
+    <value>Azure OpenAI: nicht konfiguriert</value>
+  </data>
+  <data name="AiStatusOpenAiNotConfigured" xml:space="preserve">
+    <value>OpenAI API: nicht konfiguriert</value>
+  </data>
+  <data name="SimilarityPercentFormat" xml:space="preserve">
+    <value>{0}% ähnlich</value>
+  </data>
+  <data name="PrimaryMatchBadge" xml:space="preserve">
+    <value>Bester Treffer</value>
+  </data>
+  <data name="UiLanguageLabel" xml:space="preserve">
+    <value>Oberflächensprache</value>
+  </data>
+  <data name="ProposalWorkspaceHeading" xml:space="preserve">
+    <value>Angebotsarbeitsplatz</value>
+  </data>
+  <data name="ProposalWorkspaceSubtitle" xml:space="preserve">
+    <value>Vorgeschlagene Fertigungsschritte und Angebotsentwurf nach der Analyse prüfen.</value>
+  </data>
+  <data name="ManufacturingStepsGroup" xml:space="preserve">
+    <value>Fertigungsschritte</value>
+  </data>
+  <data name="SuggestedQuotationGroup" xml:space="preserve">
+    <value>Angebotsentwurf</value>
+  </data>
+  <data name="ReferencedDocumentsGroup" xml:space="preserve">
+    <value>Referenzierte Dokumente</value>
+  </data>
+  <data name="DocumentPreviewGroup" xml:space="preserve">
+    <value>Dokumentvorschau</value>
+  </data>
+  <data name="ProposalWorkspaceEmptySteps" xml:space="preserve">
+    <value>Führen Sie eine Anfrageanalyse aus, um Fertigungsschritte aus ähnlichen Projekten abzuleiten.</value>
+  </data>
+  <data name="ProposalWorkspaceEmptyQuotation" xml:space="preserve">
+    <value>Der Angebotsentwurf erscheint hier nach einer erfolgreichen Analyse.</value>
+  </data>
+  <data name="ProposalWorkspaceEmptyDocuments" xml:space="preserve">
+    <value>Referenzierte Angebots- und Kalkulationsdokumente der Treffer werden hier aufgelistet.</value>
+  </data>
+  <data name="ProposalWorkspacePreviewPlaceholder" xml:space="preserve">
+    <value>PDF-Vorschau folgt in einer späteren Iteration (WebView2).</value>
+  </data>
+  <data name="ResultsEmptyTitle" xml:space="preserve">
+    <value>Noch keine Ergebnisse</value>
+  </data>
+  <data name="ResultsEmptySubtitle" xml:space="preserve">
+    <value>Füllen Sie die Anfrage aus und starten Sie die Analyse, um ähnliche Projekte zu sehen.</value>
+  </data>
+</root>

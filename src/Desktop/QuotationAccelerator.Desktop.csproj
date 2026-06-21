@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>QuotationAccelerator.Desktop</RootNamespace>
+    <AssemblyName>Quotation Accelerator</AssemblyName>
+    <ApplicationIcon />
+    <StartupObject>QuotationAccelerator.Desktop.App</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Catalog\QuotationAccelerator.Catalog.csproj" />
+    <ProjectReference Include="..\Documents\QuotationAccelerator.Documents.csproj" />
+    <ProjectReference Include="..\Export\QuotationAccelerator.Export.csproj" />
+    <ProjectReference Include="..\Infrastructure\QuotationAccelerator.Infrastructure.csproj" />
+    <ProjectReference Include="..\Inquiry\QuotationAccelerator.Inquiry.csproj" />
+    <ProjectReference Include="..\Matching\QuotationAccelerator.Matching.csproj" />
+    <ProjectReference Include="..\Proposal\QuotationAccelerator.Proposal.csproj" />
+    <ProjectReference Include="..\Settings\QuotationAccelerator.Settings.csproj" />
+    <ProjectReference Include="..\SharedKernel\QuotationAccelerator.SharedKernel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\sample-data\**\*">
+      <Link>sample-data\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

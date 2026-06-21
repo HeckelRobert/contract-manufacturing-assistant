@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>QuotationAccelerator.Documents</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Catalog\QuotationAccelerator.Catalog.csproj" />
+    <ProjectReference Include="..\SharedKernel\QuotationAccelerator.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

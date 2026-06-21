@@ -1,75 +1,61 @@
-# Project Templates
+# Quotation Accelerator
 
-Reference scaffold for new Heckel Platform projects.
+Portable Windows desktop prototype for reusing historical manufacturing project knowledge during technical review and quotation preparation.
 
-Copy or adapt this structure when creating a solution. See `standards/solution-scaffolding-standard.md` and `standards/repository-standard.md`.
+## Prerequisites
 
----
+- Windows 10 or 11
+- [.NET 10 SDK](https://dotnet.microsoft.com/download) (pinned in `global.json`)
+- [WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/web-view2/) (for PDF preview — upcoming)
+- [Ollama](https://ollama.com/) (optional, for AI-assisted and hybrid matching)
 
-# Directory Layout
+## Quick start
 
+```bash
+dotnet restore QuotationAccelerator.sln
+dotnet build QuotationAccelerator.sln
+dotnet run --project src/Desktop/QuotationAccelerator.Desktop.csproj
 ```
+
+On first launch the application:
+
+1. Creates `quotation-accelerator.db` beside the executable
+2. Defaults to bundled `sample-data/` if no project root is configured
+3. Rescans and indexes demonstration projects
+
+## Solution structure
+
+```text
 src/
-  {BusinessModule}/
-    {FeatureSlice}/
-tests/
-  {BusinessModule}.UnitTests/
-  {BusinessModule}.IntegrationTests/
-  Architecture.Tests/
-docs/
-  requirements.md
-  architecture.md
-  operations.md
-  security.md
-adrs/
-ai/
-  project-context.md
-  coding-guidelines.md
-  testing-guidelines.md
-infrastructure/
-  (when applicable: IaC, containers, deployment scripts)
-.github/
-  workflows/
-  ISSUE_TEMPLATE/
-  dependabot.yml
-  PULL_REQUEST_TEMPLATE.md
-.cursor/
-  rules/
+  Desktop/           WPF shell (four tabs)
+  Catalog/           Project discovery and indexing
+  Inquiry/           Customer inquiry capture
+  Matching/          Similarity strategies (planned)
+  Proposal/          Manufacturing steps and quotation draft (planned)
+  Documents/         PDF preview and file access (planned)
+  Export/            Clipboard and PDF export (planned)
+  Settings/          Configuration slice (planned)
+  Infrastructure/    SQLite, file system, dispatcher, AI adapters
+  SharedKernel/      Dispatcher abstractions and shared types
+sample-data/         Bundled demonstration projects
+tests/               Unit and architecture tests
 ```
 
----
+## Documentation
 
-# Presentation Entry Points
+- [Requirements](docs/requirements.md)
+- [Architecture](docs/architecture.md)
+- [Security](docs/security.md)
+- [Operations](docs/operations.md)
 
-Generate only what the solution requires under `src/`:
+## Publish (portable)
 
-| Solution type | Typical entry point |
-|---------------|---------------------|
-| Web | `src/Web/` or `src/Presentation/Web/` |
-| API | `src/Api/` |
-| Worker | `src/Worker/` |
-| Desktop | `src/Desktop/` |
-| Agent | `src/Agent/` |
+```bash
+dotnet publish src/Desktop/QuotationAccelerator.Desktop.csproj `
+  -c Release `
+  -r win-x64 `
+  --self-contained true `
+  -o ./publish
+```
 
-Prefer business modules at the root of `src/` with presentation as a thin layer. See ADR-010 and ADR-011.
-
----
-
-# Getting Started
-
-1. Copy `templates/docs/` files into project `docs/` and complete them
-2. Copy `templates/ai/` files into project `ai/` and complete them
-3. Copy `templates/.github/` (workflows, issue templates, dependabot, PR template) and adjust project/solution names
-4. Copy `templates/.cursor/rules/` and adapt for the project
-5. Record handbook version in `ai/project-context.md`
-6. Create initial ADRs for non-default technology choices
-7. For Azure App Service hosting, use `standards/azure-web-application-guide.md`
-
----
-
-# Related Documents
-
-* standards/solution-scaffolding-standard.md
-* standards/cicd-standard.md
-* standards/azure-web-application-guide.md
-* adrs/ADR-009 through ADR-015
+Copy `sample-data/` into the publish folder for demonstrations.

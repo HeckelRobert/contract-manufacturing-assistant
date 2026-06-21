@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2021-0099",
+  "Title": "Shaft Coupling Hub",
+  "Material": "1.4301",
+  "Quantity": 150,
+  "Processes": ["Turning", "Milling"],
+  "SurfaceTreatment": "None",
+  "Customer": "Sample Customer G"
+}

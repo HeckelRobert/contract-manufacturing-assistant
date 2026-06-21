@@ -1,0 +1,9 @@
+{
+  "ProjectNumber": "PRJ-2022-0115",
+  "Title": "Hydraulic Assembly",
+  "Material": "1.4571",
+  "Quantity": 8,
+  "Processes": ["Turning", "Milling", "Assembly"],
+  "SurfaceTreatment": "None",
+  "Customer": "Sample Customer E"
+}

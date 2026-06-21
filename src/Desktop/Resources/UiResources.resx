@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Quotation Accelerator</value>
+  </data>
+  <data name="TabInquiry" xml:space="preserve">
+    <value>Inquiry</value>
+  </data>
+  <data name="TabResults" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="TabProposalWorkspace" xml:space="preserve">
+    <value>Proposal Workspace</value>
+  </data>
+  <data name="TabSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="InquiryHeading" xml:space="preserve">
+    <value>Customer Inquiry</value>
+  </data>
+  <data name="InquirySubtitle" xml:space="preserve">
+    <value>Describe the requested part and start the similarity search against your project catalog.</value>
+  </data>
+  <data name="InquiryBasicsSection" xml:space="preserve">
+    <value>Basic data</value>
+  </data>
+  <data name="InquiryDetailsSection" xml:space="preserve">
+    <value>Description and drawing</value>
+  </data>
+  <data name="ManufacturingProcessesLabel" xml:space="preserve">
+    <value>Manufacturing processes</value>
+  </data>
+  <data name="ManufacturingProcessesHint" xml:space="preserve">
+    <value>Select expected operations to improve matching (optional).</value>
+  </data>
+  <data name="PartDescriptionHint" xml:space="preserve">
+    <value>e.g. welded frame, stainless enclosure, mounting bracket</value>
+  </data>
+  <data name="DrawingHint" xml:space="preserve">
+    <value>Reference a local customer drawing PDF (optional).</value>
+  </data>
+  <data name="NoDrawingSelected" xml:space="preserve">
+    <value>No drawing selected</value>
+  </data>
+  <data name="ClearDrawingButton" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="SurfaceTreatment_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="SurfaceTreatment_PowderCoated" xml:space="preserve">
+    <value>Powder coated</value>
+  </data>
+  <data name="SurfaceTreatment_WetPaint" xml:space="preserve">
+    <value>Wet paint</value>
+  </data>
+  <data name="SurfaceTreatment_Galvanized" xml:space="preserve">
+    <value>Galvanized</value>
+  </data>
+  <data name="SurfaceTreatment_Anodized" xml:space="preserve">
+    <value>Anodized</value>
+  </data>
+  <data name="ResultsHeadingFormat" xml:space="preserve">
+    <value>Top {0} Similar Projects</value>
+  </data>
+  <data name="QuantityLabel" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="MaterialLabel" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="SurfaceTreatmentLabel" xml:space="preserve">
+    <value>Surface Treatment</value>
+  </data>
+  <data name="PartDescriptionLabel" xml:space="preserve">
+    <value>Part Description</value>
+  </data>
+  <data name="DrawingLabel" xml:space="preserve">
+    <value>Drawing</value>
+  </data>
+  <data name="SelectPdfButton" xml:space="preserve">
+    <value>Select PDF...</value>
+  </data>
+  <data name="AnalyzeInquiryButton" xml:space="preserve">
+    <value>Analyze Inquiry</value>
+  </data>
+  <data name="InquiryStatusPrompt" xml:space="preserve">
+    <value>Enter inquiry details and click Analyze Inquiry.</value>
+  </data>
+  <data name="ResultsStatusPrompt" xml:space="preserve">
+    <value>Run an inquiry analysis to see similar projects.</value>
+  </data>
+  <data name="SettingsHeading" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ProjectCatalogGroup" xml:space="preserve">
+    <value>Project Catalog</value>
+  </data>
+  <data name="BrowseButton" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="IndexedProjectsFormat" xml:space="preserve">
+    <value>Indexed projects: {0}</value>
+  </data>
+  <data name="RescanProjectsButton" xml:space="preserve">
+    <value>Rescan Projects</value>
+  </data>
+  <data name="AiProviderStatusGroup" xml:space="preserve">
+    <value>AI Provider Status</value>
+  </data>
+  <data name="MatchingAndModelsGroup" xml:space="preserve">
+    <value>Matching and Models</value>
+  </data>
+  <data name="ChatModelLabel" xml:space="preserve">
+    <value>Chat Model</value>
+  </data>
+  <data name="EmbeddingModelLabel" xml:space="preserve">
+    <value>Embedding Model</value>
+  </data>
+  <data name="MatchingStrategyLabel" xml:space="preserve">
+    <value>Matching Strategy</value>
+  </data>
+  <data name="SettingsStatusPrompt" xml:space="preserve">
+    <value>Configure project root and AI providers.</value>
+  </data>
+  <data name="RescannedProjectsFormat" xml:space="preserve">
+    <value>Rescanned {0} projects.</value>
+  </data>
+  <data name="IndexedProjectsStatusFormat" xml:space="preserve">
+    <value>Indexed {0} projects.</value>
+  </data>
+  <data name="SelectDrawingDialogTitle" xml:space="preserve">
+    <value>Select customer drawing</value>
+  </data>
+  <data name="SelectProjectRootDialogTitle" xml:space="preserve">
+    <value>Select project root directory</value>
+  </data>
+  <data name="PdfFileDialogFilter" xml:space="preserve">
+    <value>PDF files (*.pdf)|*.pdf</value>
+  </data>
+  <data name="AiStatusRuleBasedAvailable" xml:space="preserve">
+    <value>Rule-based matching: available</value>
+  </data>
+  <data name="AiStatusOllamaNotChecked" xml:space="preserve">
+    <value>Ollama: not checked yet</value>
+  </data>
+  <data name="AiStatusAzureOpenAiNotConfigured" xml:space="preserve">
+    <value>Azure OpenAI: not configured</value>
+  </data>
+  <data name="AiStatusOpenAiNotConfigured" xml:space="preserve">
+    <value>OpenAI API: not configured</value>
+  </data>
+  <data name="SimilarityPercentFormat" xml:space="preserve">
+    <value>{0}% similar</value>
+  </data>
+  <data name="PrimaryMatchBadge" xml:space="preserve">
+    <value>Best match</value>
+  </data>
+  <data name="UiLanguageLabel" xml:space="preserve">
+    <value>UI Language</value>
+  </data>
+  <data name="ProposalWorkspaceHeading" xml:space="preserve">
+    <value>Proposal Workspace</value>
+  </data>
+  <data name="ProposalWorkspaceSubtitle" xml:space="preserve">
+    <value>Review suggested manufacturing steps and quotation draft after analysis.</value>
+  </data>
+  <data name="ManufacturingStepsGroup" xml:space="preserve">
+    <value>Manufacturing steps</value>
+  </data>
+  <data name="SuggestedQuotationGroup" xml:space="preserve">
+    <value>Suggested quotation</value>
+  </data>
+  <data name="ReferencedDocumentsGroup" xml:space="preserve">
+    <value>Referenced documents</value>
+  </data>
+  <data name="DocumentPreviewGroup" xml:space="preserve">
+    <value>Document preview</value>
+  </data>
+  <data name="ProposalWorkspaceEmptySteps" xml:space="preserve">
+    <value>Run an inquiry analysis to generate manufacturing steps from similar projects.</value>
+  </data>
+  <data name="ProposalWorkspaceEmptyQuotation" xml:space="preserve">
+    <value>The quotation draft will appear here after a successful analysis.</value>
+  </data>
+  <data name="ProposalWorkspaceEmptyDocuments" xml:space="preserve">
+    <value>Referenced offer and calculation documents from matched projects will be listed here.</value>
+  </data>
+  <data name="ProposalWorkspacePreviewPlaceholder" xml:space="preserve">
+    <value>PDF preview will be available in a later iteration (WebView2).</value>
+  </data>
+  <data name="ResultsEmptyTitle" xml:space="preserve">
+    <value>No results yet</value>
+  </data>
+  <data name="ResultsEmptySubtitle" xml:space="preserve">
+    <value>Complete the inquiry form and run analysis to see similar historical projects.</value>
+  </data>
+</root>

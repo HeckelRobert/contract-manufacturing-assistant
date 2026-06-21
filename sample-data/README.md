@@ -2,7 +2,13 @@
 
 Bundled projects for Quotation Accelerator pilot demonstrations.
 
-Each folder contains `metadata.json` per FR-002. Synthetic PDF documents will be added in a follow-up task.
+Each folder contains `metadata.json` per FR-002. The flagship demo project `PRJ-2019-0142` also includes synthetic PDF documents for workshop demonstrations.
+
+Regenerate demo PDFs:
+
+```powershell
+.\scripts\generate-sample-pdfs.ps1
+```
 
 ## Projects
 

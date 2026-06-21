@@ -237,4 +237,46 @@
   <data name="ProposalPreviewPathFormat" xml:space="preserve">
     <value>Ordner des besten Treffers: {0}</value>
   </data>
+  <data name="ResultsSelectionHint" xml:space="preserve">
+    <value>Wählen Sie ein Projekt als Basis für das Angebot. Der beste Treffer ist vorausgewählt.</value>
+  </data>
+  <data name="OpenProjectFolderButton" xml:space="preserve">
+    <value>Projektordner öffnen</value>
+  </data>
+  <data name="OpenDrawingButton" xml:space="preserve">
+    <value>Zeichnung öffnen</value>
+  </data>
+  <data name="UseForProposalButton" xml:space="preserve">
+    <value>Für Angebot verwenden</value>
+  </data>
+  <data name="SelectedForProposalBadge" xml:space="preserve">
+    <value>Für Angebot gewählt</value>
+  </data>
+  <data name="OpenFolderFailed" xml:space="preserve">
+    <value>Der Projektordner konnte nicht geöffnet werden.</value>
+  </data>
+  <data name="OpenDrawingFailed" xml:space="preserve">
+    <value>Die Zeichnungs-PDF konnte nicht geöffnet werden.</value>
+  </data>
+  <data name="ProposalUpdatedFromMatchFormat" xml:space="preserve">
+    <value>Angebotsarbeitsplatz aktualisiert aus {0}.</value>
+  </data>
+  <data name="CopyToClipboardButton" xml:space="preserve">
+    <value>Angebot in Zwischenablage kopieren</value>
+  </data>
+  <data name="CopiedToClipboardStatus" xml:space="preserve">
+    <value>Angebotsinhalt in die Zwischenablage kopiert.</value>
+  </data>
+  <data name="ProposalLoadedFromProjectFormat" xml:space="preserve">
+    <value>Angebotsentwurf geladen aus {0}.</value>
+  </data>
+  <data name="ProposalFixtureAvailable" xml:space="preserve">
+    <value>• Vorhandene Biegevorrichtung verfügbar (Fixture.pdf)</value>
+  </data>
+  <data name="ProposalCncProgramAvailable" xml:space="preserve">
+    <value>• CNC-Programm zur Wiederverwendung verfügbar (CncProgram.pdf)</value>
+  </data>
+  <data name="ProposalPreviewDrawingAvailableFormat" xml:space="preserve">
+    <value>{0} liegt im Projektordner vor. Mit Zeichnung öffnen im PDF-Viewer anzeigen.&#xD;&#xA;{1}</value>
+  </data>
 </root>

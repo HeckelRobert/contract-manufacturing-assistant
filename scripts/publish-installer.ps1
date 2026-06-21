@@ -16,6 +16,9 @@ try {
     Write-Host "Running tests..."
     dotnet test QuotationAccelerator.sln --no-restore
 
+    Write-Host "Ensuring demonstration PDFs..."
+    & (Join-Path $PSScriptRoot "generate-sample-pdfs.ps1")
+
     $outputPath = Join-Path $repoRoot $OutputDirectory
     if (Test-Path $outputPath) {
         Remove-Item $outputPath -Recurse -Force

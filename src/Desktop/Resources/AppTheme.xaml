@@ -54,6 +54,11 @@
     <Setter Property="Padding" Value="24" />
   </Style>
 
+  <Style x:Key="SelectedCardBorderStyle" TargetType="Border" BasedOn="{StaticResource CardBorderStyle}">
+    <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+    <Setter Property="BorderThickness" Value="2" />
+  </Style>
+
   <Style x:Key="InfoBannerStyle" TargetType="Border">
     <Setter Property="Background" Value="{StaticResource InfoBackgroundBrush}" />
     <Setter Property="BorderBrush" Value="{StaticResource InfoBorderBrush}" />

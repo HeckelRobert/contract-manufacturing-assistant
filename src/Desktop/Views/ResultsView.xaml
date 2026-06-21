@@ -4,11 +4,10 @@
              Background="{StaticResource PageBackgroundBrush}">
   <ScrollViewer Padding="32">
     <StackPanel MaxWidth="1100" HorizontalAlignment="Center">
-      <TextBlock Text="{Binding ResultsHeading}" Style="{StaticResource PageTitleStyle}" Margin="0,0,0,20" />
-
-      <ItemsControl ItemsSource="{Binding Matches}">
-        <ItemsControl.Style>
-          <Style TargetType="ItemsControl">
+      <TextBlock Text="{Binding ResultsHeading}" Style="{StaticResource PageTitleStyle}" Margin="0,0,0,8" />
+      <TextBlock Text="{Binding ResultsHint}" Margin="0,0,0,20">
+        <TextBlock.Style>
+          <Style TargetType="TextBlock" BasedOn="{StaticResource PageSubtitleStyle}">
             <Setter Property="Visibility" Value="Collapsed" />
             <Style.Triggers>
               <DataTrigger Binding="{Binding HasMatches}" Value="True">
@@ -16,15 +15,75 @@
               </DataTrigger>
             </Style.Triggers>
           </Style>
-        </ItemsControl.Style>
-        <ItemsControl.ItemTemplate>
+        </TextBlock.Style>
+      </TextBlock>
+
+      <ListBox ItemsSource="{Binding Matches}"
+               SelectedItem="{Binding SelectedMatch}"
+               Background="Transparent"
+               BorderThickness="0"
+               Margin="0,0,0,12">
+        <ListBox.Style>
+          <Style TargetType="ListBox">
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
+              <DataTrigger Binding="{Binding HasMatches}" Value="True">
+                <Setter Property="Visibility" Value="Visible" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </ListBox.Style>
+        <ListBox.ItemContainerStyle>
+          <Style TargetType="ListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0,0,0,12" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+              <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                  <Border x:Name="CardBorder" Style="{StaticResource CardBorderStyle}" Margin="0">
+                    <ContentPresenter />
+                  </Border>
+                  <ControlTemplate.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                      <Setter TargetName="CardBorder" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+                      <Setter TargetName="CardBorder" Property="BorderThickness" Value="2" />
+                    </Trigger>
+                  </ControlTemplate.Triggers>
+                </ControlTemplate>
+              </Setter.Value>
+            </Setter>
+          </Style>
+        </ListBox.ItemContainerStyle>
+        <ListBox.ItemTemplate>
           <DataTemplate>
-            <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,12">
-              <StackPanel>
-                <DockPanel Margin="0,0,0,8">
-                  <Border DockPanel.Dock="Right"
-                          Background="#ECFDF5"
+            <StackPanel>
+              <DockPanel Margin="0,0,0,8">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                  <Border Background="#ECFDF5"
                           BorderBrush="#A7F3D0"
+                          BorderThickness="1"
+                          CornerRadius="6"
+                          Padding="8,4"
+                          Margin="0,0,8,0">
+                    <Border.Style>
+                      <Style TargetType="Border">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                          <DataTrigger Binding="{Binding IsBestRankedMatch}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                        </Style.Triggers>
+                      </Style>
+                    </Border.Style>
+                    <TextBlock Text="{Binding BestMatchBadge}"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource SuccessBrush}" />
+                  </Border>
+                  <Border Background="#EFF6FF"
+                          BorderBrush="#BFDBFE"
                           BorderThickness="1"
                           CornerRadius="6"
                           Padding="8,4">
@@ -32,29 +91,54 @@
                       <Style TargetType="Border">
                         <Setter Property="Visibility" Value="Collapsed" />
                         <Style.Triggers>
-                          <DataTrigger Binding="{Binding IsPrimaryMatch}" Value="True">
+                          <DataTrigger Binding="{Binding IsSelectedForProposal}" Value="True">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
                         </Style.Triggers>
                       </Style>
                     </Border.Style>
-                    <TextBlock Text="{Binding PrimaryMatchBadge}"
+                    <TextBlock Text="{Binding SelectedForProposalBadge}"
                                FontWeight="SemiBold"
-                               Foreground="{StaticResource SuccessBrush}" />
+                               Foreground="{StaticResource AccentBrush}" />
                   </Border>
-                  <StackPanel>
-                    <TextBlock Text="{Binding ProjectNumber}" FontWeight="SemiBold" FontSize="18" />
-                    <TextBlock Text="{Binding Title}" Foreground="{StaticResource MutedForegroundBrush}" Margin="0,4,0,0" />
-                    <TextBlock Text="{Binding FolderName}" FontSize="12" Foreground="{StaticResource MutedForegroundBrush}" />
-                  </StackPanel>
-                </DockPanel>
-                <TextBlock Text="{Binding SimilarityLabel}" FontWeight="SemiBold" Margin="0,0,0,8" />
-                <TextBlock Text="{Binding ReasonsText}" TextWrapping="Wrap" Foreground="{StaticResource ForegroundBrush}" />
-              </StackPanel>
-            </Border>
+                </StackPanel>
+                <StackPanel>
+                  <TextBlock Text="{Binding ProjectNumber}" FontWeight="SemiBold" FontSize="18" />
+                  <TextBlock Text="{Binding Title}" Foreground="{StaticResource MutedForegroundBrush}" Margin="0,4,0,0" />
+                  <TextBlock Text="{Binding FolderName}" FontSize="12" Foreground="{StaticResource MutedForegroundBrush}" />
+                </StackPanel>
+              </DockPanel>
+              <TextBlock Text="{Binding SimilarityLabel}" FontWeight="SemiBold" Margin="0,0,0,8" />
+              <TextBlock Text="{Binding ReasonsText}" TextWrapping="Wrap" Foreground="{StaticResource ForegroundBrush}" />
+            </StackPanel>
           </DataTemplate>
-        </ItemsControl.ItemTemplate>
-      </ItemsControl>
+        </ListBox.ItemTemplate>
+      </ListBox>
+
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <StackPanel.Style>
+          <Style TargetType="StackPanel">
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
+              <DataTrigger Binding="{Binding HasMatches}" Value="True">
+                <Setter Property="Visibility" Value="Visible" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </StackPanel.Style>
+        <Button Content="{Binding UseForProposalButtonText}"
+                Command="{Binding UseForProposalCommand}"
+                Style="{StaticResource PrimaryButtonStyle}"
+                Margin="0,0,8,0" />
+        <Button Content="{Binding OpenFolderButtonText}"
+                Command="{Binding OpenProjectFolderCommand}"
+                Style="{StaticResource SecondaryButtonStyle}"
+                Margin="0,0,8,0" />
+        <Button Content="{Binding OpenDrawingButtonText}"
+                Command="{Binding OpenDrawingCommand}"
+                Style="{StaticResource SecondaryButtonStyle}"
+                IsEnabled="{Binding SelectedMatch.HasDrawing}" />
+      </StackPanel>
 
       <Border Margin="0,0,0,0">
         <Border.Style>
@@ -78,6 +162,10 @@
                      HorizontalAlignment="Center"
                      TextAlignment="Center" />
         </StackPanel>
+      </Border>
+
+      <Border Style="{StaticResource InfoBannerStyle}">
+        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
       </Border>
     </StackPanel>
   </ScrollViewer>

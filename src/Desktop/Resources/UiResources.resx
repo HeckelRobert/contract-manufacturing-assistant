@@ -237,4 +237,46 @@
   <data name="ProposalPreviewPathFormat" xml:space="preserve">
     <value>Primary match folder: {0}</value>
   </data>
+  <data name="ResultsSelectionHint" xml:space="preserve">
+    <value>Select a project to base the proposal on. The best match is pre-selected.</value>
+  </data>
+  <data name="OpenProjectFolderButton" xml:space="preserve">
+    <value>Open project folder</value>
+  </data>
+  <data name="OpenDrawingButton" xml:space="preserve">
+    <value>Open drawing</value>
+  </data>
+  <data name="UseForProposalButton" xml:space="preserve">
+    <value>Use for proposal</value>
+  </data>
+  <data name="SelectedForProposalBadge" xml:space="preserve">
+    <value>Selected for proposal</value>
+  </data>
+  <data name="OpenFolderFailed" xml:space="preserve">
+    <value>Could not open the project folder.</value>
+  </data>
+  <data name="OpenDrawingFailed" xml:space="preserve">
+    <value>Could not open the drawing PDF.</value>
+  </data>
+  <data name="ProposalUpdatedFromMatchFormat" xml:space="preserve">
+    <value>Proposal workspace updated from {0}.</value>
+  </data>
+  <data name="CopyToClipboardButton" xml:space="preserve">
+    <value>Copy proposal to clipboard</value>
+  </data>
+  <data name="CopiedToClipboardStatus" xml:space="preserve">
+    <value>Proposal content copied to clipboard.</value>
+  </data>
+  <data name="ProposalLoadedFromProjectFormat" xml:space="preserve">
+    <value>Proposal draft loaded from {0}.</value>
+  </data>
+  <data name="ProposalFixtureAvailable" xml:space="preserve">
+    <value>• Existing bending fixture available (Fixture.pdf)</value>
+  </data>
+  <data name="ProposalCncProgramAvailable" xml:space="preserve">
+    <value>• CNC program available for reuse (CncProgram.pdf)</value>
+  </data>
+  <data name="ProposalPreviewDrawingAvailableFormat" xml:space="preserve">
+    <value>{0} is available in the project folder. Use Open drawing to view it in your PDF viewer.&#xD;&#xA;{1}</value>
+  </data>
 </root>

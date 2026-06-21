@@ -77,4 +77,18 @@ public static class UiTextKeys
     public const string ProposalNoStepsFromMatch = nameof(ProposalNoStepsFromMatch);
     public const string ProposalNoDocumentsListed = nameof(ProposalNoDocumentsListed);
     public const string ProposalPreviewPathFormat = nameof(ProposalPreviewPathFormat);
+    public const string ResultsSelectionHint = nameof(ResultsSelectionHint);
+    public const string OpenProjectFolderButton = nameof(OpenProjectFolderButton);
+    public const string OpenDrawingButton = nameof(OpenDrawingButton);
+    public const string UseForProposalButton = nameof(UseForProposalButton);
+    public const string SelectedForProposalBadge = nameof(SelectedForProposalBadge);
+    public const string OpenFolderFailed = nameof(OpenFolderFailed);
+    public const string OpenDrawingFailed = nameof(OpenDrawingFailed);
+    public const string ProposalUpdatedFromMatchFormat = nameof(ProposalUpdatedFromMatchFormat);
+    public const string CopyToClipboardButton = nameof(CopyToClipboardButton);
+    public const string CopiedToClipboardStatus = nameof(CopiedToClipboardStatus);
+    public const string ProposalLoadedFromProjectFormat = nameof(ProposalLoadedFromProjectFormat);
+    public const string ProposalFixtureAvailable = nameof(ProposalFixtureAvailable);
+    public const string ProposalCncProgramAvailable = nameof(ProposalCncProgramAvailable);
+    public const string ProposalPreviewDrawingAvailableFormat = nameof(ProposalPreviewDrawingAvailableFormat);
 }

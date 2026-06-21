@@ -1,26 +1,34 @@
 namespace QuotationAccelerator.Desktop.ViewModels;
 
-public sealed class ProjectMatchItemViewModel
+using CommunityToolkit.Mvvm.ComponentModel;
+using QuotationAccelerator.Catalog.Domain;
+using QuotationAccelerator.Matching.Domain;
+
+public partial class ProjectMatchItemViewModel : ObservableObject
 {
     public ProjectMatchItemViewModel(
-        string projectNumber,
-        string title,
-        string folderName,
-        int similarityPercent,
+        ProjectMatch match,
         string similarityLabel,
         string reasonsText,
-        bool isPrimaryMatch,
-        string primaryMatchBadge)
+        string bestMatchBadge,
+        string selectedForProposalBadge)
     {
-        ProjectNumber = projectNumber;
-        Title = title;
-        FolderName = folderName;
-        SimilarityPercent = similarityPercent;
+        Match = match;
+        ProjectNumber = match.Project.Metadata.ProjectNumber;
+        Title = match.Project.Metadata.Title;
+        FolderName = match.Project.FolderName;
+        FolderPath = match.Project.FolderPath;
+        SimilarityPercent = match.SimilarityPercent;
         SimilarityLabel = similarityLabel;
         ReasonsText = reasonsText;
-        IsPrimaryMatch = isPrimaryMatch;
-        PrimaryMatchBadge = primaryMatchBadge;
+        IsBestRankedMatch = match.IsPrimaryMatch;
+        BestMatchBadge = bestMatchBadge;
+        SelectedForProposalBadge = selectedForProposalBadge;
+        HasDrawing = match.Project.DocumentFileNames.Any(name =>
+            name.Equals(ProjectDocumentFileNames.Drawing, StringComparison.OrdinalIgnoreCase));
     }
+
+    public ProjectMatch Match { get; }
 
     public string ProjectNumber { get; }
 
@@ -28,13 +36,24 @@ public sealed class ProjectMatchItemViewModel
 
     public string FolderName { get; }
 
+    public string FolderPath { get; }
+
     public int SimilarityPercent { get; }
 
     public string SimilarityLabel { get; }
 
     public string ReasonsText { get; }
 
-    public bool IsPrimaryMatch { get; }
+    public bool IsBestRankedMatch { get; }
 
-    public string PrimaryMatchBadge { get; }
+    public bool HasDrawing { get; }
+
+    [ObservableProperty]
+    private string _bestMatchBadge = string.Empty;
+
+    [ObservableProperty]
+    private string _selectedForProposalBadge = string.Empty;
+
+    [ObservableProperty]
+    private bool _isSelectedForProposal;
 }

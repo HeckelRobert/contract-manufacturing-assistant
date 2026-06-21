@@ -54,6 +54,7 @@ public partial class MainViewModel(
         Settings.RescanCompleted += OnRescanCompleted;
         Settings.LocalizationChanged += OnLocalizationChanged;
         Inquiry.AnalysisCompleted += OnAnalysisCompleted;
+        Results.PrimaryMatchChanged += OnPrimaryMatchChanged;
 
         ApplyLocalization();
 
@@ -72,8 +73,12 @@ public partial class MainViewModel(
     private void OnAnalysisCompleted(object? sender, AnalyzeInquiryResult result)
     {
         Results.DisplayResults(result);
-        ProposalWorkspace.LoadFromAnalysis(result);
         SelectedTabIndex = (int)PrimaryTab.Results;
+    }
+
+    private void OnPrimaryMatchChanged(object? sender, ProjectMatch match)
+    {
+        ProposalWorkspace.LoadFromMatch(match);
     }
 
     private void OnLocalizationChanged(object? sender, EventArgs e)

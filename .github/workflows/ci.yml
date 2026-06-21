@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  CONFIGURATION: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration ${{ env.CONFIGURATION }} --no-restore
+
+      - name: Vulnerability Scan
+        run: dotnet list package --vulnerable --include-transitive
+        continue-on-error: false
+
+      - name: Unit Tests
+        run: dotnet test --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal --filter "Category!=Integration"
+
+      - name: Integration Tests
+        run: dotnet test --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal --filter "Category=Integration"
+        continue-on-error: false
+
+      - name: Architecture Tests
+        run: dotnet test tests/Architecture.Tests --configuration ${{ env.CONFIGURATION }} --no-build --verbosity normal
+        continue-on-error: false

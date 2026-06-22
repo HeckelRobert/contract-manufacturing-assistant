@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catalog\QuotationAccelerator.Catalog.csproj" />
+    <ProjectReference Include="..\Export\QuotationAccelerator.Export.csproj" />
     <ProjectReference Include="..\Infrastructure\QuotationAccelerator.Infrastructure.csproj" />
     <ProjectReference Include="..\Inquiry\QuotationAccelerator.Inquiry.csproj" />
     <ProjectReference Include="..\Matching\QuotationAccelerator.Matching.csproj" />
@@ -39,6 +40,13 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\templates\**\*">
+      <Link>templates\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

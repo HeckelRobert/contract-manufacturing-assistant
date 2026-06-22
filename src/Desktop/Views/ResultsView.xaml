@@ -7,11 +7,11 @@
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
       <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
     </Grid.RowDefinitions>
 
-    <StackPanel Grid.Row="0" MaxWidth="1400" HorizontalAlignment="Center">
+    <StackPanel Grid.Row="0">
       <TextBlock Text="{Binding ResultsHeading}" Style="{StaticResource PageTitleStyle}" Margin="0,0,0,8" />
       <TextBlock Text="{Binding ResultsHint}" Margin="0,0,0,20">
         <TextBlock.Style>
@@ -27,7 +27,75 @@
       </TextBlock>
     </StackPanel>
 
-    <Grid Grid.Row="2" MaxWidth="1400" HorizontalAlignment="Center">
+    <Border Grid.Row="1" Style="{StaticResource CollapsibleInfoBannerStyle}" Margin="0,0,0,16">
+      <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+    </Border>
+
+    <Border Grid.Row="2" Margin="0,0,0,16">
+      <Border.Style>
+        <Style TargetType="Border" BasedOn="{StaticResource CollapsibleInfoBannerStyle}">
+          <Setter Property="Visibility" Value="Collapsed" />
+          <Style.Triggers>
+            <DataTrigger Binding="{Binding HasMatches}" Value="True">
+              <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+          </Style.Triggers>
+        </Style>
+      </Border.Style>
+      <StackPanel>
+        <TextBlock Text="{Binding ContractManufacturingHint}" TextWrapping="Wrap" Margin="0,0,0,12" />
+        <WrapPanel>
+          <Button Content="{Binding UseForProposalButtonText}"
+                  Command="{Binding UseForProposalCommand}"
+                  MinWidth="0"
+                  Margin="0,0,8,8">
+            <Button.Style>
+              <Style TargetType="Button" BasedOn="{StaticResource PrimaryButtonStyle}">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Style.Triggers>
+                  <DataTrigger Binding="{Binding HasMatches}" Value="True">
+                    <Setter Property="Visibility" Value="Visible" />
+                  </DataTrigger>
+                </Style.Triggers>
+              </Style>
+            </Button.Style>
+          </Button>
+          <Button Command="{Binding OpenProjectFolderCommand}"
+                  MinWidth="0"
+                  Margin="0,0,8,8"
+                  Content="{Binding OpenFolderButtonText}">
+            <Button.Style>
+              <Style TargetType="Button" BasedOn="{StaticResource SecondaryButtonStyle}">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Style.Triggers>
+                  <DataTrigger Binding="{Binding HasMatches}" Value="True">
+                    <Setter Property="Visibility" Value="Visible" />
+                  </DataTrigger>
+                </Style.Triggers>
+              </Style>
+            </Button.Style>
+          </Button>
+          <Button Command="{Binding OpenDrawingCommand}"
+                  IsEnabled="{Binding SelectedMatch.HasDrawing}"
+                  MinWidth="0"
+                  Margin="0,0,8,8"
+                  Content="{Binding OpenDrawingButtonText}">
+            <Button.Style>
+              <Style TargetType="Button" BasedOn="{StaticResource SecondaryButtonStyle}">
+                <Setter Property="Visibility" Value="Collapsed" />
+                <Style.Triggers>
+                  <DataTrigger Binding="{Binding HasMatches}" Value="True">
+                    <Setter Property="Visibility" Value="Visible" />
+                  </DataTrigger>
+                </Style.Triggers>
+              </Style>
+            </Button.Style>
+          </Button>
+        </WrapPanel>
+      </StackPanel>
+    </Border>
+
+    <Grid Grid.Row="3">
       <Grid.Style>
         <Style TargetType="Grid">
           <Setter Property="Visibility" Value="Collapsed" />
@@ -146,20 +214,6 @@
             </ListBox.ItemTemplate>
           </ListBox>
 
-          <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-            <Button Content="{Binding UseForProposalButtonText}"
-                    Command="{Binding UseForProposalCommand}"
-                    Style="{StaticResource PrimaryButtonStyle}"
-                    Margin="0,0,8,0" />
-            <Button Content="{Binding OpenFolderButtonText}"
-                    Command="{Binding OpenProjectFolderCommand}"
-                    Style="{StaticResource SecondaryButtonStyle}"
-                    Margin="0,0,8,0" />
-            <Button Content="{Binding OpenDrawingButtonText}"
-                    Command="{Binding OpenDrawingCommand}"
-                    Style="{StaticResource SecondaryButtonStyle}"
-                    IsEnabled="{Binding SelectedMatch.HasDrawing}" />
-          </StackPanel>
         </StackPanel>
       </ScrollViewer>
 
@@ -179,7 +233,7 @@
       </Border>
     </Grid>
 
-    <Border Grid.Row="2" MaxWidth="1100" HorizontalAlignment="Center">
+    <Border Grid.Row="3">
       <Border.Style>
         <Style TargetType="Border" BasedOn="{StaticResource CardBorderStyle}">
           <Setter Property="Visibility" Value="Visible" />
@@ -201,10 +255,6 @@
                    HorizontalAlignment="Center"
                    TextAlignment="Center" />
       </StackPanel>
-    </Border>
-
-    <Border Grid.Row="3" Style="{StaticResource CollapsibleInfoBannerStyle}" Margin="0,16,0,0" MaxWidth="1400" HorizontalAlignment="Center">
-      <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
     </Border>
   </Grid>
 </UserControl>

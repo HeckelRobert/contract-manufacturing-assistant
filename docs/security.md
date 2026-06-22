@@ -29,6 +29,8 @@ Handbook version: **v1.3.1**
 | OpenAI-compatible API key | User-entered in Settings → persisted in local SQLite (not in repo) | User-managed |
 | Azure OpenAI API key | User-entered in Settings → persisted in local SQLite | User-managed |
 | Azure OpenAI endpoint / deployment names | Settings / SQLite | User-managed |
+| M365 mail OAuth refresh token | Windows Credential Manager (preferred) or encrypted local store | User reconnects on expiry |
+| Mail account settings (tenant, client id, mailbox) | SQLite | User-managed |
 
 Secrets are **never** committed to the repository or written to debug logs.
 
@@ -44,6 +46,8 @@ For production, consider Windows Credential Manager or enterprise secret distrib
 | Historical project PDFs | Confidential (customer IP) | Remain on source file share; referenced in place | Depends on host file system |
 | Extracted PDF text in SQLite | Confidential | Until rescan or app folder deleted | Local SQLite file |
 | Embedding vectors | Internal | Until rescan or app folder deleted | Local SQLite file |
+| Inbox message metadata and body preview | Confidential (customer correspondence) | Until user deletes app folder | Local SQLite file |
+| Email attachment copies (PDF) | Confidential | App data folder until deleted | Local disk |
 | API keys | Secret | Until user clears Settings | Local SQLite file |
 | Debug logs | Technical metadata only | Until user deletes app folder | Local files |
 
@@ -91,7 +95,7 @@ Full audit trail deferred to production implementation.
 |-------|--------|
 | External LLM usage | Optional; OpenAI-compatible and Azure OpenAI only after user confirmation |
 | Preferred path | Ollama local (`qwen3:8b`, `nomic-embed-text`) — data stays on machine |
-| Data sent externally | Inquiry fields and extracted document text when hosted provider is used |
+| Data sent externally | Inquiry fields, extracted document text, and email content when hosted provider is used for categorization or extraction |
 | User notification | Settings disclosure + consent dialog; AI Provider Status card |
 | Cost exposure | User-provided API keys; no platform-funded hosted inference |
 

@@ -1,0 +1,22 @@
+{
+  "ManufacturingSteps": [
+    "• Kundenanfrage prüfen (Zeichnung PDF, Stückzahl, Material, Oberfläche, Liefertermin)",
+    "• Arbeitsvorbereitung: Zeichnung vollständig, Fertigungsmachbarkeit, kritische Maße, Material",
+    "{WorkPreparationSummary}",
+    "• Laserschneiden vom Blech (typische Genauigkeit ±0,1 mm)",
+    "• Entgraten scharfer Kanten (Schleifen, Bürsten oder Trommelentgraten)",
+    "• Biegen / Kanten an Abkantpresse bei Winkeln",
+    "{InquiryProcesses}",
+    "• Oberflächenbehandlung nach Kundenwunsch (Verzinken, Pulverbeschichten, Lackieren, Eloxieren)",
+    "• Qualitätsprüfung (Länge, Winkel, Lochabstände, Materialdicke)",
+    "• Verpacken, Etikettieren, Zählen und Versand"
+  ],
+  "ReferenceManufacturingStepsIntro": "Referenz-Fertigungskette aus früherem Auftrag {ReferenceProjectNumber} — {ReferenceTitle}:",
+  "Quotation": "Lohnfertigung nach Zeichnung\n\nTeil: {PartDescription}\nMaterial: {Material}\nStückzahl: {Quantity}\nOberfläche: {SurfaceTreatment}\nGewünschte Lieferung: {DeliveryDeadline}\nBesondere Anforderungen: {SpecialRequirements}\n\n{ReferenceQuotationBlock}",
+  "ReferenceQuotationBlock": "Vorausgefüllt aus früherem Auftrag {ReferenceProjectNumber} — {ReferenceTitle}\nReferenzmaterial: {ReferenceMaterial}\nReferenzstückzahl: {ReferenceQuantity}\nReferenzoberfläche: {ReferenceSurfaceTreatment}\nAlle Werte vor Angebotsversand anpassen.",
+  "ReferencedDocuments": "{CustomerDrawingLine}\n{ReferenceDocumentsBlock}",
+  "ReferenceDocumentsBlock": "Dokumente des Referenzprojekts ({ReferenceProjectNumber}):\n{ReferenceDocumentList}",
+  "CustomerDrawingLine": "• Kundenzeichnung: {DrawingFilename}",
+  "NoCustomerDrawingLine": "• Der Anfrage ist keine Kundenzeichnung beigefügt.",
+  "InquiryProcessLine": "• Weitere Bearbeitung: {ProcessName}"
+}

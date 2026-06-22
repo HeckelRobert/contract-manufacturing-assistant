@@ -14,5 +14,7 @@ public sealed class ApplicationOptions
 
     public string SampleDataFolderName { get; set; } = "sample-data";
 
+    public string ContractManufacturingTemplatesFolderName { get; set; } = "templates";
+
     public string AppsettingsFileName { get; set; } = "appsettings.json";
 }

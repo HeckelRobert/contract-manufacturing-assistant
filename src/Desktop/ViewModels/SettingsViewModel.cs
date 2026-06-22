@@ -2,29 +2,39 @@ namespace QuotationAccelerator.Desktop.ViewModels;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Extensions.Options;
-using QuotationAccelerator.Catalog.Application.GetCatalogSummary;
-using QuotationAccelerator.Catalog.Application.RescanProjects;
+using System.Collections.ObjectModel;
+using QuotationAccelerator.Desktop.Navigation;
 using QuotationAccelerator.Desktop.Resources;
 using QuotationAccelerator.Desktop.Services;
+using QuotationAccelerator.Inbox.Application.ConnectMailAccount;
+using QuotationAccelerator.Inbox.Application.DisconnectMailAccount;
+using QuotationAccelerator.Inbox.Application.GetMailSettings;
+using QuotationAccelerator.Inbox.Application.SaveMailSettings;
 using QuotationAccelerator.SharedKernel.Abstractions;
-using QuotationAccelerator.SharedKernel.Configuration;
-using QuotationAccelerator.SharedKernel.Enums;
 
 public partial class SettingsViewModel(
     IDispatcher dispatcher,
     IUiTextProvider uiText,
     ApplicationPreferences preferences,
-    IOptions<ApplicationOptions> applicationOptions,
-    IOptions<AiOptions> aiOptions) : ObservableObject
+    MailResponsesViewModel mailResponses,
+    Microsoft.Extensions.Options.IOptions<SharedKernel.Configuration.ApplicationOptions> applicationOptions,
+    Microsoft.Extensions.Options.IOptions<SharedKernel.Configuration.AiOptions> aiOptions) : ObservableObject
 {
-    public event EventHandler<RescanProjectsResult>? RescanCompleted;
+    public event EventHandler<Catalog.Application.RescanProjects.RescanProjectsResult>? RescanCompleted;
 
     public event EventHandler? LocalizationChanged;
 
-    public Array MatchingStrategies { get; } = Enum.GetValues<MatchingStrategy>();
+    public MailResponsesViewModel MailResponses { get; } = mailResponses;
 
-    public Array UiLanguages { get; } = Enum.GetValues<UiLanguage>();
+    public ObservableCollection<SettingsNavItemViewModel> NavItems { get; } = [];
+
+    public bool IsGeneralSectionSelected => SelectedNavItem?.Section == Navigation.SettingsSection.General;
+
+    public bool IsMailResponsesSectionSelected => SelectedNavItem?.Section == Navigation.SettingsSection.MailResponses;
+
+    public Array MatchingStrategies { get; } = Enum.GetValues<SharedKernel.Enums.MatchingStrategy>();
+
+    public Array UiLanguages { get; } = Enum.GetValues<SharedKernel.Enums.UiLanguage>();
 
     [ObservableProperty]
     private string _projectRoot = string.Empty;
@@ -33,7 +43,7 @@ public partial class SettingsViewModel(
     private int _indexedProjectCount;
 
     [ObservableProperty]
-    private MatchingStrategy _matchingStrategy;
+    private SharedKernel.Enums.MatchingStrategy _matchingStrategy;
 
     [ObservableProperty]
     private string _chatModel = string.Empty;
@@ -42,7 +52,7 @@ public partial class SettingsViewModel(
     private string _embeddingModel = string.Empty;
 
     [ObservableProperty]
-    private UiLanguage _uiLanguage;
+    private SharedKernel.Enums.UiLanguage _uiLanguage;
 
     [ObservableProperty]
     private string _statusMessage = string.Empty;
@@ -83,6 +93,53 @@ public partial class SettingsViewModel(
     [ObservableProperty]
     private string _uiLanguageLabel = string.Empty;
 
+    [ObservableProperty]
+    private string _mailSettingsGroup = string.Empty;
+
+    [ObservableProperty]
+    private string _mailTenantIdLabel = string.Empty;
+
+    [ObservableProperty]
+    private string _mailClientIdLabel = string.Empty;
+
+    [ObservableProperty]
+    private string _mailMailboxLabel = string.Empty;
+
+    [ObservableProperty]
+    private string _mailFolderLabel = string.Empty;
+
+    [ObservableProperty]
+    private string _connectMailButtonText = string.Empty;
+
+    [ObservableProperty]
+    private string _disconnectMailButtonText = string.Empty;
+
+    [ObservableProperty]
+    private string _saveMailSettingsButtonText = string.Empty;
+
+    [ObservableProperty]
+    private string _mailTenantId = string.Empty;
+
+    [ObservableProperty]
+    private string _mailClientId = string.Empty;
+
+    [ObservableProperty]
+    private string _mailMailboxAddress = string.Empty;
+
+    [ObservableProperty]
+    private string _mailFolderName = "Inbox";
+
+    [ObservableProperty]
+    private string _mailConnectionStatus = string.Empty;
+
+    [ObservableProperty]
+    private bool _isMailConnected;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsGeneralSectionSelected))]
+    [NotifyPropertyChangedFor(nameof(IsMailResponsesSectionSelected))]
+    private SettingsNavItemViewModel? _selectedNavItem;
+
     public void Initialize()
     {
         MatchingStrategy = applicationOptions.Value.DefaultMatchingStrategy;
@@ -91,15 +148,16 @@ public partial class SettingsViewModel(
         EmbeddingModel = aiOptions.Value.DefaultEmbeddingModel;
         StatusMessage = uiText.Get(UiTextKeys.SettingsStatusPrompt, UiLanguage);
         SyncPreferences();
+        MailResponses.Initialize();
         ApplyLocalization();
     }
 
-    partial void OnMatchingStrategyChanged(MatchingStrategy value)
+    partial void OnMatchingStrategyChanged(SharedKernel.Enums.MatchingStrategy value)
     {
         preferences.MatchingStrategy = value;
     }
 
-    partial void OnUiLanguageChanged(UiLanguage value)
+    partial void OnUiLanguageChanged(SharedKernel.Enums.UiLanguage value)
     {
         preferences.UiLanguage = value;
         ApplyLocalization();
@@ -120,24 +178,69 @@ public partial class SettingsViewModel(
         EmbeddingModelLabel = uiText.Get(UiTextKeys.EmbeddingModelLabel, language);
         MatchingStrategyLabel = uiText.Get(UiTextKeys.MatchingStrategyLabel, language);
         UiLanguageLabel = uiText.Get(UiTextKeys.UiLanguageLabel, language);
+        MailSettingsGroup = uiText.Get(UiTextKeys.MailSettingsGroup, language);
+        MailTenantIdLabel = uiText.Get(UiTextKeys.MailTenantIdLabel, language);
+        MailClientIdLabel = uiText.Get(UiTextKeys.MailClientIdLabel, language);
+        MailMailboxLabel = uiText.Get(UiTextKeys.MailMailboxLabel, language);
+        MailFolderLabel = uiText.Get(UiTextKeys.MailFolderLabel, language);
+        ConnectMailButtonText = uiText.Get(UiTextKeys.ConnectMailButton, language);
+        DisconnectMailButtonText = uiText.Get(UiTextKeys.DisconnectMailButton, language);
+        SaveMailSettingsButtonText = uiText.Get(UiTextKeys.SaveMailSettingsButton, language);
         AiProviderStatus = BuildAiProviderStatus(language);
+        MailConnectionStatus = uiText.Get(
+            IsMailConnected ? UiTextKeys.MailConnectedStatus : UiTextKeys.MailDisconnectedStatus,
+            language);
+        RefreshNavItems();
+        MailResponses.ApplyLocalization();
+    }
+
+    private void RefreshNavItems()
+    {
+        var language = preferences.UiLanguage;
+        var selectedSection = SelectedNavItem?.Section ?? SettingsSection.General;
+
+        NavItems.Clear();
+        NavItems.Add(new SettingsNavItemViewModel
+        {
+            Section = SettingsSection.General,
+            Label = uiText.Get(UiTextKeys.SettingsNavGeneral, language),
+        });
+        NavItems.Add(new SettingsNavItemViewModel
+        {
+            Section = SettingsSection.MailResponses,
+            Label = uiText.Get(UiTextKeys.TabMailResponses, language),
+        });
+
+        SelectedNavItem = NavItems.FirstOrDefault(item => item.Section == selectedSection)
+                          ?? NavItems.FirstOrDefault();
     }
 
     public async Task RefreshAsync()
     {
-        var summary = await dispatcher.QueryAsync(new GetCatalogSummaryQuery());
+        var summary = await dispatcher.QueryAsync(new Catalog.Application.GetCatalogSummary.GetCatalogSummaryQuery());
         ProjectRoot = summary.ProjectRoot;
         IndexedProjectCount = summary.ProjectCount;
         IndexedProjectsLabel = uiText.Format(
             UiTextKeys.IndexedProjectsFormat,
             preferences.UiLanguage,
             IndexedProjectCount);
+
+        var mailSettings = await dispatcher.QueryAsync(new GetMailSettingsQuery());
+        MailTenantId = mailSettings.TenantId ?? string.Empty;
+        MailClientId = mailSettings.ClientId ?? string.Empty;
+        MailMailboxAddress = mailSettings.MailboxAddress ?? string.Empty;
+        MailFolderName = mailSettings.FolderName;
+        IsMailConnected = mailSettings.IsConnected;
+        MailConnectionStatus = uiText.Get(
+            IsMailConnected ? UiTextKeys.MailConnectedStatus : UiTextKeys.MailDisconnectedStatus,
+            preferences.UiLanguage);
+        await MailResponses.RefreshAsync();
     }
 
     [RelayCommand]
     public async Task RescanAsync()
     {
-        var result = await dispatcher.SendAsync(new RescanProjectsCommand(ProjectRoot));
+        var result = await dispatcher.SendAsync(new Catalog.Application.RescanProjects.RescanProjectsCommand(ProjectRoot));
         if (result.IsFailure)
         {
             StatusMessage = string.Join("; ", result.Errors);
@@ -171,13 +274,67 @@ public partial class SettingsViewModel(
         }
     }
 
+    [RelayCommand]
+    private async Task SaveMailSettingsAsync()
+    {
+        var result = await dispatcher.SendAsync(new SaveMailSettingsCommand(
+            MailTenantId,
+            MailClientId,
+            MailMailboxAddress,
+            MailFolderName));
+
+        StatusMessage = result.IsFailure
+            ? string.Join("; ", result.Errors)
+            : uiText.Get(UiTextKeys.SaveMailSettingsButton, preferences.UiLanguage);
+    }
+
+    [RelayCommand]
+    private async Task ConnectMailAsync()
+    {
+        var saveResult = await dispatcher.SendAsync(new SaveMailSettingsCommand(
+            MailTenantId,
+            MailClientId,
+            MailMailboxAddress,
+            MailFolderName));
+
+        if (saveResult.IsFailure)
+        {
+            StatusMessage = string.Join("; ", saveResult.Errors);
+            return;
+        }
+
+        var result = await dispatcher.SendAsync(new ConnectMailAccountCommand());
+        if (result.IsFailure)
+        {
+            StatusMessage = string.Join("; ", result.Errors);
+            return;
+        }
+
+        IsMailConnected = true;
+        MailConnectionStatus = uiText.Get(UiTextKeys.MailConnectedStatus, preferences.UiLanguage);
+    }
+
+    [RelayCommand]
+    private async Task DisconnectMailAsync()
+    {
+        var result = await dispatcher.SendAsync(new DisconnectMailAccountCommand());
+        if (result.IsFailure)
+        {
+            StatusMessage = string.Join("; ", result.Errors);
+            return;
+        }
+
+        IsMailConnected = false;
+        MailConnectionStatus = uiText.Get(UiTextKeys.MailDisconnectedStatus, preferences.UiLanguage);
+    }
+
     private void SyncPreferences()
     {
         preferences.MatchingStrategy = MatchingStrategy;
         preferences.UiLanguage = UiLanguage;
     }
 
-    private string BuildAiProviderStatus(UiLanguage language) =>
+    private string BuildAiProviderStatus(SharedKernel.Enums.UiLanguage language) =>
         string.Join(
             Environment.NewLine,
             uiText.Get(UiTextKeys.AiStatusRuleBasedAvailable, language),

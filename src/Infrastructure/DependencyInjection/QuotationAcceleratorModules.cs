@@ -14,7 +14,8 @@ public static class QuotationAcceleratorModules
         // Register future application modules here, e.g.:
         // services.AddProposalModule();
         // services.AddDocumentsModule();
-        // services.AddExportModule();
+        services.AddExportInfrastructure();
+        services.AddInboxInfrastructure();
         // services.AddSettingsModule();
 
         return services;

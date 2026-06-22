@@ -1,0 +1,22 @@
+{
+  "ManufacturingSteps": [
+    "• Customer inquiry review (drawing PDF, quantity, material, surface, delivery deadline)",
+    "• Work preparation: verify drawing completeness, manufacturability, critical dimensions, and material",
+    "{WorkPreparationSummary}",
+    "• Laser cutting from sheet stock (typical accuracy ±0.1 mm)",
+    "• Deburring sharp edges (grinding, brushing, or tumbling)",
+    "• Bending / edge forming on press brake when angles are required",
+    "{InquiryProcesses}",
+    "• Surface treatment per customer requirement (galvanizing, powder coating, painting, anodizing)",
+    "• Quality inspection (length, angles, hole spacing, material thickness)",
+    "• Packaging, labeling, counting, and shipment"
+  ],
+  "ReferenceManufacturingStepsIntro": "Reference process chain from previous job {ReferenceProjectNumber} — {ReferenceTitle}:",
+  "Quotation": "Contract manufacturing per drawing\n\nPart: {PartDescription}\nMaterial: {Material}\nQuantity: {Quantity}\nSurface: {SurfaceTreatment}\nRequested delivery: {DeliveryDeadline}\nSpecial requirements: {SpecialRequirements}\n\n{ReferenceQuotationBlock}",
+  "ReferenceQuotationBlock": "Prefilled from previous job {ReferenceProjectNumber} — {ReferenceTitle}\nReference material: {ReferenceMaterial}\nReference quantity: {ReferenceQuantity}\nReference surface: {ReferenceSurfaceTreatment}\nAdjust all values before sending the offer.",
+  "ReferencedDocuments": "{CustomerDrawingLine}\n{ReferenceDocumentsBlock}",
+  "ReferenceDocumentsBlock": "Previous project documents ({ReferenceProjectNumber}):\n{ReferenceDocumentList}",
+  "CustomerDrawingLine": "• Customer drawing: {DrawingFilename}",
+  "NoCustomerDrawingLine": "• No customer drawing attached to the inquiry.",
+  "InquiryProcessLine": "• Further processing: {ProcessName}"
+}

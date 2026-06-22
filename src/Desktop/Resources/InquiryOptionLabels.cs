@@ -14,4 +14,10 @@ public static class InquiryOptionLabels
 
     public static string GetSurfaceTreatmentResourceKey(string value) =>
         SurfaceTreatmentKeys.TryGetValue(value, out var key) ? key : value;
+
+    public static string GetPartDescriptionExampleLabelKey(string exampleKey) =>
+        $"PartDescriptionExample_{exampleKey}";
+
+    public static string GetPartDescriptionExampleTextKey(string exampleKey) =>
+        $"PartDescriptionExample_{exampleKey}_Description";
 }

@@ -26,4 +26,15 @@ public class LayerDependencyTests
 
         result.IsSuccessful.Should().BeTrue();
     }
+
+    [Fact]
+    public void Inbox_ShouldNotReference_Infrastructure()
+    {
+        var result = Types.InAssembly(typeof(Inbox.Domain.InboxMessage).Assembly)
+            .ShouldNot()
+            .HaveDependencyOn("QuotationAccelerator.Infrastructure")
+            .GetResult();
+
+        result.IsSuccessful.Should().BeTrue();
+    }
 }

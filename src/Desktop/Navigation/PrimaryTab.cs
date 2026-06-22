@@ -2,8 +2,9 @@ namespace QuotationAccelerator.Desktop.Navigation;
 
 public enum PrimaryTab
 {
-    Inquiry = 0,
-    Results = 1,
-    ProposalWorkspace = 2,
-    Settings = 3,
+    Inbox = 0,
+    Inquiry = 1,
+    Results = 2,
+    ProposalWorkspace = 3,
+    Settings = 4,
 }

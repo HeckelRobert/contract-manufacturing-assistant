@@ -30,6 +30,11 @@ public partial class InquiryViewModel(
 
     public ObservableCollection<ManufacturingProcessSelectionViewModel> ManufacturingProcesses { get; } = [];
 
+    public ObservableCollection<LocalizedOptionViewModel> PartDescriptionExamples { get; } = [];
+
+    [ObservableProperty]
+    private string? _selectedPartDescriptionExampleValue;
+
     [ObservableProperty]
     private string _quantity = "1";
 
@@ -142,6 +147,7 @@ public partial class InquiryViewModel(
                    ?? string.Empty;
 
         RefreshSurfaceTreatmentOptions();
+        RefreshPartDescriptionExamples();
         SurfaceTreatment = SurfaceTreatmentOptions
             .FirstOrDefault(option => option.Value.Contains("Powder", StringComparison.OrdinalIgnoreCase))?.Value
             ?? SurfaceTreatmentOptions.FirstOrDefault()?.Value
@@ -150,6 +156,31 @@ public partial class InquiryViewModel(
         StatusMessage = uiText.Get(UiTextKeys.InquiryStatusPrompt, preferences.UiLanguage);
         ApplyLocalization();
         UpdateDrawingDisplay();
+    }
+
+    public void LoadFrom(CustomerInquiry inquiry)
+    {
+        Quantity = inquiry.Quantity?.ToString() ?? "1";
+        Material = inquiry.Material;
+        SurfaceTreatment = inquiry.SurfaceTreatment ?? SurfaceTreatment;
+        PartDescription = inquiry.PartDescription;
+        SelectedPartDescriptionExampleValue = PartDescriptionExamples
+            .FirstOrDefault(option => option.Value == inquiry.PartDescription)?.Value
+            ?? string.Empty;
+        DeliveryDeadline = inquiry.DeliveryDeadline;
+        SpecialRequirements = inquiry.SpecialRequirements;
+        Notes = inquiry.Notes;
+        DrawingFileName = inquiry.DrawingFilePath;
+
+        foreach (var process in ManufacturingProcesses)
+        {
+            process.IsSelected = inquiry.ManufacturingProcesses.Contains(
+                process.Name,
+                StringComparer.OrdinalIgnoreCase);
+        }
+
+        UpdateDrawingDisplay();
+        StatusMessage = uiText.Get(UiTextKeys.InboxPrefilledStatus, preferences.UiLanguage);
     }
 
     public void ApplyLocalization()
@@ -176,7 +207,16 @@ public partial class InquiryViewModel(
         ClearDrawingButtonText = uiText.Get(UiTextKeys.ClearDrawingButton, language);
         AnalyzeInquiryButtonText = uiText.Get(UiTextKeys.AnalyzeInquiryButton, language);
         RefreshSurfaceTreatmentOptions();
+        RefreshPartDescriptionExamples();
         UpdateDrawingDisplay();
+    }
+
+    partial void OnSelectedPartDescriptionExampleValueChanged(string? value)
+    {
+        if (!string.IsNullOrWhiteSpace(value))
+        {
+            PartDescription = value;
+        }
     }
 
     partial void OnDrawingFileNameChanged(string? value) => UpdateDrawingDisplay();
@@ -258,6 +298,27 @@ public partial class InquiryViewModel(
         SurfaceTreatment = SurfaceTreatmentOptions
             .FirstOrDefault(option => option.Value == current)?.Value
             ?? SurfaceTreatmentOptions.FirstOrDefault()?.Value
+            ?? string.Empty;
+    }
+
+    private void RefreshPartDescriptionExamples()
+    {
+        var language = preferences.UiLanguage;
+        var currentSelection = SelectedPartDescriptionExampleValue;
+        PartDescriptionExamples.Clear();
+        PartDescriptionExamples.Add(new LocalizedOptionViewModel(
+            string.Empty,
+            uiText.Get(UiTextKeys.PartDescriptionExamplePlaceholder, language)));
+
+        foreach (var exampleKey in inquiryOptions.Value.PartDescriptionExamples)
+        {
+            var display = uiText.Get(InquiryOptionLabels.GetPartDescriptionExampleLabelKey(exampleKey), language);
+            var description = uiText.Get(InquiryOptionLabels.GetPartDescriptionExampleTextKey(exampleKey), language);
+            PartDescriptionExamples.Add(new LocalizedOptionViewModel(description, display));
+        }
+
+        SelectedPartDescriptionExampleValue = PartDescriptionExamples
+            .FirstOrDefault(option => option.Value == currentSelection)?.Value
             ?? string.Empty;
     }
 

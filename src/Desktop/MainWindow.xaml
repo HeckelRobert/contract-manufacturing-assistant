@@ -11,6 +11,9 @@
         Icon="Assets/app-icon.ico"
         Background="{StaticResource PageBackgroundBrush}">
   <TabControl SelectedIndex="{Binding SelectedTabIndex}" Background="{StaticResource PageBackgroundBrush}">
+    <TabItem Header="{Binding TabInboxHeader}">
+      <views:InboxView DataContext="{Binding Inbox}" />
+    </TabItem>
     <TabItem Header="{Binding TabInquiryHeader}">
       <views:InquiryView DataContext="{Binding Inquiry}" />
     </TabItem>

@@ -7,7 +7,7 @@
 | Project Name | QuotationAccelerator |
 | Application Display Name | Quotation Accelerator |
 | Customer | None — generic, reusable demonstration prototype |
-| Purpose | Reusable desktop prototype that demonstrates how historical project knowledge can accelerate technical review and quotation preparation for companies offering contract manufacturing according to technical drawings (*Lohnfertigung nach Zeichnung*). The prototype simulates the real-world engineering process and answers: **"Have we manufactured something similar before?"** |
+| Purpose | Reusable desktop prototype that demonstrates how historical project knowledge can accelerate technical review and quotation preparation for companies offering contract manufacturing according to technical drawings. The prototype simulates the real-world engineering process and answers: **"Have we manufactured something similar before?"** |
 | Stakeholders | Engineering management, managing directors, engineering staff, sales/quotation staff, internal presenters |
 
 ---
@@ -42,9 +42,12 @@ Success is **not** measured by exact time savings in the pilot; success is conce
 
 ## Primary User Workflow
 
-The application shall use **four primary tabs**: **Inquiry**, **Results**, **Proposal Workspace**, and **Settings**.
+The application shall use **five primary tabs**: **Inbox**, **Inquiry**, **Results**, **Proposal Workspace**, and **Settings**.
 
 ```text
+Inbox
+  │
+  ▼  (optional) Continue contract-manufacturing inquiry
 Inquiry
   │
   ▼  Analyze Inquiry
@@ -62,6 +65,7 @@ Settings — accessible at any time
 
 | Tab | Purpose |
 |-----|---------|
+| **Inbox** | Fetch customer emails from a configured Microsoft 365 mailbox, categorize messages, manage an in-app support queue, and continue contract-manufacturing inquiries into **Inquiry**. |
 | **Inquiry** | Capture customer inquiry information, optionally reference a local drawing PDF, and start analysis. |
 | **Results** | Present the three best historical matches under the page heading **Top 3 Similar Projects**, with similarity scores, short explanations, and access to source project folders. Tab label **Results** is used for management-friendly navigation; technical content remains explicit on the page. |
 | **Proposal Workspace** | Single scrollable page with collapsible sections for reviewing, editing, and reusing generated proposal content. |
@@ -69,12 +73,14 @@ Settings — accessible at any time
 
 **Typical workflow**
 
-1. Engineer enters inquiry information on **Inquiry**.
-2. Engineer clicks **Analyze Inquiry**; the assistant searches historical projects.
-3. Application navigates to **Results** and shows three similar projects under the heading **Top 3 Similar Projects**.
-4. The best-matching project is pre-selected automatically; the user may switch to the second or third match.
-5. **Proposal Workspace** displays suggested manufacturing steps, quotation information, referenced documents, and document preview based on the selected primary match.
-6. User reviews, edits, copies, or exports information for use in an external ERP or quotation system.
+1. Engineer fetches mail on **Inbox** and reviews categorized messages.
+2. For contract-manufacturing inquiries, engineer continues to **Inquiry** with prefilled fields from the email.
+3. Engineer enters or adjusts inquiry information on **Inquiry** (manual entry remains supported).
+4. Engineer clicks **Analyze Inquiry**; the assistant searches historical projects.
+5. Application navigates to **Results** and shows three similar projects under the heading **Top 3 Similar Projects**.
+6. The best-matching project is pre-selected automatically; the user may switch to the second or third match.
+7. **Proposal Workspace** displays suggested manufacturing steps, quotation information, referenced documents, and document preview based on the selected primary match.
+8. User reviews, edits, copies, exports, or sends the proposal as an email reply when the session originated from **Inbox**.
 
 Users may open **Settings** at any time. Users may return to earlier tabs to adjust inquiry input or select a different match on **Results**; switching the primary match refreshes **Proposal Workspace** content from the newly selected project.
 
@@ -661,6 +667,93 @@ Matching Strategy:
 
 ---
 
+### FR-020 — Microsoft 365 mailbox configuration
+
+**Description:** Users shall configure a Microsoft 365 mailbox for fetching and sending inquiry emails.
+
+**Priority:** Must
+
+**Acceptance Criteria:**
+
+- [ ] **Settings** exposes tenant id, application (client) id, mailbox address, and folder name (default `Inbox`).
+- [ ] User can connect via Entra ID interactive sign-in (MSAL).
+- [ ] User can test connection, disconnect, and reconnect.
+- [ ] Mail credentials and refresh tokens are stored locally, not in the repository.
+
+---
+
+### FR-021 — Fetch and display inbox messages
+
+**Description:** Users shall fetch customer inquiry emails on demand from the configured mailbox.
+
+**Priority:** Must
+
+**Acceptance Criteria:**
+
+- [ ] **Inbox** tab provides **Fetch mail** action.
+- [ ] Messages display date, sender, subject, category, and attachment indicators.
+- [ ] PDF attachments are copied to the application data folder for drawing reference.
+- [ ] Non-PDF attachments (e.g. STEP) are listed by filename only; STEP parsing remains out of scope (FR-005).
+
+---
+
+### FR-022 — Email categorization
+
+**Description:** Fetched emails shall be categorized to guide the next action.
+
+**Priority:** Must
+
+**Acceptance Criteria:**
+
+- [ ] Each message is categorized as **AutoAnswerable**, **SupportRequired**, or **ContractManufacturingInquiry**.
+- [ ] Rule-based categorization runs without AI; optional AI assist follows existing consent rules (FR-015).
+- [ ] Default mail response templates for typical manufacturing client questions are configurable in **Settings**.
+
+---
+
+### FR-023 — In-app support queue
+
+**Description:** Emails requiring human support shall be tracked in an in-app queue.
+
+**Priority:** Must
+
+**Acceptance Criteria:**
+
+- [ ] User can escalate a message to the support queue from **Inbox**.
+- [ ] Queue items have status **Open**, **InProgress**, or **Resolved**.
+- [ ] User can add notes and update status.
+
+---
+
+### FR-024 — Continue contract-manufacturing inquiry from email
+
+**Description:** Contract-manufacturing inquiry emails shall prefill the **Inquiry** tab.
+
+**Priority:** Must
+
+**Acceptance Criteria:**
+
+- [ ] **Continue inquiry** action navigates to **Inquiry** with prefilled quantity, material, surface, delivery deadline, part description, processes, and drawing path when available.
+- [ ] Email subject and sender are preserved in notes for traceability.
+- [ ] User can edit all prefilled values before analysis.
+
+---
+
+### FR-025 — Send proposal reply by email
+
+**Description:** Users shall send completed proposals back to the customer by email when the session originated from **Inbox**.
+
+**Priority:** Must
+
+**Acceptance Criteria:**
+
+- [ ] **Proposal Workspace** exposes **Send as email** when a source inbox message is linked.
+- [ ] Reply pre-fills recipient and subject; user confirms before send.
+- [ ] PDF or Word export can be attached.
+- [ ] After send, inbox message status reflects **Replied**.
+
+---
+
 ## Non-Functional Requirements
 
 ### NFR-001 — Desktop deployment model
@@ -912,7 +1005,7 @@ QuotationAccelerator-v1.0-win-x64.zip
 |-------------|--------|
 | Message bus / async integration | Not required |
 | ERP integration | Not required for pilot |
-| Email / notifications | Not required |
+| Email / notifications | Microsoft 365 inbox fetch, categorization, in-app support queue, and outbound proposal replies via Graph (FR-020–FR-025) |
 
 ---
 

@@ -17,10 +17,7 @@ public partial class App : Application
         base.OnStartup(e);
 
         _host = Host.CreateDefaultBuilder()
-            .ConfigureAppConfiguration(builder =>
-            {
-                builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            })
+            .UseContentRoot(AppContext.BaseDirectory)
             .ConfigureServices((context, services) =>
             {
                 services.AddQuotationAcceleratorInfrastructure(context.Configuration);
@@ -37,6 +34,7 @@ public partial class App : Application
         var mainWindow = new MainWindow
         {
             DataContext = mainViewModel,
+            Title = mainViewModel.WindowTitle,
         };
 
         mainWindow.Show();

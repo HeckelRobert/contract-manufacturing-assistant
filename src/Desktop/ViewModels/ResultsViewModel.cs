@@ -4,23 +4,24 @@ using System.Collections.ObjectModel;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Extensions.Options;
 using QuotationAccelerator.Catalog.Domain;
 using QuotationAccelerator.Desktop.Resources;
 using QuotationAccelerator.Desktop.Services;
 using QuotationAccelerator.Matching.Application.Abstractions;
 using QuotationAccelerator.Matching.Domain;
-using QuotationAccelerator.SharedKernel.Configuration;
 using QuotationAccelerator.SharedKernel.Enums;
 
 public partial class ResultsViewModel(
     IMatchExplanationFormatter explanationFormatter,
     ProjectProfileFormatter profileFormatter,
     IUiTextProvider uiText,
-    ApplicationPreferences preferences,
-    IOptions<MatchingOptions> matchingOptions) : ObservableObject
+    ApplicationPreferences preferences) : ObservableObject
 {
     public event EventHandler<ProjectMatch>? PrimaryMatchChanged;
+
+    public event EventHandler? UseForProposalRequested;
+
+    private AnalyzeInquiryResult? _analysisResult;
 
     public ObservableCollection<ProjectMatchItemViewModel> Matches { get; } = [];
 
@@ -35,6 +36,9 @@ public partial class ResultsViewModel(
 
     [ObservableProperty]
     private bool _hasMatches;
+
+    [ObservableProperty]
+    private bool _hasAnalysisResult;
 
     [ObservableProperty]
     private string _emptyTitle = string.Empty;
@@ -66,12 +70,12 @@ public partial class ResultsViewModel(
     [ObservableProperty]
     private string _pdfPreviewRuntimeMissingMessage = string.Empty;
 
+    [ObservableProperty]
+    private string _contractManufacturingHint = string.Empty;
+
     public void ApplyLocalization()
     {
-        ResultsHeading = uiText.Format(
-            UiTextKeys.ResultsHeadingFormat,
-            preferences.UiLanguage,
-            matchingOptions.Value.TopResultsCount);
+        ResultsHeading = uiText.Get(UiTextKeys.ResultsHeadingFormat, preferences.UiLanguage);
 
         ResultsHint = uiText.Get(UiTextKeys.ResultsSelectionHint, preferences.UiLanguage);
         EmptyTitle = uiText.Get(UiTextKeys.ResultsEmptyTitle, preferences.UiLanguage);
@@ -79,6 +83,7 @@ public partial class ResultsViewModel(
         OpenFolderButtonText = uiText.Get(UiTextKeys.OpenProjectFolderButton, preferences.UiLanguage);
         OpenDrawingButtonText = uiText.Get(UiTextKeys.OpenDrawingButton, preferences.UiLanguage);
         UseForProposalButtonText = uiText.Get(UiTextKeys.UseForProposalButton, preferences.UiLanguage);
+        ContractManufacturingHint = uiText.Get(UiTextKeys.ResultsContractManufacturingHint, preferences.UiLanguage);
         DrawingPreviewLabel = uiText.Get(UiTextKeys.ResultsDrawingPreviewLabel, preferences.UiLanguage);
         PdfPreviewRuntimeMissingMessage = uiText.Get(UiTextKeys.PdfPreviewRuntimeMissing, preferences.UiLanguage);
 
@@ -96,6 +101,7 @@ public partial class ResultsViewModel(
 
     public void DisplayResults(AnalyzeInquiryResult result)
     {
+        _analysisResult = result;
         Matches.Clear();
         var language = preferences.UiLanguage;
         var bestMatchBadge = uiText.Get(UiTextKeys.PrimaryMatchBadge, language);
@@ -117,6 +123,7 @@ public partial class ResultsViewModel(
         }
 
         HasMatches = Matches.Count > 0;
+        HasAnalysisResult = true;
         SelectedMatch = Matches.FirstOrDefault();
         UpdateDrawingPreview();
         StatusMessage = HasMatches
@@ -127,9 +134,11 @@ public partial class ResultsViewModel(
 
     public void ClearResults()
     {
+        _analysisResult = null;
         Matches.Clear();
         SelectedMatch = null;
         HasMatches = false;
+        HasAnalysisResult = false;
         PreviewPdfPath = null;
         PreviewPlaceholderMessage = string.Empty;
         ApplyLocalization();
@@ -219,6 +228,7 @@ public partial class ResultsViewModel(
                 UiTextKeys.ProposalUpdatedFromMatchFormat,
                 preferences.UiLanguage,
                 SelectedMatch.ProjectNumber);
+            UseForProposalRequested?.Invoke(this, EventArgs.Empty);
         }
     }
 }

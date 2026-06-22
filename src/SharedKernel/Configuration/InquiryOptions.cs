@@ -9,4 +9,6 @@ public sealed class InquiryOptions
     public IReadOnlyList<string> SurfaceTreatments { get; set; } = [];
 
     public IReadOnlyList<string> ManufacturingProcesses { get; set; } = [];
+
+    public IReadOnlyList<string> PartDescriptionExamples { get; set; } = [];
 }

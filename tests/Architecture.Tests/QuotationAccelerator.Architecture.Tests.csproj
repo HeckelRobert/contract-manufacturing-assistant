@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Catalog\QuotationAccelerator.Catalog.csproj" />
+    <ProjectReference Include="..\..\src\Inbox\QuotationAccelerator.Inbox.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure\QuotationAccelerator.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\Inquiry\QuotationAccelerator.Inquiry.csproj" />
     <ProjectReference Include="..\..\src\Matching\QuotationAccelerator.Matching.csproj" />

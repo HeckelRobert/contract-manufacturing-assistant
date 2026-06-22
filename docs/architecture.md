@@ -48,7 +48,7 @@ flowchart LR
 ```mermaid
 flowchart TB
   subgraph Desktop["Desktop (WPF)"]
-    UI[Tab Shell: Inquiry / Results / Proposal Workspace / Settings]
+    UI[Tab Shell: Inbox / Inquiry / Results / Proposal Workspace / Settings]
     VM[ViewModels + Navigation]
   end
 
@@ -59,6 +59,7 @@ flowchart TB
     Proposal[Proposal slice]
     Documents[Documents slice]
     Export[Export slice]
+    Inbox[Inbox slice]
     SettingsApp[Settings slice]
   end
 
@@ -72,6 +73,7 @@ flowchart TB
     Pdf[PDF text extraction + preview]
     Ai[AI provider adapters]
     PdfExport[PDF export renderer]
+    Mail[Microsoft Graph mail adapter]
     I18n[Localization resources]
   end
 
@@ -93,7 +95,8 @@ flowchart TB
 | **Proposal** | Generate and edit manufacturing steps and quotation draft from primary match | Matching, Documents, AI adapters |
 | **Documents** | List referenced files, open folder/file, embedded PDF preview | File system, PDF preview |
 | **Export** | Clipboard copy, proposal PDF export | Proposal, Inquiry, Matching |
-| **Settings** | Project root, language, matching strategy, AI providers, status card, debug logging | Catalog, AI adapters, persistence |
+| **Inbox** | Fetch mailbox, categorize emails, support queue, inquiry prefill, outbound replies | Microsoft Graph, SQLite, Inquiry |
+| **Settings** | Project root, language, matching strategy, AI providers, mail account, status card, debug logging | Catalog, AI adapters, Inbox, persistence |
 | **Infrastructure** | SQLite, configuration, Ollama/OpenAI/Azure OpenAI clients, PDF libraries | External runtimes |
 
 Slices communicate through the internal dispatcher (commands/queries) per Heckel ADR-002. Slices do not reference each other's infrastructure implementations directly.
@@ -259,9 +262,10 @@ On **Rescan Projects** or project root change, the catalog index is rebuilt. Emb
 | Ollama | Local chat + embedding models | HTTP (`localhost`) | Optional (preferred) |
 | OpenAI-compatible API | Hosted chat / embeddings | HTTPS | Optional |
 | Azure OpenAI | Hosted chat / embeddings | HTTPS | Optional |
+| Microsoft 365 (Graph) | Inbox fetch, send replies | HTTPS + Entra OAuth | Optional (Inbox workflow) |
 | OS default PDF handler | Open document externally | Shell execute | Optional fallback |
 
-No ERP, email, or cloud hosting integrations in the pilot.
+ERP integration is out of scope for the pilot. Email integration is optional until the user configures a mailbox in **Settings** (FR-020).
 
 ---
 

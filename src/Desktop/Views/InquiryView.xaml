@@ -3,9 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{StaticResource PageBackgroundBrush}">
   <ScrollViewer Padding="32">
-    <StackPanel MaxWidth="1100" HorizontalAlignment="Center">
+    <StackPanel HorizontalAlignment="Stretch">
       <TextBlock Text="{Binding Heading}" Style="{StaticResource PageTitleStyle}" />
-      <TextBlock Text="{Binding Subtitle}" Style="{StaticResource PageSubtitleStyle}" Margin="0,0,0,24" />
+      <TextBlock Text="{Binding Subtitle}" Style="{StaticResource PageSubtitleStyle}" Margin="0,0,0,16" />
+
+      <Border Style="{StaticResource CollapsibleInfoBannerStyle}" Margin="0,0,0,16">
+        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+      </Border>
+
+      <WrapPanel Margin="0,0,0,24">
+        <Button Content="{Binding AnalyzeInquiryButtonText}"
+                Command="{Binding AnalyzeInquiryCommand}"
+                Style="{StaticResource PrimaryButtonStyle}"
+                MinWidth="0"
+                Margin="0,0,8,8" />
+      </WrapPanel>
 
       <Grid>
         <Grid.ColumnDefinitions>
@@ -57,6 +69,11 @@
             <TextBlock Text="{Binding DetailsSectionTitle}" Style="{StaticResource SectionTitleStyle}" />
 
             <TextBlock Text="{Binding PartDescriptionLabel}" Style="{StaticResource FieldLabelStyle}" />
+            <ComboBox ItemsSource="{Binding PartDescriptionExamples}"
+                      DisplayMemberPath="Display"
+                      SelectedValuePath="Value"
+                      SelectedValue="{Binding SelectedPartDescriptionExampleValue}"
+                      Margin="0,0,0,8" />
             <TextBlock Text="{Binding PartDescriptionHint}" Style="{StaticResource HintTextStyle}" Margin="0,0,0,8" />
             <TextBox Text="{Binding PartDescription, UpdateSourceTrigger=PropertyChanged}"
                      AcceptsReturn="True"
@@ -130,17 +147,6 @@
           </StackPanel>
         </Border>
       </Grid>
-
-      <StackPanel Orientation="Horizontal" Margin="0,24,0,0">
-        <Button Content="{Binding AnalyzeInquiryButtonText}"
-                Command="{Binding AnalyzeInquiryCommand}"
-                Style="{StaticResource PrimaryButtonStyle}"
-                MinWidth="220" />
-      </StackPanel>
-
-      <Border Style="{StaticResource CollapsibleInfoBannerStyle}">
-        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
-      </Border>
     </StackPanel>
   </ScrollViewer>
 </UserControl>

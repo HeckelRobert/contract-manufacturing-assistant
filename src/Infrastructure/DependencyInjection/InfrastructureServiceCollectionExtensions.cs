@@ -46,5 +46,6 @@ public static class InfrastructureServiceCollectionExtensions
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         await db.Database.EnsureCreatedAsync();
         await ProjectCatalogSchemaPatcher.ApplyAsync(db, CancellationToken.None);
+        await InboxSchemaPatcher.ApplyAsync(db, CancellationToken.None);
     }
 }

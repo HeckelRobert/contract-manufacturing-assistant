@@ -16,7 +16,7 @@ QuotationAccelerator
 
 ## Purpose
 
-Portable Windows desktop prototype that demonstrates how historical manufacturing project knowledge — drawings, quotations, work instructions, fixtures, and CNC programs — can accelerate technical review and quotation preparation for contract manufacturing according to technical drawings (*Lohnfertigung nach Zeichnung*).
+Portable Windows desktop prototype that demonstrates how historical manufacturing project knowledge — drawings, quotations, work instructions, fixtures, and CNC programs — can accelerate technical review and quotation preparation for contract manufacturing according to technical drawings.
 
 The application answers: **"Have we manufactured something similar before?"**
 

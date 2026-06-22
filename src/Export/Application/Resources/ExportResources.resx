@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Quotation Accelerator</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Contract manufacturing draft</value>
+  </data>
+  <data name="GeneratedAtLabel" xml:space="preserve">
+    <value>Generated</value>
+  </data>
+  <data name="MatchingStrategyLabel" xml:space="preserve">
+    <value>Search strategy</value>
+  </data>
+  <data name="ModelNameLabel" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="InquirySummaryTitle" xml:space="preserve">
+    <value>Inquiry Summary</value>
+  </data>
+  <data name="TopMatchesTitle" xml:space="preserve">
+    <value>Top 3 Similar Projects</value>
+  </data>
+  <data name="SimilarityScoreLabel" xml:space="preserve">
+    <value>Similarity</value>
+  </data>
+  <data name="ReasonsLabel" xml:space="preserve">
+    <value>Reasons</value>
+  </data>
+  <data name="PrimaryMatchIndicator" xml:space="preserve">
+    <value>Primary match</value>
+  </data>
+  <data name="ManufacturingStepsTitle" xml:space="preserve">
+    <value>Suggested Manufacturing Steps</value>
+  </data>
+  <data name="SuggestedQuotationTitle" xml:space="preserve">
+    <value>Suggested contract manufacturing information</value>
+  </data>
+  <data name="ReferencedDocumentsTitle" xml:space="preserve">
+    <value>Referenced Documents</value>
+  </data>
+  <data name="PartDescriptionLabel" xml:space="preserve">
+    <value>Part Description</value>
+  </data>
+  <data name="QuantityLabel" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="MaterialLabel" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="SurfaceTreatmentLabel" xml:space="preserve">
+    <value>Surface Treatment</value>
+  </data>
+  <data name="DeliveryDeadlineLabel" xml:space="preserve">
+    <value>Requested Delivery Date</value>
+  </data>
+  <data name="SpecialRequirementsLabel" xml:space="preserve">
+    <value>Special Requirements</value>
+  </data>
+  <data name="DrawingFilenameLabel" xml:space="preserve">
+    <value>Selected Drawing Filename</value>
+  </data>
+  <data name="NotProvided" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="SimilarityPercentFormat" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="MatchingStrategyRuleBased" xml:space="preserve">
+    <value>Rule-based</value>
+  </data>
+  <data name="MatchingStrategyAiAssisted" xml:space="preserve">
+    <value>AI-assisted</value>
+  </data>
+  <data name="MatchingStrategyHybrid" xml:space="preserve">
+    <value>Hybrid</value>
+  </data>
+  <data name="ReasonBulletFormat" xml:space="preserve">
+    <value>• {0}</value>
+  </data>
+  <data name="ContractManufacturingDocumentType" xml:space="preserve">
+    <value>Contract manufacturing per drawing</value>
+  </data>
+  <data name="TopMatchesReferenceTitle" xml:space="preserve">
+    <value>Similar projects reviewed (reference only)</value>
+  </data>
+  <data name="ContractManufacturingBasisNote" xml:space="preserve">
+    <value>Contract manufacturing based on customer inquiry and drawing; no historical project reused.</value>
+  </data>
+  <data name="ContractManufacturingBasisNoteWithReferenceFormat" xml:space="preserve">
+    <value>Contract manufacturing based on customer inquiry and drawing. Template prefilled from previous job {0}; all values adjusted in the workspace.</value>
+  </data>
+</root>

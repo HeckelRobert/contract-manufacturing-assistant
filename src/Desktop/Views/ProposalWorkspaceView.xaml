@@ -4,24 +4,89 @@
              xmlns:controls="clr-namespace:QuotationAccelerator.Desktop.Controls"
              Background="{StaticResource PageBackgroundBrush}">
   <ScrollViewer Padding="32">
-    <StackPanel MaxWidth="1100" HorizontalAlignment="Center">
+    <StackPanel HorizontalAlignment="Stretch">
       <TextBlock Text="{Binding Heading}" Style="{StaticResource PageTitleStyle}" />
       <TextBlock Text="{Binding Subtitle}" Style="{StaticResource PageSubtitleStyle}" Margin="0,0,0,16" />
 
-      <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
-        <Button Content="{Binding CopyToClipboardButtonText}"
+      <Border Style="{StaticResource CollapsibleInfoBannerStyle}" Margin="0,0,0,16">
+        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
+      </Border>
+
+      <DockPanel Margin="0,0,0,24" LastChildFill="True">
+        <Button DockPanel.Dock="Right"
                 Command="{Binding CopyToClipboardCommand}"
+                Style="{StaticResource SecondaryButtonStyle}"
+                MinWidth="0"
+                Width="40"
+                Height="36"
+                Padding="8"
+                Margin="8,0,0,8"
+                ToolTip="{Binding CopyToClipboardButtonText}">
+          <Path Data="M 4 2 H 12 V 10 H 10 V 4 H 4 V 2 M 2 4 H 10 V 12 H 2 V 4 Z"
+                Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                StrokeThickness="1.25"
+                StrokeLineJoin="Round"
+                Fill="Transparent"
+                Width="16"
+                Height="16"
+                Stretch="Uniform"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center" />
+        </Button>
+        <WrapPanel>
+        <Button Content="{Binding CreateNewContractManufacturingButtonText}"
+                Command="{Binding CreateNewContractManufacturingCommand}"
                 Style="{StaticResource PrimaryButtonStyle}"
-                Margin="0,0,8,0" />
+                MinWidth="0"
+                Margin="0,0,8,8" />
         <Button Content="{Binding OpenProjectFolderButtonText}"
                 Command="{Binding OpenProjectFolderCommand}"
                 Style="{StaticResource SecondaryButtonStyle}"
-                Margin="0,0,8,0" />
+                IsEnabled="{Binding CanOpenProjectFolder}"
+                MinWidth="0"
+                Margin="0,0,8,8" />
         <Button Content="{Binding OpenDrawingButtonText}"
                 Command="{Binding OpenDrawingCommand}"
                 Style="{StaticResource SecondaryButtonStyle}"
-                IsEnabled="{Binding CanOpenDrawing}" />
-      </StackPanel>
+                IsEnabled="{Binding CanOpenDrawing}"
+                MinWidth="0"
+                Margin="0,0,8,8" />
+        <Button Style="{StaticResource SecondaryButtonStyle}"
+                IsEnabled="{Binding CanExport}"
+                MinWidth="0"
+                Margin="0,0,8,8"
+                Click="ExportMenuButton_Click">
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding ExportMenuButtonText}"
+                       FontSize="14"
+                       FontWeight="SemiBold"
+                       Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                       VerticalAlignment="Center" />
+            <Path Data="M 0 0 L 4 4 L 8 0 Z"
+                  Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                  Width="8"
+                  Height="5"
+                  Margin="8,1,0,0"
+                  VerticalAlignment="Center"
+                  Stretch="Uniform" />
+          </StackPanel>
+          <Button.ContextMenu>
+            <ContextMenu DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+              <MenuItem Header="{Binding ExportToPdfButtonText}"
+                        Command="{Binding ExportToPdfCommand}" />
+              <MenuItem Header="{Binding ExportToWordButtonText}"
+                        Command="{Binding ExportToWordCommand}" />
+            </ContextMenu>
+          </Button.ContextMenu>
+        </Button>
+        <Button Content="{Binding SendAsEmailButtonText}"
+                Command="{Binding SendAsEmailCommand}"
+                Style="{StaticResource SecondaryButtonStyle}"
+                IsEnabled="{Binding CanSendAsEmail}"
+                MinWidth="0"
+                Margin="0,0,8,8" />
+        </WrapPanel>
+      </DockPanel>
 
       <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
         <StackPanel>
@@ -63,10 +128,6 @@
                                       PlaceholderMessage="{Binding PreviewPlaceholderMessage}"
                                       RuntimeMissingMessage="{Binding PdfPreviewRuntimeMissingMessage}" />
         </StackPanel>
-      </Border>
-
-      <Border Style="{StaticResource CollapsibleInfoBannerStyle}">
-        <TextBlock Text="{Binding StatusMessage}" TextWrapping="Wrap" />
       </Border>
     </StackPanel>
   </ScrollViewer>

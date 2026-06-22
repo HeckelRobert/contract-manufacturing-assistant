@@ -13,16 +13,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>Quotation Accelerator</value>
+    <value>Lohnfertigung</value>
+  </data>
+  <data name="TabInbox" xml:space="preserve">
+    <value>Posteingang</value>
   </data>
   <data name="TabInquiry" xml:space="preserve">
     <value>Anfrage</value>
   </data>
   <data name="TabResults" xml:space="preserve">
-    <value>Ergebnisse</value>
+    <value>Katalog</value>
   </data>
   <data name="TabProposalWorkspace" xml:space="preserve">
-    <value>Angebotsarbeitsplatz</value>
+    <value>Lohnfertigung</value>
+  </data>
+  <data name="TabMailResponses" xml:space="preserve">
+    <value>E-Mail-Antworten</value>
   </data>
   <data name="TabSettings" xml:space="preserve">
     <value>Einstellungen</value>
@@ -58,7 +64,61 @@
     <value>Erwartete Operationen auswählen, um das Matching zu verbessern (optional).</value>
   </data>
   <data name="PartDescriptionHint" xml:space="preserve">
-    <value>z. B. Schweißrahmen, Edelstahlgehäuse, Montagehalter</value>
+    <value>Wählen Sie ein Beispiel oder beschreiben Sie das Bauteil manuell.</value>
+  </data>
+  <data name="PartDescriptionExampleLabel" xml:space="preserve">
+    <value>Beispielbeschreibung</value>
+  </data>
+  <data name="PartDescriptionExamplePlaceholder" xml:space="preserve">
+    <value>Beispiel auswählen …</value>
+  </data>
+  <data name="PartDescriptionExample_WeldedFrame" xml:space="preserve">
+    <value>Schweißrahmen</value>
+  </data>
+  <data name="PartDescriptionExample_WeldedFrame_Description" xml:space="preserve">
+    <value>Verzinkter Schweißrahmen für Förderstrecke mit Anschweissungen nach Zeichnung</value>
+  </data>
+  <data name="PartDescriptionExample_StainlessEnclosure" xml:space="preserve">
+    <value>Edelstahlgehäuse</value>
+  </data>
+  <data name="PartDescriptionExample_StainlessEnclosure_Description" xml:space="preserve">
+    <value>Edelstahlgehäuse mit Schwenktür, Kabeleinführungen M20, Pulverbeschichtung RAL 9016</value>
+  </data>
+  <data name="PartDescriptionExample_MountingBracket" xml:space="preserve">
+    <value>Montagehalter</value>
+  </data>
+  <data name="PartDescriptionExample_MountingBracket_Description" xml:space="preserve">
+    <value>Eloxierte Aluminium-Montagehalterung mit Langlöchern</value>
+  </data>
+  <data name="PartDescriptionExample_MachineHousing" xml:space="preserve">
+    <value>Maschinengehäuse</value>
+  </data>
+  <data name="PartDescriptionExample_MachineHousing_Description" xml:space="preserve">
+    <value>Pulverbeschichtetes Maschinengehäuse mit Wartungsklappen und Lüftungsschlitzen</value>
+  </data>
+  <data name="PartDescriptionExample_TankSupportFrame" xml:space="preserve">
+    <value>Tank-Stützrahmen</value>
+  </data>
+  <data name="PartDescriptionExample_TankSupportFrame_Description" xml:space="preserve">
+    <value>Lackierter Tank-Stützrahmen mit Anschlagösen</value>
+  </data>
+  <data name="PartDescriptionExample_HydraulicAssembly" xml:space="preserve">
+    <value>Hydraulik-Baugruppe</value>
+  </data>
+  <data name="PartDescriptionExample_HydraulicAssembly_Description" xml:space="preserve">
+    <value>Hydraulik-Verteilerbaugruppe mit Edelstahl-Fittings</value>
+  </data>
+  <data name="PartDescriptionExample_ControlCabinetDoor" xml:space="preserve">
+    <value>Schaltschranktür</value>
+  </data>
+  <data name="PartDescriptionExample_ControlCabinetDoor_Description" xml:space="preserve">
+    <value>Pulverbeschichtete Schranktür mit Sichtfenster-Ausschnitt und Scharnieren</value>
+  </data>
+  <data name="PartDescriptionExample_ShaftCouplingHub" xml:space="preserve">
+    <value>Kupplungsnabe</value>
+  </data>
+  <data name="PartDescriptionExample_ShaftCouplingHub_Description" xml:space="preserve">
+    <value>Edelstahl-Kupplungsnabe mit Passfeder und Bohrung 30 H7</value>
   </data>
   <data name="DrawingHint" xml:space="preserve">
     <value>Lokale Kundenzeichnung als PDF referenzieren (optional).</value>
@@ -85,7 +145,7 @@
     <value>Eloxiert</value>
   </data>
   <data name="ResultsHeadingFormat" xml:space="preserve">
-    <value>Top {0} ähnliche Projekte</value>
+    <value>Katalog</value>
   </data>
   <data name="QuantityLabel" xml:space="preserve">
     <value>Stückzahl</value>
@@ -112,10 +172,13 @@
     <value>Anfragedaten eingeben und Anfrage analysieren wählen.</value>
   </data>
   <data name="ResultsStatusPrompt" xml:space="preserve">
-    <value>Führen Sie eine Anfrageanalyse aus, um ähnliche Projekte zu sehen.</value>
+    <value>Führen Sie eine Anfrageanalyse aus, um passende Lohnfertigungen im Katalog zu sehen.</value>
   </data>
   <data name="SettingsHeading" xml:space="preserve">
     <value>Einstellungen</value>
+  </data>
+  <data name="SettingsNavGeneral" xml:space="preserve">
+    <value>Allgemein</value>
   </data>
   <data name="ProjectCatalogGroup" xml:space="preserve">
     <value>Projektkatalog</value>
@@ -184,16 +247,16 @@
     <value>Oberflächensprache</value>
   </data>
   <data name="ProposalWorkspaceHeading" xml:space="preserve">
-    <value>Angebotsarbeitsplatz</value>
+    <value>Lohnfertigung</value>
   </data>
   <data name="ProposalWorkspaceSubtitle" xml:space="preserve">
-    <value>Vorgeschlagene Fertigungsschritte und Angebotsentwurf nach der Analyse prüfen.</value>
+    <value>Vorgeschlagene Fertigungsschritte und Lohnfertigungsentwurf nach der Analyse prüfen.</value>
   </data>
   <data name="ManufacturingStepsGroup" xml:space="preserve">
     <value>Fertigungsschritte</value>
   </data>
   <data name="SuggestedQuotationGroup" xml:space="preserve">
-    <value>Angebotsentwurf</value>
+    <value>Lohnfertigungsentwurf</value>
   </data>
   <data name="ReferencedDocumentsGroup" xml:space="preserve">
     <value>Referenzierte Dokumente</value>
@@ -205,19 +268,19 @@
     <value>Führen Sie eine Anfrageanalyse aus, um Fertigungsschritte aus ähnlichen Projekten abzuleiten.</value>
   </data>
   <data name="ProposalWorkspaceEmptyQuotation" xml:space="preserve">
-    <value>Der Angebotsentwurf erscheint hier nach einer erfolgreichen Analyse.</value>
+    <value>Der Lohnfertigungsentwurf erscheint hier nach einer erfolgreichen Analyse.</value>
   </data>
   <data name="ProposalWorkspaceEmptyDocuments" xml:space="preserve">
-    <value>Referenzierte Angebots- und Kalkulationsdokumente der Treffer werden hier aufgelistet.</value>
+    <value>Referenzierte Lohnfertigungs- und Kalkulationsdokumente der Treffer werden hier aufgelistet.</value>
   </data>
   <data name="ProposalWorkspacePreviewPlaceholder" xml:space="preserve">
     <value>PDF-Vorschau folgt in einer späteren Iteration (WebView2).</value>
   </data>
   <data name="ResultsEmptyTitle" xml:space="preserve">
-    <value>Noch keine Ergebnisse</value>
+    <value>Katalog noch leer</value>
   </data>
   <data name="ResultsEmptySubtitle" xml:space="preserve">
-    <value>Füllen Sie die Anfrage aus und starten Sie die Analyse, um ähnliche Projekte zu sehen.</value>
+    <value>Füllen Sie die Anfrage aus und starten Sie die Analyse, um passende Lohnfertigungen im Katalog zu sehen.</value>
   </data>
   <data name="ProposalStepFormat" xml:space="preserve">
     <value>• {0}</value>
@@ -238,7 +301,7 @@
     <value>Ordner des besten Treffers: {0}</value>
   </data>
   <data name="ResultsSelectionHint" xml:space="preserve">
-    <value>Wählen Sie ein Projekt als Basis für das Angebot. Der beste Treffer ist vorausgewählt.</value>
+    <value>Wählen Sie eine Vorlage aus bestehenden Lohnfertigungen im Katalog. Der beste Treffer ist vorausgewählt.</value>
   </data>
   <data name="OpenProjectFolderButton" xml:space="preserve">
     <value>Projektordner öffnen</value>
@@ -247,10 +310,10 @@
     <value>Zeichnung öffnen</value>
   </data>
   <data name="UseForProposalButton" xml:space="preserve">
-    <value>Für Angebot verwenden</value>
+    <value>Für Lohnfertigung verwenden</value>
   </data>
   <data name="SelectedForProposalBadge" xml:space="preserve">
-    <value>Für Angebot gewählt</value>
+    <value>Für Lohnfertigung gewählt</value>
   </data>
   <data name="OpenFolderFailed" xml:space="preserve">
     <value>Der Projektordner konnte nicht geöffnet werden.</value>
@@ -259,16 +322,16 @@
     <value>Die Zeichnungs-PDF konnte nicht geöffnet werden.</value>
   </data>
   <data name="ProposalUpdatedFromMatchFormat" xml:space="preserve">
-    <value>Angebotsarbeitsplatz aktualisiert aus {0}.</value>
+    <value>Lohnfertigung aktualisiert aus {0}.</value>
   </data>
   <data name="CopyToClipboardButton" xml:space="preserve">
-    <value>Angebot in Zwischenablage kopieren</value>
+    <value>Lohnfertigungsinhalt (Fertigungsschritte, Entwurf und Dokumente) in die Zwischenablage kopieren</value>
   </data>
   <data name="CopiedToClipboardStatus" xml:space="preserve">
-    <value>Angebotsinhalt in die Zwischenablage kopiert.</value>
+    <value>Lohnfertigungsinhalt in die Zwischenablage kopiert.</value>
   </data>
   <data name="ProposalLoadedFromProjectFormat" xml:space="preserve">
-    <value>Angebotsentwurf geladen aus {0}.</value>
+    <value>Lohnfertigungsentwurf geladen aus {0}.</value>
   </data>
   <data name="ProposalFixtureAvailable" xml:space="preserve">
     <value>• Vorhandene Biegevorrichtung verfügbar (Fixture.pdf)</value>
@@ -323,5 +386,269 @@
   </data>
   <data name="ResultsDrawingPreviewLabel" xml:space="preserve">
     <value>Zeichnungsvorschau</value>
+  </data>
+  <data name="ExportToPdfButton" xml:space="preserve">
+    <value>Als PDF exportieren</value>
+  </data>
+  <data name="ExportMenuButton" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
+  <data name="ExportToWordButton" xml:space="preserve">
+    <value>Als Word exportieren</value>
+  </data>
+  <data name="ExportPdfDialogTitle" xml:space="preserve">
+    <value>Lohnfertigungsentwurf als PDF exportieren</value>
+  </data>
+  <data name="ExportWordDialogTitle" xml:space="preserve">
+    <value>Lohnfertigungsentwurf als Word-Dokument exportieren</value>
+  </data>
+  <data name="ExportPdfDialogFilter" xml:space="preserve">
+    <value>PDF-Dateien (*.pdf)|*.pdf</value>
+  </data>
+  <data name="ExportWordDialogFilter" xml:space="preserve">
+    <value>Word-Dokumente (*.docx)|*.docx</value>
+  </data>
+  <data name="ExportSucceededFormat" xml:space="preserve">
+    <value>Exportiert nach {0}.</value>
+  </data>
+  <data name="ExportFailedFormat" xml:space="preserve">
+    <value>Export fehlgeschlagen: {0}</value>
+  </data>
+  <data name="ExportOpenFailed" xml:space="preserve">
+    <value>Die exportierte Datei konnte nicht geöffnet werden.</value>
+  </data>
+  <data name="CreateNewContractManufacturingButton" xml:space="preserve">
+    <value>Neue Lohnfertigung erstellen</value>
+  </data>
+  <data name="ResultsContractManufacturingHint" xml:space="preserve">
+    <value>Wählen Sie einen Treffer und verwenden Sie „Für Lohnfertigung verwenden“.</value>
+  </data>
+  <data name="ContractManufacturingWorkspaceHeading" xml:space="preserve">
+    <value>Lohnfertigung nach Zeichnung</value>
+  </data>
+  <data name="ContractManufacturingWorkspaceSubtitle" xml:space="preserve">
+    <value>Neue Lohnfertigung auf Basis der Kundenanfrage und Zeichnung — kein historisches Projekt wiederverwendet.</value>
+  </data>
+  <data name="ProposalLoadedAsContractManufacturingStatus" xml:space="preserve">
+    <value>Neue Lohnfertigung aus der Anfrage erstellt.</value>
+  </data>
+  <data name="ContractManufacturingStepDrawingReview" xml:space="preserve">
+    <value>• Technische Zeichnungsprüfung und Fertigungsmachbarkeit</value>
+  </data>
+  <data name="ContractManufacturingStepFeasibilityReview" xml:space="preserve">
+    <value>• Material- und Prozessplanung für Lohnfertigung</value>
+  </data>
+  <data name="ContractManufacturingStepProcessPlanning" xml:space="preserve">
+    <value>• Fertigungsprozesskette aus Zeichnung definieren</value>
+  </data>
+  <data name="ContractManufacturingStepQualityInspection" xml:space="preserve">
+    <value>• Qualitätsprüfung gemäß Zeichnungsvorgaben</value>
+  </data>
+  <data name="ContractManufacturingStepPackagingDelivery" xml:space="preserve">
+    <value>• Verpackung und Liefervorbereitung</value>
+  </data>
+  <data name="ContractManufacturingQuotationDraftFormat" xml:space="preserve">
+    <value>Lohnfertigung nach Zeichnung&#xD;&#xA;Teil: {0}&#xD;&#xA;Material: {1}&#xD;&#xA;Stückzahl: {2}&#xD;&#xA;Oberfläche: {3}&#xD;&#xA;Gewünschte Lieferung: {4}&#xD;&#xA;Besondere Anforderungen: {5}</value>
+  </data>
+  <data name="ContractManufacturingCustomerDrawingFormat" xml:space="preserve">
+    <value>• Kundenzeichnung: {0}</value>
+  </data>
+  <data name="ContractManufacturingNoCustomerDrawing" xml:space="preserve">
+    <value>Der Anfrage ist keine Kundenzeichnung beigefügt.</value>
+  </data>
+  <data name="NotProvided" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="ContractManufacturingPrefillLabel" xml:space="preserve">
+    <value>Vorlage aus früherem Projekt vorausfüllen (optional)</value>
+  </data>
+  <data name="ContractManufacturingPrefillNoneOption" xml:space="preserve">
+    <value>Nur Vorlage — ohne Vorausfüllung</value>
+  </data>
+  <data name="ContractManufacturingPrefillProjectOptionFormat" xml:space="preserve">
+    <value>{0} — {1}</value>
+  </data>
+  <data name="ContractManufacturingWorkspaceSubtitleWithReferenceFormat" xml:space="preserve">
+    <value>Vorlage vorausgefüllt aus {0}. Alle Abschnitte bleiben anpassbar.</value>
+  </data>
+  <data name="ProposalLoadedAsContractManufacturingWithReferenceFormat" xml:space="preserve">
+    <value>Lohnfertigung aus Vorlage erstellt, vorausgefüllt aus {0}.</value>
+  </data>
+  <data name="InboxHeading" xml:space="preserve">
+    <value>Posteingang</value>
+  </data>
+  <data name="InboxSubtitle" xml:space="preserve">
+    <value>Kundenanfragen abrufen, Nachrichten kategorisieren und Lohnfertigungsanfragen weiterbearbeiten.</value>
+  </data>
+  <data name="FetchMailButton" xml:space="preserve">
+    <value>E-Mails abrufen</value>
+  </data>
+  <data name="ClearInboxCacheButton" xml:space="preserve">
+    <value>Lokalen Posteingang leeren</value>
+  </data>
+  <data name="ClearInboxCacheConfirmTitle" xml:space="preserve">
+    <value>Lokalen Posteingang leeren?</value>
+  </data>
+  <data name="ClearInboxCacheConfirmMessage" xml:space="preserve">
+    <value>Alle lokal zwischengespeicherten E-Mails und Support-Tickets werden gelöscht. Nachrichten im Postfach bleiben unverändert und können beim nächsten Abruf erneut importiert werden.</value>
+  </data>
+  <data name="ClearInboxCacheSuccessFormat" xml:space="preserve">
+    <value>Lokaler Posteingang geleert. {0} Nachricht(en) entfernt.</value>
+  </data>
+  <data name="InboxStatusPrompt" xml:space="preserve">
+    <value>Wählen Sie eine Nachricht, um verfügbare Aktionen anzuzeigen.</value>
+  </data>
+  <data name="InboxFetchedFormat" xml:space="preserve">
+    <value>{0} neue Nachricht(en) importiert.</value>
+  </data>
+  <data name="InboxFromLabel" xml:space="preserve">
+    <value>Von</value>
+  </data>
+  <data name="InboxSubjectLabel" xml:space="preserve">
+    <value>Betreff</value>
+  </data>
+  <data name="InboxCategoryLabel" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
+  <data name="InboxReceivedLabel" xml:space="preserve">
+    <value>Eingang</value>
+  </data>
+  <data name="InboxFilterAll" xml:space="preserve">
+    <value>Alle</value>
+  </data>
+  <data name="InboxFilterContractManufacturing" xml:space="preserve">
+    <value>Lohnfertigung</value>
+  </data>
+  <data name="InboxFilterSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="InboxFilterAutoAnswered" xml:space="preserve">
+    <value>Automatisch beantwortbar</value>
+  </data>
+  <data name="InboxCategoryAutoAnswerable" xml:space="preserve">
+    <value>Automatisch beantwortbar</value>
+  </data>
+  <data name="InboxCategorySupportRequired" xml:space="preserve">
+    <value>Support erforderlich</value>
+  </data>
+  <data name="InboxCategoryContractManufacturing" xml:space="preserve">
+    <value>Lohnfertigung nach Zeichnung</value>
+  </data>
+  <data name="InboxCategoryUncategorized" xml:space="preserve">
+    <value>Nicht kategorisiert</value>
+  </data>
+  <data name="ContinueInquiryButton" xml:space="preserve">
+    <value>Weiter zur Anfrage</value>
+  </data>
+  <data name="SendAutoReplyButton" xml:space="preserve">
+    <value>Antwort senden</value>
+  </data>
+  <data name="EscalateToSupportButton" xml:space="preserve">
+    <value>Ticket erstellen</value>
+  </data>
+  <data name="SupportQueueGroup" xml:space="preserve">
+    <value>Support-Warteschlange</value>
+  </data>
+  <data name="SupportTicketStatusOpen" xml:space="preserve">
+    <value>Offen</value>
+  </data>
+  <data name="SupportTicketStatusInProgress" xml:space="preserve">
+    <value>In Bearbeitung</value>
+  </data>
+  <data name="SupportTicketStatusResolved" xml:space="preserve">
+    <value>Erledigt</value>
+  </data>
+  <data name="MarkSupportResolvedButton" xml:space="preserve">
+    <value>Als erledigt markieren</value>
+  </data>
+  <data name="MailSettingsGroup" xml:space="preserve">
+    <value>Microsoft-365-Postfach</value>
+  </data>
+  <data name="MailTenantIdLabel" xml:space="preserve">
+    <value>Mandanten-ID</value>
+  </data>
+  <data name="MailClientIdLabel" xml:space="preserve">
+    <value>Anwendungs-ID (Client)</value>
+  </data>
+  <data name="MailMailboxLabel" xml:space="preserve">
+    <value>Postfachadresse</value>
+  </data>
+  <data name="MailFolderLabel" xml:space="preserve">
+    <value>Ordner</value>
+  </data>
+  <data name="ConnectMailButton" xml:space="preserve">
+    <value>Verbinden</value>
+  </data>
+  <data name="DisconnectMailButton" xml:space="preserve">
+    <value>Trennen</value>
+  </data>
+  <data name="SaveMailSettingsButton" xml:space="preserve">
+    <value>Mail-Einstellungen speichern</value>
+  </data>
+  <data name="MailConnectedStatus" xml:space="preserve">
+    <value>Postfach verbunden.</value>
+  </data>
+  <data name="MailDisconnectedStatus" xml:space="preserve">
+    <value>Postfach nicht verbunden.</value>
+  </data>
+  <data name="FaqTemplatesGroup" xml:space="preserve">
+    <value>Standard-E-Mail-Antworten</value>
+  </data>
+  <data name="MailResponsesHeading" xml:space="preserve">
+    <value>Standard-E-Mail-Antworten</value>
+  </data>
+  <data name="MailResponsesListLabel" xml:space="preserve">
+    <value>Antworten</value>
+  </data>
+  <data name="MailResponsesSelectPrompt" xml:space="preserve">
+    <value>Wählen Sie eine Antwort aus der Liste oder legen Sie mit „Antwort hinzufügen“ eine neue an.</value>
+  </data>
+  <data name="MailResponseNewTemplateLabel" xml:space="preserve">
+    <value>Neue Antwort</value>
+  </data>
+  <data name="MailResponsesStatusPrompt" xml:space="preserve">
+    <value>Antworten bearbeiten und speichern.</value>
+  </data>
+  <data name="MailResponsesHint" xml:space="preserve">
+    <value>Vordefinierte Antworten auf typische Kundenanfragen zur Lohnfertigung. Schlüsselwörter in Betreff oder Text lösen beim E-Mail-Abruf die passende Antwortvorschau aus.</value>
+  </data>
+  <data name="FaqKeywordsLabel" xml:space="preserve">
+    <value>Schlüsselwörter (kommagetrennt)</value>
+  </data>
+  <data name="FaqReplyBodyLabel" xml:space="preserve">
+    <value>Antworttext</value>
+  </data>
+  <data name="AddMailResponseButton" xml:space="preserve">
+    <value>Antwort hinzufügen</value>
+  </data>
+  <data name="RemoveMailResponseButton" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="SaveFaqTemplatesButton" xml:space="preserve">
+    <value>Antworten speichern</value>
+  </data>
+  <data name="MailResponsesSavedStatus" xml:space="preserve">
+    <value>Standard-E-Mail-Antworten gespeichert.</value>
+  </data>
+  <data name="SendAsEmailButton" xml:space="preserve">
+    <value>Als E-Mail senden</value>
+  </data>
+  <data name="SendEmailDialogTitle" xml:space="preserve">
+    <value>Lohnfertigung per E-Mail senden</value>
+  </data>
+  <data name="EmailSentStatusFormat" xml:space="preserve">
+    <value>E-Mail an {0} gesendet.</value>
+  </data>
+  <data name="AutoReplySentStatus" xml:space="preserve">
+    <value>Automatische Antwort gesendet.</value>
+  </data>
+  <data name="InboxPrefilledStatus" xml:space="preserve">
+    <value>Anfrage aus E-Mail vorausgefüllt. Felder prüfen und Analyse starten.</value>
+  </data>
+  <data name="InboxReplyPreviewLabel" xml:space="preserve">
+    <value>Vorgeschlagene Antwort</value>
+  </data>
+  <data name="InboxAttachmentsLabel" xml:space="preserve">
+    <value>Anhänge</value>
   </data>
 </root>

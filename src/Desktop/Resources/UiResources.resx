@@ -13,16 +13,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>Quotation Accelerator</value>
+    <value>Contract manufacturing</value>
+  </data>
+  <data name="TabInbox" xml:space="preserve">
+    <value>Inbox</value>
   </data>
   <data name="TabInquiry" xml:space="preserve">
     <value>Inquiry</value>
   </data>
   <data name="TabResults" xml:space="preserve">
-    <value>Results</value>
+    <value>Catalog</value>
   </data>
   <data name="TabProposalWorkspace" xml:space="preserve">
-    <value>Proposal Workspace</value>
+    <value>Contract manufacturing</value>
+  </data>
+  <data name="TabMailResponses" xml:space="preserve">
+    <value>Mail responses</value>
   </data>
   <data name="TabSettings" xml:space="preserve">
     <value>Settings</value>
@@ -58,7 +64,61 @@
     <value>Select expected operations to improve matching (optional).</value>
   </data>
   <data name="PartDescriptionHint" xml:space="preserve">
-    <value>e.g. welded frame, stainless enclosure, mounting bracket</value>
+    <value>Pick an example or describe the part manually.</value>
+  </data>
+  <data name="PartDescriptionExampleLabel" xml:space="preserve">
+    <value>Example description</value>
+  </data>
+  <data name="PartDescriptionExamplePlaceholder" xml:space="preserve">
+    <value>Select an example …</value>
+  </data>
+  <data name="PartDescriptionExample_WeldedFrame" xml:space="preserve">
+    <value>Welded frame</value>
+  </data>
+  <data name="PartDescriptionExample_WeldedFrame_Description" xml:space="preserve">
+    <value>Galvanized welded support frame for conveyor section with welds per drawing</value>
+  </data>
+  <data name="PartDescriptionExample_StainlessEnclosure" xml:space="preserve">
+    <value>Stainless enclosure</value>
+  </data>
+  <data name="PartDescriptionExample_StainlessEnclosure_Description" xml:space="preserve">
+    <value>Stainless enclosure with hinged door, cable glands M20, powder coat RAL 9016</value>
+  </data>
+  <data name="PartDescriptionExample_MountingBracket" xml:space="preserve">
+    <value>Mounting bracket</value>
+  </data>
+  <data name="PartDescriptionExample_MountingBracket_Description" xml:space="preserve">
+    <value>Anodized aluminium mounting bracket with slotted holes</value>
+  </data>
+  <data name="PartDescriptionExample_MachineHousing" xml:space="preserve">
+    <value>Machine housing</value>
+  </data>
+  <data name="PartDescriptionExample_MachineHousing_Description" xml:space="preserve">
+    <value>Painted machine housing with access panels and ventilation slots</value>
+  </data>
+  <data name="PartDescriptionExample_TankSupportFrame" xml:space="preserve">
+    <value>Tank support frame</value>
+  </data>
+  <data name="PartDescriptionExample_TankSupportFrame_Description" xml:space="preserve">
+    <value>Painted tank support frame with lifting lugs</value>
+  </data>
+  <data name="PartDescriptionExample_HydraulicAssembly" xml:space="preserve">
+    <value>Hydraulic assembly</value>
+  </data>
+  <data name="PartDescriptionExample_HydraulicAssembly_Description" xml:space="preserve">
+    <value>Hydraulic manifold assembly with stainless fittings</value>
+  </data>
+  <data name="PartDescriptionExample_ControlCabinetDoor" xml:space="preserve">
+    <value>Control cabinet door</value>
+  </data>
+  <data name="PartDescriptionExample_ControlCabinetDoor_Description" xml:space="preserve">
+    <value>Powder coated cabinet door with window cut-out and hinges</value>
+  </data>
+  <data name="PartDescriptionExample_ShaftCouplingHub" xml:space="preserve">
+    <value>Shaft coupling hub</value>
+  </data>
+  <data name="PartDescriptionExample_ShaftCouplingHub_Description" xml:space="preserve">
+    <value>Stainless coupling hub with keyway and bore 30 H7</value>
   </data>
   <data name="DrawingHint" xml:space="preserve">
     <value>Reference a local customer drawing PDF (optional).</value>
@@ -85,7 +145,7 @@
     <value>Anodized</value>
   </data>
   <data name="ResultsHeadingFormat" xml:space="preserve">
-    <value>Top {0} Similar Projects</value>
+    <value>Catalog</value>
   </data>
   <data name="QuantityLabel" xml:space="preserve">
     <value>Quantity</value>
@@ -112,10 +172,13 @@
     <value>Enter inquiry details and click Analyze Inquiry.</value>
   </data>
   <data name="ResultsStatusPrompt" xml:space="preserve">
-    <value>Run an inquiry analysis to see similar projects.</value>
+    <value>Run an inquiry analysis to see matching contract manufacturing jobs in the catalog.</value>
   </data>
   <data name="SettingsHeading" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="SettingsNavGeneral" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="ProjectCatalogGroup" xml:space="preserve">
     <value>Project Catalog</value>
@@ -184,16 +247,16 @@
     <value>UI Language</value>
   </data>
   <data name="ProposalWorkspaceHeading" xml:space="preserve">
-    <value>Proposal Workspace</value>
+    <value>Contract manufacturing</value>
   </data>
   <data name="ProposalWorkspaceSubtitle" xml:space="preserve">
-    <value>Review suggested manufacturing steps and quotation draft after analysis.</value>
+    <value>Review suggested manufacturing steps and contract manufacturing draft after analysis.</value>
   </data>
   <data name="ManufacturingStepsGroup" xml:space="preserve">
     <value>Manufacturing steps</value>
   </data>
   <data name="SuggestedQuotationGroup" xml:space="preserve">
-    <value>Suggested quotation</value>
+    <value>Contract manufacturing draft</value>
   </data>
   <data name="ReferencedDocumentsGroup" xml:space="preserve">
     <value>Referenced documents</value>
@@ -205,19 +268,19 @@
     <value>Run an inquiry analysis to generate manufacturing steps from similar projects.</value>
   </data>
   <data name="ProposalWorkspaceEmptyQuotation" xml:space="preserve">
-    <value>The quotation draft will appear here after a successful analysis.</value>
+    <value>The contract manufacturing draft will appear here after a successful analysis.</value>
   </data>
   <data name="ProposalWorkspaceEmptyDocuments" xml:space="preserve">
-    <value>Referenced offer and calculation documents from matched projects will be listed here.</value>
+    <value>Referenced contract manufacturing and calculation documents from matched projects will be listed here.</value>
   </data>
   <data name="ProposalWorkspacePreviewPlaceholder" xml:space="preserve">
     <value>PDF preview will be available in a later iteration (WebView2).</value>
   </data>
   <data name="ResultsEmptyTitle" xml:space="preserve">
-    <value>No results yet</value>
+    <value>Catalog is empty</value>
   </data>
   <data name="ResultsEmptySubtitle" xml:space="preserve">
-    <value>Complete the inquiry form and run analysis to see similar historical projects.</value>
+    <value>Complete the inquiry form and run analysis to see matching contract manufacturing jobs in the catalog.</value>
   </data>
   <data name="ProposalStepFormat" xml:space="preserve">
     <value>• {0}</value>
@@ -238,7 +301,7 @@
     <value>Primary match folder: {0}</value>
   </data>
   <data name="ResultsSelectionHint" xml:space="preserve">
-    <value>Select a project to base the proposal on. The best match is pre-selected.</value>
+    <value>Select a template from existing contract manufacturing jobs in the catalog. The best match is pre-selected.</value>
   </data>
   <data name="OpenProjectFolderButton" xml:space="preserve">
     <value>Open project folder</value>
@@ -247,10 +310,10 @@
     <value>Open drawing</value>
   </data>
   <data name="UseForProposalButton" xml:space="preserve">
-    <value>Use for proposal</value>
+    <value>Use for contract manufacturing</value>
   </data>
   <data name="SelectedForProposalBadge" xml:space="preserve">
-    <value>Selected for proposal</value>
+    <value>Selected for contract manufacturing</value>
   </data>
   <data name="OpenFolderFailed" xml:space="preserve">
     <value>Could not open the project folder.</value>
@@ -259,16 +322,16 @@
     <value>Could not open the drawing PDF.</value>
   </data>
   <data name="ProposalUpdatedFromMatchFormat" xml:space="preserve">
-    <value>Proposal workspace updated from {0}.</value>
+    <value>Contract manufacturing updated from {0}.</value>
   </data>
   <data name="CopyToClipboardButton" xml:space="preserve">
-    <value>Copy proposal to clipboard</value>
+    <value>Copy contract manufacturing content (manufacturing steps, draft, and documents) to the clipboard</value>
   </data>
   <data name="CopiedToClipboardStatus" xml:space="preserve">
-    <value>Proposal content copied to clipboard.</value>
+    <value>Contract manufacturing content copied to clipboard.</value>
   </data>
   <data name="ProposalLoadedFromProjectFormat" xml:space="preserve">
-    <value>Proposal draft loaded from {0}.</value>
+    <value>Contract manufacturing draft loaded from {0}.</value>
   </data>
   <data name="ProposalFixtureAvailable" xml:space="preserve">
     <value>• Existing bending fixture available (Fixture.pdf)</value>
@@ -323,5 +386,269 @@
   </data>
   <data name="ResultsDrawingPreviewLabel" xml:space="preserve">
     <value>Drawing preview</value>
+  </data>
+  <data name="ExportToPdfButton" xml:space="preserve">
+    <value>Export to PDF</value>
+  </data>
+  <data name="ExportMenuButton" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ExportToWordButton" xml:space="preserve">
+    <value>Export to Word</value>
+  </data>
+  <data name="ExportPdfDialogTitle" xml:space="preserve">
+    <value>Export contract manufacturing draft as PDF</value>
+  </data>
+  <data name="ExportWordDialogTitle" xml:space="preserve">
+    <value>Export contract manufacturing draft as Word document</value>
+  </data>
+  <data name="ExportPdfDialogFilter" xml:space="preserve">
+    <value>PDF files (*.pdf)|*.pdf</value>
+  </data>
+  <data name="ExportWordDialogFilter" xml:space="preserve">
+    <value>Word documents (*.docx)|*.docx</value>
+  </data>
+  <data name="ExportSucceededFormat" xml:space="preserve">
+    <value>Exported to {0}.</value>
+  </data>
+  <data name="ExportFailedFormat" xml:space="preserve">
+    <value>Export failed: {0}</value>
+  </data>
+  <data name="ExportOpenFailed" xml:space="preserve">
+    <value>The exported file could not be opened.</value>
+  </data>
+  <data name="CreateNewContractManufacturingButton" xml:space="preserve">
+    <value>Create new contract manufacturing</value>
+  </data>
+  <data name="ResultsContractManufacturingHint" xml:space="preserve">
+    <value>Select a match and use “Use for contract manufacturing”.</value>
+  </data>
+  <data name="ContractManufacturingWorkspaceHeading" xml:space="preserve">
+    <value>Contract manufacturing per drawing</value>
+  </data>
+  <data name="ContractManufacturingWorkspaceSubtitle" xml:space="preserve">
+    <value>New contract manufacturing based on the customer inquiry and drawing — no historical project reused.</value>
+  </data>
+  <data name="ProposalLoadedAsContractManufacturingStatus" xml:space="preserve">
+    <value>New contract manufacturing created from the inquiry.</value>
+  </data>
+  <data name="ContractManufacturingStepDrawingReview" xml:space="preserve">
+    <value>• Technical drawing review and manufacturing feasibility check</value>
+  </data>
+  <data name="ContractManufacturingStepFeasibilityReview" xml:space="preserve">
+    <value>• Material and process planning for contract manufacturing</value>
+  </data>
+  <data name="ContractManufacturingStepProcessPlanning" xml:space="preserve">
+    <value>• Define manufacturing process chain from drawing</value>
+  </data>
+  <data name="ContractManufacturingStepQualityInspection" xml:space="preserve">
+    <value>• Quality inspection per drawing requirements</value>
+  </data>
+  <data name="ContractManufacturingStepPackagingDelivery" xml:space="preserve">
+    <value>• Packaging and delivery preparation</value>
+  </data>
+  <data name="ContractManufacturingQuotationDraftFormat" xml:space="preserve">
+    <value>Contract manufacturing per drawing&#xD;&#xA;Part: {0}&#xD;&#xA;Material: {1}&#xD;&#xA;Quantity: {2}&#xD;&#xA;Surface: {3}&#xD;&#xA;Requested delivery: {4}&#xD;&#xA;Special requirements: {5}</value>
+  </data>
+  <data name="ContractManufacturingCustomerDrawingFormat" xml:space="preserve">
+    <value>• Customer drawing: {0}</value>
+  </data>
+  <data name="ContractManufacturingNoCustomerDrawing" xml:space="preserve">
+    <value>No customer drawing attached to the inquiry.</value>
+  </data>
+  <data name="NotProvided" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="ContractManufacturingPrefillLabel" xml:space="preserve">
+    <value>Prefill template from previous project (optional)</value>
+  </data>
+  <data name="ContractManufacturingPrefillNoneOption" xml:space="preserve">
+    <value>Template only — no prefill</value>
+  </data>
+  <data name="ContractManufacturingPrefillProjectOptionFormat" xml:space="preserve">
+    <value>{0} — {1}</value>
+  </data>
+  <data name="ContractManufacturingWorkspaceSubtitleWithReferenceFormat" xml:space="preserve">
+    <value>Template prefilled from {0}. All sections remain editable.</value>
+  </data>
+  <data name="ProposalLoadedAsContractManufacturingWithReferenceFormat" xml:space="preserve">
+    <value>Contract manufacturing created from template, prefilled from {0}.</value>
+  </data>
+  <data name="InboxHeading" xml:space="preserve">
+    <value>Mailbox</value>
+  </data>
+  <data name="InboxSubtitle" xml:space="preserve">
+    <value>Fetch customer inquiries, categorize messages, and continue contract-manufacturing requests.</value>
+  </data>
+  <data name="FetchMailButton" xml:space="preserve">
+    <value>Fetch mail</value>
+  </data>
+  <data name="ClearInboxCacheButton" xml:space="preserve">
+    <value>Clear local inbox</value>
+  </data>
+  <data name="ClearInboxCacheConfirmTitle" xml:space="preserve">
+    <value>Clear local inbox?</value>
+  </data>
+  <data name="ClearInboxCacheConfirmMessage" xml:space="preserve">
+    <value>All locally cached emails and support tickets will be removed. Messages in the mailbox are unchanged and can be imported again on the next fetch.</value>
+  </data>
+  <data name="ClearInboxCacheSuccessFormat" xml:space="preserve">
+    <value>Local inbox cleared. {0} message(s) removed.</value>
+  </data>
+  <data name="InboxStatusPrompt" xml:space="preserve">
+    <value>Select a message to review available actions.</value>
+  </data>
+  <data name="InboxFetchedFormat" xml:space="preserve">
+    <value>Imported {0} new message(s).</value>
+  </data>
+  <data name="InboxFromLabel" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="InboxSubjectLabel" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="InboxCategoryLabel" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="InboxReceivedLabel" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="InboxFilterAll" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="InboxFilterContractManufacturing" xml:space="preserve">
+    <value>Contract manufacturing</value>
+  </data>
+  <data name="InboxFilterSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="InboxFilterAutoAnswered" xml:space="preserve">
+    <value>Auto-answerable</value>
+  </data>
+  <data name="InboxCategoryAutoAnswerable" xml:space="preserve">
+    <value>Auto-answerable</value>
+  </data>
+  <data name="InboxCategorySupportRequired" xml:space="preserve">
+    <value>Support required</value>
+  </data>
+  <data name="InboxCategoryContractManufacturing" xml:space="preserve">
+    <value>Contract manufacturing inquiry</value>
+  </data>
+  <data name="InboxCategoryUncategorized" xml:space="preserve">
+    <value>Uncategorized</value>
+  </data>
+  <data name="ContinueInquiryButton" xml:space="preserve">
+    <value>Continue inquiry</value>
+  </data>
+  <data name="SendAutoReplyButton" xml:space="preserve">
+    <value>Send reply</value>
+  </data>
+  <data name="EscalateToSupportButton" xml:space="preserve">
+    <value>Create OTRS Ticket</value>
+  </data>
+  <data name="SupportQueueGroup" xml:space="preserve">
+    <value>Support queue</value>
+  </data>
+  <data name="SupportTicketStatusOpen" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="SupportTicketStatusInProgress" xml:space="preserve">
+    <value>In progress</value>
+  </data>
+  <data name="SupportTicketStatusResolved" xml:space="preserve">
+    <value>Resolved</value>
+  </data>
+  <data name="MarkSupportResolvedButton" xml:space="preserve">
+    <value>Mark resolved</value>
+  </data>
+  <data name="MailSettingsGroup" xml:space="preserve">
+    <value>Microsoft 365 mailbox</value>
+  </data>
+  <data name="MailTenantIdLabel" xml:space="preserve">
+    <value>Tenant ID</value>
+  </data>
+  <data name="MailClientIdLabel" xml:space="preserve">
+    <value>Application (client) ID</value>
+  </data>
+  <data name="MailMailboxLabel" xml:space="preserve">
+    <value>Mailbox address</value>
+  </data>
+  <data name="MailFolderLabel" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="ConnectMailButton" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="DisconnectMailButton" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="SaveMailSettingsButton" xml:space="preserve">
+    <value>Save mail settings</value>
+  </data>
+  <data name="MailConnectedStatus" xml:space="preserve">
+    <value>Mail account connected.</value>
+  </data>
+  <data name="MailDisconnectedStatus" xml:space="preserve">
+    <value>Mail account not connected.</value>
+  </data>
+  <data name="FaqTemplatesGroup" xml:space="preserve">
+    <value>Default mail responses</value>
+  </data>
+  <data name="MailResponsesHeading" xml:space="preserve">
+    <value>Default mail responses</value>
+  </data>
+  <data name="MailResponsesListLabel" xml:space="preserve">
+    <value>Responses</value>
+  </data>
+  <data name="MailResponsesSelectPrompt" xml:space="preserve">
+    <value>Select a response from the list or use Add response to create a new one.</value>
+  </data>
+  <data name="MailResponseNewTemplateLabel" xml:space="preserve">
+    <value>New response</value>
+  </data>
+  <data name="MailResponsesStatusPrompt" xml:space="preserve">
+    <value>Edit responses and save your changes.</value>
+  </data>
+  <data name="MailResponsesHint" xml:space="preserve">
+    <value>Predefined replies for typical contract manufacturing client questions. Keywords in the subject or body suggest the matching response when mail is fetched.</value>
+  </data>
+  <data name="FaqKeywordsLabel" xml:space="preserve">
+    <value>Keywords (comma-separated)</value>
+  </data>
+  <data name="FaqReplyBodyLabel" xml:space="preserve">
+    <value>Reply body</value>
+  </data>
+  <data name="AddMailResponseButton" xml:space="preserve">
+    <value>Add response</value>
+  </data>
+  <data name="RemoveMailResponseButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="SaveFaqTemplatesButton" xml:space="preserve">
+    <value>Save responses</value>
+  </data>
+  <data name="MailResponsesSavedStatus" xml:space="preserve">
+    <value>Default mail responses saved.</value>
+  </data>
+  <data name="SendAsEmailButton" xml:space="preserve">
+    <value>Send as email</value>
+  </data>
+  <data name="SendEmailDialogTitle" xml:space="preserve">
+    <value>Send contract manufacturing by email</value>
+  </data>
+  <data name="EmailSentStatusFormat" xml:space="preserve">
+    <value>Email sent to {0}.</value>
+  </data>
+  <data name="AutoReplySentStatus" xml:space="preserve">
+    <value>Auto-reply sent.</value>
+  </data>
+  <data name="InboxPrefilledStatus" xml:space="preserve">
+    <value>Inquiry prefilled from email. Review the fields and analyze when ready.</value>
+  </data>
+  <data name="InboxReplyPreviewLabel" xml:space="preserve">
+    <value>Suggested reply</value>
+  </data>
+  <data name="InboxAttachmentsLabel" xml:space="preserve">
+    <value>Attachments</value>
   </data>
 </root>

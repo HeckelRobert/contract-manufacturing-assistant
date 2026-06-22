@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+
+  <PropertyGroup>
+
+    <RootNamespace>QuotationAccelerator.Inbox</RootNamespace>
+
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="$(MicrosoftExtensionsVersion)" />
+
+    <PackageReference Include="Microsoft.Extensions.Options" Version="$(MicrosoftExtensionsVersion)" />
+
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+
+    <ProjectReference Include="..\Inquiry\QuotationAccelerator.Inquiry.csproj" />
+
+    <ProjectReference Include="..\SharedKernel\QuotationAccelerator.SharedKernel.csproj" />
+
+  </ItemGroup>
+
+
+
+</Project>
+

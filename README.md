@@ -10,11 +10,13 @@
 
 Preparing a *Lohnfertigung* is repetitive and time-consuming. For each new inquiry an engineer must locate comparable past jobs, read drawings, work out manufacturing steps, and draft the technical content — often by digging through project folders and relying on memory. That work adds up across many inquiries and slows down quotation and technical review.
 
-Much of this can be automated: the app matches new inquiries to your catalog and drafts manufacturing steps and *Lohnfertigung* content from the best historical match. For AI-assisted matching and text generation, a **local model** (e.g. via [Ollama](https://ollama.com)) keeps customer data, drawings, and inquiry details **on your machine** — no cloud upload required. Hosted providers remain optional if you explicitly configure them.
+Much of this can be automated: the app matches new inquiries to your catalog and drafts manufacturing steps and *Lohnfertigung* content from the best historical match. AI can run **locally on your PC**, so customer data, drawings, and inquiry details stay **on your machine** — no cloud upload required. Cloud-based AI remains optional if you prefer it.
 
 ## What is it?
 
-Contract manufacturing is a Windows desktop application for engineers. It connects a new customer inquiry to your historical project catalog: you enter material, quantity, surface treatment, and a short description (or pull details from an email inbox), and the app searches past jobs for the best matches.
+This repository ships a **Windows desktop prototype** for engineers — the fastest way to try the workflow on a pilot PC. The same capability can be delivered as a **web app or mobile app** when that fits your environment better. The software is structured so business logic stays separate from the user interface, which keeps it **easy to maintain, adapt, and extend** as your needs grow.
+
+It connects a new customer inquiry to your historical project catalog: you enter material, quantity, surface treatment, and a short description (or pull details from an email inbox), and the app searches past jobs for the best matches.
 
 For each match you get a similarity score, plain-language reasons, and direct access to project folders and drawing PDFs. The contract manufacturing workspace then suggests manufacturing steps and a *Lohnfertigung* draft you can review, edit, and copy into your existing process — cutting the manual rework that usually takes the most time.
 
@@ -28,7 +30,7 @@ Bundled sample data is included so you can explore the full workflow **without c
 | Every new inquiry starts from scratch | Surfaces the three most similar projects immediately |
 | Knowledge lives in folders and people's heads | Makes historical jobs searchable and explains *why* a match fits |
 | Drawings are hard to find | Opens the right project folder and drawing PDF in one click |
-| Sensitive data must stay in-house | Local AI (Ollama) runs on your PC; inquiry and document text never leave the machine unless you choose a hosted provider |
+| Sensitive data must stay in-house | Local AI runs on your PC; inquiry and document text never leave the machine unless you choose a cloud provider |
 
 The goal is faster, more consistent technical review and shorter paths from inquiry to a usable *Lohnfertigung* draft.
 
@@ -49,9 +51,7 @@ If your team repeatedly asks *"have we done this before?"* and spends hours rebu
 
 We are happy to walk you through the application and discuss how it could fit your process.
 
-**Email:** [info@heckel-informatik.de](mailto:info@heckel-informatik.de?subject=Demo%20-%20Contract%20manufacturing)
-
-**Subject:** `Demo - Contract manufacturing`
+Email [info@heckel-informatik.de](mailto:info@heckel-informatik.de?subject=Demo%20-%20Contract%20manufacturing) to request a demo.
 
 No commitment required — just tell us briefly what you manufacture and we will set up a short session.
 

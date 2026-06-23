@@ -1,8 +1,89 @@
 # Contract manufacturing
 
-Prototype desktop application for contract manufacturing: **find similar past projects quickly** and reuse drawings, manufacturing steps, and historical job knowledge when preparing a new contract manufacturing job.
+**Find similar past projects in seconds** — and reuse drawings, manufacturing steps, and historical job knowledge when preparing a new contract manufacturing job.
 
-**Core question the demo answers:** *Have we manufactured something like this before?*
+**The question it answers:** *Have we manufactured something like this before?*
+
+---
+
+## What is it?
+
+Contract manufacturing is a Windows desktop application that connects a new customer inquiry to your historical project catalog. You enter material, quantity, surface treatment, and a short description (or pull details from an email inbox), and the app searches past jobs for the best matches.
+
+For each match you get a similarity score, plain-language reasons, and direct access to project folders and drawing PDFs. A contract manufacturing workspace then suggests manufacturing steps and a draft you can copy into your existing process.
+
+Bundled sample data is included so you can explore the full workflow **without configuring anything** on first launch.
+
+## Why use it?
+
+| Challenge | How the app helps |
+|-----------|-------------------|
+| Every new inquiry starts from scratch | Surfaces the three most similar past projects immediately |
+| Knowledge lives in folders and people's heads | Makes historical jobs searchable and explains *why* a match fits |
+| Quotation prep takes too long | Reuses manufacturing steps and drafts from comparable jobs |
+| Drawings are hard to find | Opens the right project folder and drawing PDF in one click |
+
+The goal is faster, more consistent technical review — especially when your team has years of projects but no structured way to reuse them.
+
+## Who is it for?
+
+- **Engineers** who perform technical reviews and prepare contract manufacturing jobs
+- **Sales and contract manufacturing staff** who need quick orientation on whether you have done similar work before
+- **Engineering management** evaluating whether structured knowledge reuse is worth investing in
+
+If your company manufactures to customer drawings and repeatedly asks *"have we done this before?"*, this prototype is built to show what that workflow could look like.
+
+---
+
+## Interested? Request a demo
+
+We are happy to walk you through the application and discuss how it could fit your process.
+
+**Email:** [info@heckel-informatik.de](mailto:info@heckel-informatik.de?subject=Demo%20-%20Contract%20manufacturing)
+
+**Subject:** `Demo - Contract manufacturing`
+
+No commitment required — just tell us briefly what you manufacture and we will set up a short session.
+
+---
+
+## Or try it yourself
+
+### Requirements
+
+- Windows 10 or 11 (64-bit)
+- No .NET SDK required — the installer is self-contained
+
+### Install and run
+
+1. Download **`Contract manufacturing Setup.msi`** (from your Heckel contact, or build it yourself — see [For developers](#for-developers) below).
+2. Double-click the installer and complete the wizard.
+3. Start **Contract manufacturing** from the desktop shortcut or the Windows Start menu.
+
+Uninstall later via **Windows Settings → Apps** if needed.
+
+> The technical repository and build identifiers may still use the name `QuotationAccelerator`.
+
+### 5-minute walkthrough
+
+1. Tab **Inquiry**: Material *Stainless Steel 1.4301*, surface *Powder Coated*, quantity *20*, description *Stainless enclosure*.
+2. Click **Analyze Inquiry**.
+3. Tab **Catalog**: best match **PRJ-2019-0142** — try another match, review the drawing preview, then **Open project folder** or **Open drawing**.
+4. Tab **Contract manufacturing**: review the draft → copy content to the clipboard.
+
+Default UI language is German; switch to English under **Settings**.
+
+### What you will see
+
+| Step | What happens |
+|------|----------------|
+| Enter a customer inquiry | Material, quantity, surface treatment, short description |
+| Analyze | The app searches your historical project catalog |
+| Review top 3 matches | Similarity score and plain-language reasons |
+| Open documents | Project folder and drawing PDF from a past job |
+| Contract manufacturing workspace | Suggested manufacturing steps and draft — copy into your process |
+
+---
 
 ## Screenshots
 
@@ -30,45 +111,11 @@ Review suggested manufacturing steps and the contract manufacturing draft after 
 
 ![Contract manufacturing workspace](docs/images/contract-manufacturing-workspace.png)
 
-## What you get in the workshop
+---
 
-| Step | What happens |
-|------|----------------|
-| Enter a customer inquiry | Material, quantity, surface treatment, short description |
-| Analyze | The app searches your historical project catalog |
-| Review top 3 matches | Similarity score and plain-language reasons |
-| Open documents | Project folder and drawing PDF from a past job |
-| Contract manufacturing workspace | Suggested manufacturing steps and contract manufacturing draft — copy into your process |
+## For developers
 
-Bundled sample data is included so you can see results **without configuring anything** on first launch.
-
-## Quick start (workshop / pilot)
-
-You receive **`Contract manufacturing Setup.msi`** from your presenter or IT (the technical repository and build identifiers may still use `QuotationAccelerator`).
-
-1. Double-click the installer and complete the wizard.
-2. Start **Contract manufacturing** from the desktop shortcut or the Windows Start menu.
-3. Follow the short demo below — no SDK, no command line, no repository checkout required.
-
-Uninstall later via **Windows Settings → Apps** if needed.
-
-### 5-minute demo path
-
-1. Tab **Inquiry**: Material *Stainless Steel 1.4301*, surface *Powder Coated*, quantity *20*, description *Stainless enclosure*.
-2. Click **Analyze Inquiry**.
-3. Tab **Catalog**: best match **PRJ-2019-0142** — try another match, review the drawing preview, then **Open project folder** or **Open drawing**.
-4. Tab **Contract manufacturing**: review the draft → copy content to the clipboard.
-
-Default UI language is German (labels differ slightly); switch to English under **Settings**.
-
-## Requirements (pilot PC)
-
-- Windows 10 or 11 (64-bit)
-- No .NET SDK required — the installer is self-contained
-
-## For developers and presenters
-
-Use this section only if you maintain the prototype or **build the MSI** before a workshop.
+Use this section if you maintain the prototype or **build the MSI** for distribution.
 
 ### Run from source
 
@@ -86,7 +133,7 @@ Prerequisites: Windows 10/11, [.NET 10 SDK](https://dotnet.microsoft.com/downloa
 .\scripts\publish-installer.ps1
 ```
 
-Output: `publish/installer/Contract manufacturing Setup.msi` — share this file with workshop attendees.
+Output: `publish/installer/Contract manufacturing Setup.msi`
 
 Demo PDFs for the flagship sample project are generated automatically during that script. To regenerate them only:
 

@@ -2,14 +2,14 @@
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
      xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
 
-  <Package Name="Quotation Accelerator"
+  <Package Name="Contract manufacturing"
            Manufacturer="Heckel Informatik GmbH"
            Version="$(var.ProductVersion)"
            UpgradeCode="c8f4e2a1-5b3d-4e6f-9a2c-1d8e7f6a5b4c"
            Scope="perMachine">
 
     <MajorUpgrade AllowDowngrades="no"
-                  DowngradeErrorMessage="A newer version of Quotation Accelerator is already installed." />
+                  DowngradeErrorMessage="A newer version of Contract manufacturing is already installed." />
 
     <MediaTemplate EmbedCab="yes" />
 
@@ -22,23 +22,23 @@
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
 
     <StandardDirectory Id="ProgramFiles64Folder">
-      <Directory Id="INSTALLFOLDER" Name="Quotation Accelerator" />
+      <Directory Id="INSTALLFOLDER" Name="Contract manufacturing" />
     </StandardDirectory>
 
     <StandardDirectory Id="ProgramMenuFolder">
-      <Directory Id="ApplicationProgramsFolder" Name="Quotation Accelerator" />
+      <Directory Id="ApplicationProgramsFolder" Name="Contract manufacturing" />
     </StandardDirectory>
 
     <StandardDirectory Id="DesktopFolder">
       <Component Id="DesktopShortcut" Guid="d4e5f6a7-b8c9-4012-9def-1234567890de">
         <Shortcut Id="DesktopLauncherShortcut"
-                  Name="Quotation Accelerator"
-                  Description="Manufacturing quotation preparation prototype"
-                  Target="[INSTALLFOLDER]Quotation Accelerator.exe"
+                  Name="Contract manufacturing"
+                  Description="Contract manufacturing preparation prototype"
+                  Target="[INSTALLFOLDER]Contract manufacturing.exe"
                   Icon="AppIcon"
                   WorkingDirectory="INSTALLFOLDER" />
         <RegistryValue Root="HKCU"
-                       Key="Software\Heckel Informatik\Quotation Accelerator"
+                       Key="Software\Heckel Informatik\Contract manufacturing"
                        Name="desktop"
                        Type="integer"
                        Value="1"
@@ -49,14 +49,14 @@
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="StartMenuShortcut" Guid="b8c9d0e1-f2a3-4567-8901-234567890abc">
         <Shortcut Id="ApplicationStartMenuShortcut"
-                  Name="Quotation Accelerator"
-                  Description="Manufacturing quotation preparation prototype"
-                  Target="[INSTALLFOLDER]Quotation Accelerator.exe"
+                  Name="Contract manufacturing"
+                  Description="Contract manufacturing preparation prototype"
+                  Target="[INSTALLFOLDER]Contract manufacturing.exe"
                   Icon="AppIcon"
                   WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="RemoveApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU"
-                       Key="Software\Heckel Informatik\Quotation Accelerator"
+                       Key="Software\Heckel Informatik\Contract manufacturing"
                        Name="startmenu"
                        Type="integer"
                        Value="1"
@@ -64,7 +64,7 @@
       </Component>
     </DirectoryRef>
 
-    <Feature Id="Main" Title="Quotation Accelerator" Level="1">
+    <Feature Id="Main" Title="Contract manufacturing" Level="1">
       <ComponentGroupRef Id="AppFiles" />
       <ComponentRef Id="StartMenuShortcut" />
       <ComponentRef Id="DesktopShortcut" />

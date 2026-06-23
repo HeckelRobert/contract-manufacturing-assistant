@@ -31,12 +31,12 @@ try {
     Write-Host "Building installer..."
     dotnet build "installer/QuotationAccelerator.Installer.wixproj" -c Release
 
-    $msiSource = Join-Path $repoRoot "installer\bin/Release/Quotation Accelerator Setup.msi"
+    $msiSource = Join-Path $repoRoot "installer\bin/Release\Contract manufacturing Setup.msi"
     if (-not (Test-Path $msiSource)) {
         throw "Installer build did not produce '$msiSource'."
     }
 
-    $msiTarget = Join-Path $outputPath "Quotation Accelerator Setup.msi"
+    $msiTarget = Join-Path $outputPath "Contract manufacturing Setup.msi"
     Copy-Item -Path $msiSource -Destination $msiTarget -Force
 
     Write-Host ""
@@ -44,7 +44,7 @@ try {
     Write-Host "  $msiTarget"
     Write-Host ""
     Write-Host "They double-click the installer, complete the wizard, then start"
-    Write-Host "'Quotation Accelerator' from the Start menu."
+    Write-Host "'Contract manufacturing' from the Start menu."
 }
 finally {
     Pop-Location

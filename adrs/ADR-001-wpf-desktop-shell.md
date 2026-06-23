@@ -1,4 +1,4 @@
-# ADR-001: WPF Desktop Shell
+﻿# ADR-001: WPF Desktop Shell
 
 ## Status
 
@@ -8,11 +8,11 @@ Accepted
 
 ## Context
 
-Quotation Accelerator is a Windows-only portable desktop prototype (requirements NFR-001, NFR-002, NFR-003). It must:
+Contract manufacturing is a Windows-only portable desktop prototype (requirements NFR-001, NFR-002, NFR-003). It must:
 
 - Run on Windows 10 and 11 without administrative privileges
 - Provide four primary tabs, embedded PDF preview, and native folder/file dialogs
-- Ship as a self-contained portable ZIP with `Quotation Accelerator.exe`
+- Ship as a self-contained portable ZIP with `Contract manufacturing.exe`
 - Support bilingual UI (German default) and a professional industrial theme
 
 The team is .NET-centric per Heckel platform standards. Cross-platform mobile or web deployment is not required.
@@ -23,7 +23,7 @@ The team is .NET-centric per Heckel platform standards. Cross-platform mobile or
 
 Use **WPF** (.NET 10 LTS) as the desktop presentation technology with the **MVVM** pattern (`CommunityToolkit.Mvvm`).
 
-Use **WebView2** for embedded PDF preview in Proposal Workspace.
+Use **WebView2** for embedded PDF preview in Contract manufacturing.
 
 ---
 

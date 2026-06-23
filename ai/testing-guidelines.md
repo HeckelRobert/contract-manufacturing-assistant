@@ -1,4 +1,4 @@
-# Testing Guidelines
+﻿# Testing Guidelines
 
 Project-specific testing guidance for AI assistants and developers.
 

@@ -1,6 +1,6 @@
 # Sample demonstration projects
 
-Bundled projects for Quotation Accelerator pilot demonstrations.
+Bundled projects for Contract manufacturing pilot demonstrations.
 
 Each folder contains `metadata.json` per FR-002. The flagship demo project `PRJ-2019-0142` also includes synthetic PDF documents for workshop demonstrations.
 

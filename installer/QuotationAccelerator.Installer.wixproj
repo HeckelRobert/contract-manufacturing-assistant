@@ -1,7 +1,7 @@
 <Project Sdk="WixToolset.Sdk/6.0.2">
 
   <PropertyGroup>
-    <OutputName>Quotation Accelerator Setup</OutputName>
+    <OutputName>Contract manufacturing Setup</OutputName>
     <OutputType>Package</OutputType>
     <InstallerPlatform>x64</InstallerPlatform>
     <ProductVersion>0.1.0.0</ProductVersion>

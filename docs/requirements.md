@@ -1,20 +1,20 @@
-# Requirements
+﻿# Requirements
 
 ## Overview
 
 | Field | Value |
 |-------|-------|
 | Project Name | QuotationAccelerator |
-| Application Display Name | Quotation Accelerator |
+| Application Display Name | Contract manufacturing |
 | Customer | None — generic, reusable demonstration prototype |
-| Purpose | Reusable desktop prototype that demonstrates how historical project knowledge can accelerate technical review and quotation preparation for companies offering contract manufacturing according to technical drawings. The prototype simulates the real-world engineering process and answers: **"Have we manufactured something similar before?"** |
-| Stakeholders | Engineering management, managing directors, engineering staff, sales/quotation staff, internal presenters |
+| Purpose | Reusable desktop prototype that demonstrates how historical project knowledge can accelerate technical review and contract manufacturing preparation for companies offering contract manufacturing according to technical drawings. The prototype simulates the real-world engineering process and answers: **"Have we manufactured something similar before?"** |
+| Stakeholders | Engineering management, managing directors, engineering staff, sales/contract manufacturing staff, internal presenters |
 
 ---
 
 ## Business Goals
 
-1. **Demonstrate knowledge reuse** — Convincingly show that previous projects, quotations, drawings, and manufacturing documents can be identified and reused to support the technical review process.
+1. **Demonstrate knowledge reuse** — Convincingly show that previous projects, contract manufacturing jobs, drawings, and manufacturing documents can be identified and reused to support the technical review process.
 2. **Validate investment case** — Enable a managing director or head of engineering to immediately understand the potential business value and agree that a production implementation should be evaluated.
 3. **Compare matching approaches** — Demonstrate rule-based, AI-assisted, and hybrid similarity strategies so stakeholders can evaluate options without committing to a single production design.
 4. **Remain generic** — Support demonstrations with different contract-manufacturing companies without customer-specific customisation.
@@ -27,8 +27,8 @@ Success is **not** measured by exact time savings in the pilot; success is conce
 
 | Actor | Description |
 |-------|-------------|
-| Engineer | Primary user. Performs technical reviews and prepares quotations. Enters inquiries, reviews matches, edits suggestions, opens documents. |
-| Sales / quotation staff | Secondary user. Should be able to operate the application without extensive training. |
+| Engineer | Primary user. Performs technical reviews and prepares contract manufacturing jobs. Enters inquiries, reviews matches, edits suggestions, opens documents. |
+| Sales / contract manufacturing staff | Secondary user. Should be able to operate the application without extensive training. |
 | Management stakeholder | Observes demonstrations and evaluates business value. May browse similar projects, preview documents, and navigate to project folders. |
 | Presenter | Operates the application during workshops and management demos. |
 
@@ -42,7 +42,7 @@ Success is **not** measured by exact time savings in the pilot; success is conce
 
 ## Primary User Workflow
 
-The application shall use **five primary tabs**: **Inbox**, **Inquiry**, **Results**, **Proposal Workspace**, and **Settings**.
+The application shall use **five primary tabs**: **Inbox**, **Inquiry**, **Results**, **Contract manufacturing**, and **Settings**.
 
 ```text
 Inbox
@@ -54,9 +54,9 @@ Inquiry
 Results
   │
   ▼  (top match pre-selected; user may switch)
-Proposal Workspace
+Contract manufacturing
   ├── Manufacturing Steps
-  ├── Suggested Quotation
+  ├── Suggested contract manufacturing information
   ├── Referenced Documents
   └── Document Preview
 
@@ -68,7 +68,7 @@ Settings — accessible at any time
 | **Inbox** | Fetch customer emails from a configured Microsoft 365 mailbox, categorize messages, manage an in-app support queue, and continue contract-manufacturing inquiries into **Inquiry**. |
 | **Inquiry** | Capture customer inquiry information, optionally reference a local drawing PDF, and start analysis. |
 | **Results** | Present the three best historical matches under the page heading **Top 3 Similar Projects**, with similarity scores, short explanations, and access to source project folders. Tab label **Results** is used for management-friendly navigation; technical content remains explicit on the page. |
-| **Proposal Workspace** | Single scrollable page with collapsible sections for reviewing, editing, and reusing generated proposal content. |
+| **Contract manufacturing** | Single scrollable page with collapsible sections for reviewing, editing, and reusing generated contract manufacturing content. |
 | **Settings** | Configure project root, rescan projects, matching strategy, and AI provider — frequently changed during demonstrations. |
 
 **Typical workflow**
@@ -79,10 +79,10 @@ Settings — accessible at any time
 4. Engineer clicks **Analyze Inquiry**; the assistant searches historical projects.
 5. Application navigates to **Results** and shows three similar projects under the heading **Top 3 Similar Projects**.
 6. The best-matching project is pre-selected automatically; the user may switch to the second or third match.
-7. **Proposal Workspace** displays suggested manufacturing steps, quotation information, referenced documents, and document preview based on the selected primary match.
-8. User reviews, edits, copies, exports, or sends the proposal as an email reply when the session originated from **Inbox**.
+7. **Contract manufacturing** displays suggested manufacturing steps, contract manufacturing information, referenced documents, and document preview based on the selected primary match.
+8. User reviews, edits, copies, exports, or sends the contract manufacturing draft as an email reply when the session originated from **Inbox**.
 
-Users may open **Settings** at any time. Users may return to earlier tabs to adjust inquiry input or select a different match on **Results**; switching the primary match refreshes **Proposal Workspace** content from the newly selected project.
+Users may open **Settings** at any time. Users may return to earlier tabs to adjust inquiry input or select a different match on **Results**; switching the primary match refreshes **Contract manufacturing** content from the newly selected project.
 
 ---
 
@@ -278,8 +278,8 @@ Presenters comparing strategies may switch to Rule-based or AI-assisted, or conf
 - [ ] A fully explainable scoring algorithm is not required; percentage plus short rationale is sufficient for the pilot.
 - [ ] Results are presented on the **Results** tab.
 - [ ] The top-ranked project is pre-selected automatically after analysis.
-- [ ] The user can switch the primary match to the second or third project before or while using **Proposal Workspace**.
-- [ ] The second and third matches provide context and references but do not automatically influence generated proposal content.
+- [ ] The user can switch the primary match to the second or third project before or while using **Contract manufacturing**.
+- [ ] The second and third matches provide context and references but do not automatically influence generated contract manufacturing content.
 
 ---
 
@@ -309,7 +309,7 @@ Presenters comparing strategies may switch to Rule-based or AI-assisted, or conf
 - [ ] PDF preview is available for project documents and, where applicable, the selected customer drawing.
 - [ ] Preview works for bundled sample documents and documents on a configured local file share.
 - [ ] Preview failure shows a clear message; the user can still open the file externally.
-- [ ] PDF preview is available within **Proposal Workspace** under a **Document Preview** section with an embedded PDF viewer.
+- [ ] PDF preview is available within **Contract manufacturing** under a **Document Preview** section with an embedded PDF viewer.
 
 ---
 
@@ -330,25 +330,25 @@ Presenters comparing strategies may switch to Rule-based or AI-assisted, or conf
 - [ ] Example step content may include CNC program availability, fixture availability, and external supplier notes.
 - [ ] Proposed steps are initially editable by the user.
 - [ ] The application does not write changes back to original project files.
-- [ ] Manufacturing steps are presented and edited in **Proposal Workspace**.
+- [ ] Manufacturing steps are presented and edited in **Contract manufacturing**.
 
 ---
 
-### FR-012 — Quotation template draft
+### FR-012 — Contract manufacturing template draft
 
-**Description:** The application shall propose reusable quotation information without generating a final commercial offer.
+**Description:** The application shall propose reusable contract manufacturing information without generating a final commercial offer.
 
 **Priority:** Must
 
 **Acceptance Criteria:**
 
 - [ ] The draft is primarily based on the best-matching project (or the user-selected primary match on **Results**).
-- [ ] Information from the second and third matches may be shown as reference context but shall not automatically merge into the generated proposal.
+- [ ] Information from the second and third matches may be shown as reference context but shall not automatically merge into the generated contract manufacturing draft.
 - [ ] The application explains the origin of suggested items, for example: "Derived from Project PRJ-2024-0178" or "Referenced in Project PRJ-2024-0178".
-- [ ] Proposed quotation content is initially editable by the user.
+- [ ] Proposed contract manufacturing content is initially editable by the user.
 - [ ] The application does not write changes back to original project files.
-- [ ] ERP export and automatic final quotation generation are out of scope.
-- [ ] The suggested quotation is presented and edited in **Proposal Workspace**.
+- [ ] ERP export and automatic final commercial offer generation are out of scope.
+- [ ] The Suggested contract manufacturing information is presented and edited in **Contract manufacturing**.
 
 ---
 
@@ -363,28 +363,28 @@ Presenters comparing strategies may switch to Rule-based or AI-assisted, or conf
 - [ ] Users can copy generated content to the clipboard.
 - [ ] Users can export the current proposal to PDF (see FR-020).
 - [ ] Export to Word and direct ERP integration are out of scope for the pilot.
-- [ ] Copy, export, and document review actions are available from **Proposal Workspace**.
+- [ ] Copy, export, and document review actions are available from **Contract manufacturing**.
 
 ---
 
 ### FR-020 — PDF export
 
-**Description:** Users shall export the current Proposal Workspace content to a PDF working document suitable for internal review and management discussions. The export is not a customer-facing quotation.
+**Description:** Users shall export the current Contract manufacturing content to a PDF working document suitable for internal review and management discussions. The export is not a customer-facing commercial offer.
 
 **Priority:** Must
 
 **Acceptance Criteria:**
 
-- [ ] Export is triggered from **Proposal Workspace**.
-- [ ] Exported content reflects the user's current edits in **Proposal Workspace**.
+- [ ] Export is triggered from **Contract manufacturing**.
+- [ ] Exported content reflects the user's current edits in **Contract manufacturing**.
 - [ ] Text follows the selected UI language (FR-019).
 - [ ] The PDF does **not** embed document previews from referenced PDF files.
 
 **Header (no separate title page)**
 
 - [ ] Each export includes a simple header with at minimum:
-  - **Quotation Accelerator** (application display name)
-  - **Proposal Draft** (document type; localized per FR-019)
+  - **Contract manufacturing** (application display name)
+  - **Contract manufacturing draft** (document type; localized per FR-019)
   - Generation timestamp (for example: `2026-06-21 18:30`)
   - Active search strategy (Rule-based, AI-assisted, Hybrid)
   - Active model name when an AI provider/model was used (for example: `qwen3:8b`)
@@ -410,11 +410,11 @@ Presenters comparing strategies may switch to Rule-based or AI-assisted, or conf
 
 3. **Suggested Manufacturing Steps** — from the primary match, including user edits
 
-4. **Suggested Quotation Information** — from the primary match, including user edits
+4. **Suggested contract manufacturing information** — from the primary match, including user edits
 
 5. **Referenced Documents** — list of document filenames/paths associated with the primary match
 
-- [ ] Suggested manufacturing steps and quotation information in the export are based on the **primary match** (pre-selected top result or user-selected match on **Results**).
+- [ ] Suggested manufacturing steps and contract manufacturing information in the export are based on the **primary match** (pre-selected top result or user-selected match on **Results**).
 - [ ] Second and third matches appear in the **Top 3 Similar Projects** section for context but do not merge into the suggested sections.
 
 **Example result block (English)**
@@ -543,7 +543,7 @@ Matching Strategy:
 **Suggested demo document set per project**
 
 - `Drawing.pdf` — title block with part name, material, quantity, illustrative dimensions
-- `Offer.pdf` — historical quotation with line items and totals
+- `Offer.pdf` — historical contract manufacturing with line items and totals
 - `Calculation.pdf` — effort and cost breakdown by operation
 - `WorkInstruction.pdf` — manufacturing sequence and inspection points
 - `Fixture.pdf` — fixture / clamping concept
@@ -558,22 +558,22 @@ Matching Strategy:
 
 ---
 
-### FR-017 — Proposal Workspace
+### FR-017 — Contract manufacturing
 
-**Description:** The application shall provide a dedicated **Proposal Workspace** tab where engineers and management stakeholders review, edit, and reuse generated proposal content.
+**Description:** The application shall provide a dedicated **Contract manufacturing** tab where engineers and management stakeholders review, edit, and reuse generated contract manufacturing content.
 
 **Priority:** Must
 
 **Acceptance Criteria:**
 
-- [ ] **Proposal Workspace** is reachable after analysis has produced results; content is generated from the pre-selected top match unless the user selects another primary match on **Results**.
-- [ ] **Proposal Workspace** is a **single scrollable page** with **collapsible sections or cards** (no nested sub-tabs).
+- [ ] **Contract manufacturing** is reachable after analysis has produced results; content is generated from the pre-selected top match unless the user selects another primary match on **Results**.
+- [ ] **Contract manufacturing** is a **single scrollable page** with **collapsible sections or cards** (no nested sub-tabs).
 - [ ] Sections appear in this order:
   1. **Manufacturing Steps** — editable ordered process list (for example: Laser Cutting, Bending, Welding, Painting)
-  2. **Suggested Quotation** — editable fields including at minimum: Material, Quantity, Surface Treatment, Estimated Setup Effort, Estimated Production Effort, Reference Projects
+  2. **Suggested contract manufacturing information** — editable fields including at minimum: Material, Quantity, Surface Treatment, Estimated Setup Effort, Estimated Production Effort, Reference Projects
   3. **Referenced Documents** — list of available files (for example: Calculation.pdf, Offer.pdf, Fixture.pdf, WorkInstruction.pdf) with open-file and open-folder actions
   4. **Document Preview** — embedded PDF viewer for the selected referenced document or customer drawing
-- [ ] **Copy to Clipboard** and **Export to PDF** actions are available from **Proposal Workspace**.
+- [ ] **Copy to Clipboard** and **Export to PDF** actions are available from **Contract manufacturing**.
 - [ ] Switching the primary match on **Results** refreshes workspace content from the newly selected project.
 - [ ] Re-running **Analyze Inquiry** from **Inquiry** replaces the current proposal with new results.
 - [ ] Management users can browse referenced documents and document preview without engineering-only configuration access.
@@ -648,7 +648,7 @@ Matching Strategy:
   - Buttons and actions
   - **Settings** labels and help text
   - Similarity explanations on **Results**
-  - Suggested manufacturing steps and suggested quotation content generated by the assistant
+  - Suggested manufacturing steps and Suggested contract manufacturing information content generated by the assistant
   - Privacy and consent messages
   - Error and status messages
 - [ ] Similarity explanations always follow the selected UI language.
@@ -739,7 +739,7 @@ Matching Strategy:
 
 ---
 
-### FR-025 — Send proposal reply by email
+### FR-025 — Send contract manufacturing reply by email
 
 **Description:** Users shall send completed proposals back to the customer by email when the session originated from **Inbox**.
 
@@ -747,7 +747,7 @@ Matching Strategy:
 
 **Acceptance Criteria:**
 
-- [ ] **Proposal Workspace** exposes **Send as email** when a source inbox message is linked.
+- [ ] **Contract manufacturing** exposes **Send as email** when a source inbox message is linked.
 - [ ] Reply pre-fills recipient and subject; user confirms before send.
 - [ ] PDF or Word export can be attached.
 - [ ] After send, inbox message status reflects **Replied**.
@@ -794,7 +794,7 @@ Matching Strategy:
 - [ ] Primary deliverable is a release ZIP archive named with the pattern `QuotationAccelerator-v{version}-win-x64.zip`.
 - [ ] Users can download the archive, extract it to any folder, and start the application immediately without administrative privileges.
 - [ ] The release contains a self-contained executable suitable for offline demonstration machines.
-- [ ] Application window title displays **Quotation Accelerator**.
+- [ ] Application window title displays **Contract manufacturing**.
 - [ ] Application launches and performs rule-based analysis without prior AI configuration.
 - [ ] Ollama is **not** bundled with the release package.
 - [ ] A formal uninstaller is **not** required; deleting the application folder removes the prototype completely.
@@ -804,7 +804,7 @@ Matching Strategy:
 
 ```text
 QuotationAccelerator-v1.0-win-x64.zip
-├── Quotation Accelerator.exe
+├── Contract manufacturing.exe
 ├── sample-data/
 ├── appsettings.json
 ├── quotation-accelerator.db
@@ -815,7 +815,7 @@ QuotationAccelerator-v1.0-win-x64.zip
 
 1. Download ZIP archive.
 2. Extract to any local folder.
-3. Start `Quotation Accelerator.exe`.
+3. Start `Contract manufacturing.exe`.
 4. Review bundled sample projects.
 5. Optionally configure another project directory in **Settings**.
 6. Start demonstrating.
@@ -880,7 +880,7 @@ QuotationAccelerator-v1.0-win-x64.zip
 
 ### NFR-008 — Usability
 
-**Description:** The application shall be simple enough for sales and quotation staff while supporting engineering review workflows.
+**Description:** The application shall be simple enough for sales and contract manufacturing staff while supporting engineering review workflows.
 
 **Priority:** Should
 
@@ -928,9 +928,9 @@ QuotationAccelerator-v1.0-win-x64.zip
 
 **Acceptance Criteria:**
 
-- [ ] User-facing name **Quotation Accelerator** (with space) is used consistently in the UI, window title, PDF export header, and release documentation.
+- [ ] User-facing name **Contract manufacturing** (with space) is used consistently in the UI, window title, PDF export header, and release documentation.
 - [ ] **QuotationAccelerator** (no space) is reserved for technical identifiers: repository name, namespaces, ZIP archive name, and database filename.
-- [ ] The main executable may be named `Quotation Accelerator.exe` in the release package.
+- [ ] The main executable may be named `Contract manufacturing.exe` in the release package.
 - [ ] No company-specific or Heckel branding is included by default.
 - [ ] A simple generic manufacturing-related placeholder icon is used (for example: gear, factory, blueprint, or CNC tool); no customer logo.
 - [ ] Visual theme is modern, clean, and industrial with:
@@ -1005,7 +1005,7 @@ QuotationAccelerator-v1.0-win-x64.zip
 |-------------|--------|
 | Message bus / async integration | Not required |
 | ERP integration | Not required for pilot |
-| Email / notifications | Microsoft 365 inbox fetch, categorization, in-app support queue, and outbound proposal replies via Graph (FR-020–FR-025) |
+| Email / notifications | Microsoft 365 inbox fetch, categorization, in-app support queue, and outbound contract manufacturing replies via Graph (FR-020–FR-025) |
 
 ---
 
@@ -1044,7 +1044,7 @@ QuotationAccelerator-v1.0-win-x64.zip
 | Weak match quality undermines management demo | High | Bundled realistic sample data; three strategies for comparison; explainable short rationales |
 | Missing or inconsistent project folders | Medium | Fixed folder convention; `metadata.json` as primary source; graceful missing-file handling |
 | Local model setup friction on demo laptops | Medium | Rule-based mode works out of the box; Ollama supported but not mandatory at first launch |
-| Over-scoping toward production ERP quotation | Medium | Requirements limit output to editable draft, clipboard, and PDF export |
+| Over-scoping toward production ERP commercial offers | Medium | Requirements limit output to editable draft, clipboard, and PDF export |
 
 ---
 
@@ -1072,8 +1072,8 @@ QuotationAccelerator-v1.0-win-x64.zip
 | What exact sections must appear in exported PDF results? | Product owner | Resolved — see FR-020 | — |
 | Should multiple project root paths be supported simultaneously or one active root only? | Product owner | Resolved — **single active root**; `sample-data/` default when unset (FR-003) | — |
 | Are there branding requirements for demo builds (name, logo, company-neutral styling)? | Product owner | Resolved — see NFR-011 | — |
-| What is the fourth primary tab besides Inquiry, Results, and Proposal Workspace? | Product owner | Resolved — **Settings** | — |
-| Should Proposal Workspace sections be stacked on one screen or split into sub-tabs/accordions? | Product owner | Resolved — single scrollable page with collapsible sections/cards | — |
+| What is the fourth primary tab besides Inquiry, Results, and Contract manufacturing? | Product owner | Resolved — **Settings** | — |
+| Should Contract manufacturing sections be stacked on one screen or split into sub-tabs/accordions? | Product owner | Resolved — single scrollable page with collapsible sections/cards | — |
 
 ---
 
@@ -1097,8 +1097,8 @@ QuotationAccelerator-v1.0-win-x64.zip
 | Version | Date | Change |
 |---------|------|--------|
 | 0.1 | 2026-06-21 | Initial requirements from discovery workshop |
-| 0.2 | 2026-06-21 | Added Proposal Workspace workflow and FR-017 |
-| 0.3 | 2026-06-21 | Confirmed four-tab navigation, Proposal Workspace layout, default match behaviour; added FR-018 Settings |
+| 0.2 | 2026-06-21 | Added Contract manufacturing workflow and FR-017 |
+| 0.3 | 2026-06-21 | Confirmed four-tab navigation, Contract manufacturing layout, default match behaviour; added FR-018 Settings |
 | 0.4 | 2026-06-21 | Renamed **Similar Projects** tab to **Results**; page heading **Top 3 Similar Projects** |
 | 0.5 | 2026-06-21 | Added bilingual UI requirement (FR-019); German default |
 | 0.6 | 2026-06-21 | Defined PDF export layout and header (FR-020) |

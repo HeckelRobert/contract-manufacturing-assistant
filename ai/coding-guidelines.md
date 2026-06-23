@@ -1,4 +1,4 @@
-# Coding Guidelines
+﻿# Coding Guidelines
 
 Project-specific coding guidance for AI assistants and developers.
 
@@ -27,9 +27,9 @@ View models must call application logic through `IDispatcher`, not infrastructur
 
 ## Naming
 
-- Display name: **Quotation Accelerator**
+- Display name: **Contract manufacturing**
 - Technical identifiers: **QuotationAccelerator** (namespaces, solution, ZIP file names)
-- Executable: `Quotation Accelerator.exe`
+- Executable: `Contract manufacturing.exe`
 
 ---
 

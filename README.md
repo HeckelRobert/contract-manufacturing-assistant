@@ -1,6 +1,6 @@
-# Quotation Accelerator
+# Contract manufacturing
 
-Prototype desktop application for contract manufacturing: **find similar past projects quickly** and reuse drawings, manufacturing steps, and quotation knowledge when preparing a new offer.
+Prototype desktop application for contract manufacturing: **find similar past projects quickly** and reuse drawings, manufacturing steps, and historical job knowledge when preparing a new contract manufacturing job.
 
 **Core question the demo answers:** *Have we manufactured something like this before?*
 
@@ -12,16 +12,16 @@ Prototype desktop application for contract manufacturing: **find similar past pr
 | Analyze | The app searches your historical project catalog |
 | Review top 3 matches | Similarity score and plain-language reasons |
 | Open documents | Project folder and drawing PDF from a past job |
-| Proposal workspace | Suggested manufacturing steps and quotation draft — copy into your process |
+| Contract manufacturing workspace | Suggested manufacturing steps and contract manufacturing draft — copy into your process |
 
 Bundled sample data is included so you can see results **without configuring anything** on first launch.
 
 ## Quick start (workshop / pilot)
 
-You receive **`Quotation Accelerator Setup.msi`** from your presenter or IT (not from building this repository).
+You receive **`Contract manufacturing Setup.msi`** from your presenter or IT (the technical repository and build identifiers may still use `QuotationAccelerator`).
 
 1. Double-click the installer and complete the wizard.
-2. Start **Quotation Accelerator** from the desktop shortcut or the Windows Start menu.
+2. Start **Contract manufacturing** from the desktop shortcut or the Windows Start menu.
 3. Follow the short demo below — no SDK, no command line, no repository checkout required.
 
 Uninstall later via **Windows Settings → Apps** if needed.
@@ -30,8 +30,8 @@ Uninstall later via **Windows Settings → Apps** if needed.
 
 1. Tab **Inquiry**: Material *Stainless Steel 1.4301*, surface *Powder Coated*, quantity *20*, description *Stainless enclosure*.
 2. Click **Analyze Inquiry**.
-3. Tab **Results**: best match **PRJ-2019-0142** — try another match, review the drawing preview, then **Open project folder** or **Open drawing**.
-4. Tab **Proposal Workspace**: review the draft → **Copy proposal to clipboard**.
+3. Tab **Catalog**: best match **PRJ-2019-0142** — try another match, review the drawing preview, then **Open project folder** or **Open drawing**.
+4. Tab **Contract manufacturing**: review the draft → copy content to the clipboard.
 
 Default UI language is German (labels differ slightly); switch to English under **Settings**.
 
@@ -60,7 +60,7 @@ Prerequisites: Windows 10/11, [.NET 10 SDK](https://dotnet.microsoft.com/downloa
 .\scripts\publish-installer.ps1
 ```
 
-Output: `publish/installer/Quotation Accelerator Setup.msi` — share this file with workshop attendees.
+Output: `publish/installer/Contract manufacturing Setup.msi` — share this file with workshop attendees.
 
 Demo PDFs for the flagship sample project are generated automatically during that script. To regenerate them only:
 
@@ -74,13 +74,13 @@ Demo PDFs for the flagship sample project are generated automatically during tha
 dotnet build installer/QuotationAccelerator.Installer.wixproj -c Release
 ```
 
-MSI path: `installer/bin/Release/Quotation Accelerator Setup.msi`
+MSI path: `installer/bin/Release/Contract manufacturing Setup.msi`
 
 ## Solution structure
 
 ```text
 src/
-  Desktop/           WPF shell (four tabs)
+  Desktop/           WPF shell (primary tabs)
   Catalog/           Project discovery and indexing
   Inquiry/           Customer inquiry domain
   Matching/          Rule-based and hybrid similarity search

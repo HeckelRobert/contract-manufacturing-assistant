@@ -377,9 +377,14 @@ public partial class ProposalWorkspaceViewModel(
             ? inboxSession.OriginalSubject
             : $"Re: {inboxSession.OriginalSubject}";
 
+        if (string.IsNullOrWhiteSpace(subject))
+        {
+            subject = $"Re: {uiText.Get(UiTextKeys.ApplicationTitle, language)}";
+        }
+
         var sendResult = await dispatcher.SendAsync(new SendProposalReplyCommand(
             inboxSession.InboxMessageId!,
-            subject ?? "Re: Quotation",
+            subject,
             SuggestedQuotation,
             tempPath));
 

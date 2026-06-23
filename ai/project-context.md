@@ -1,4 +1,4 @@
-# Project Context
+﻿# Project Context
 
 ## Handbook Version
 
@@ -10,13 +10,13 @@ Handbook Version: v1.3.1
 
 QuotationAccelerator
 
-**Application display name:** Quotation Accelerator
+**Application display name:** Contract manufacturing
 
 ---
 
 ## Purpose
 
-Portable Windows desktop prototype that demonstrates how historical manufacturing project knowledge — drawings, quotations, work instructions, fixtures, and CNC programs — can accelerate technical review and quotation preparation for contract manufacturing according to technical drawings.
+Portable Windows desktop prototype that demonstrates how historical manufacturing project knowledge — drawings, contract manufacturing jobs, work instructions, fixtures, and CNC programs — can accelerate technical review and contract manufacturing preparation for contract manufacturing according to technical drawings.
 
 The application answers: **"Have we manufactured something similar before?"**
 
@@ -42,9 +42,9 @@ The application answers: **"Have we manufactured something similar before?"**
 | Catalog | Project discovery, `metadata.json`, rescan, SQLite index |
 | Inquiry | Customer inquiry capture and validation |
 | Matching | Rule-based, AI-assisted, hybrid top-3 search |
-| Proposal | Manufacturing steps and quotation draft generation |
+| Proposal | Manufacturing steps and contract manufacturing draft generation |
 | Documents | Referenced files, PDF preview, open folder |
-| Export | Clipboard and proposal PDF export |
+| Export | Clipboard and contract manufacturing PDF export |
 | Settings | Project root, AI providers, language, status card |
 | Infrastructure | SQLite, file I/O, AI adapters, PDF libraries |
 

@@ -5,7 +5,7 @@
     <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace>QuotationAccelerator.Desktop</RootNamespace>
-    <AssemblyName>Quotation Accelerator</AssemblyName>
+    <AssemblyName>Contract manufacturing</AssemblyName>
     <ApplicationIcon>Assets\app-icon.ico</ApplicationIcon>
     <StartupObject>QuotationAccelerator.Desktop.App</StartupObject>
   </PropertyGroup>

@@ -1,4 +1,4 @@
-# Operations
+﻿# Operations
 
 Handbook version: **v1.3.1**
 
@@ -22,7 +22,7 @@ Primary deliverable: portable ZIP archive.
 
 ```text
 QuotationAccelerator-v{version}-win-x64.zip
-├── Quotation Accelerator.exe
+├── Contract manufacturing.exe
 ├── sample-data/
 ├── appsettings.json
 ├── quotation-accelerator.db    (created on first run if missing)
@@ -43,7 +43,7 @@ QuotationAccelerator-v{version}-win-x64.zip
 
 1. Download `QuotationAccelerator-v{version}-win-x64.zip` from release assets.
 2. Extract to any writable local folder (no admin rights required).
-3. Run `Quotation Accelerator.exe`.
+3. Run `Contract manufacturing.exe`.
 4. On first launch, bundled `sample-data/` is used automatically if no project root is configured.
 5. Optionally install Ollama and pull recommended models:
 

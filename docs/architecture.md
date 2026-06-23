@@ -1,8 +1,8 @@
-# Architecture
+﻿# Architecture
 
 ## Overview
 
-**Quotation Accelerator** is a portable Windows desktop prototype that helps engineering staff identify and reuse historical manufacturing project knowledge during technical review and quotation preparation.
+**Contract manufacturing** is a portable Windows desktop prototype that helps engineering staff identify and reuse historical manufacturing project knowledge during technical review and contract manufacturing preparation.
 
 Handbook version: **v1.3.1** (pinned in `ai/project-context.md`).
 
@@ -30,7 +30,7 @@ Microservices, message brokers, and cloud hosting are out of scope for the pilot
 ```mermaid
 flowchart LR
   User[Engineer / Presenter / Management]
-  App[Quotation Accelerator Desktop App]
+  App[Contract manufacturing Desktop App]
   FS[(Local / Network Project Folder)]
   Ollama[Ollama Local Runtime]
   Hosted[Optional Hosted LLM APIs]
@@ -48,7 +48,7 @@ flowchart LR
 ```mermaid
 flowchart TB
   subgraph Desktop["Desktop (WPF)"]
-    UI[Tab Shell: Inbox / Inquiry / Results / Proposal Workspace / Settings]
+    UI[Tab Shell: Inbox / Inquiry / Results / Contract manufacturing / Settings]
     VM[ViewModels + Navigation]
   end
 
@@ -92,9 +92,9 @@ flowchart TB
 | **Catalog** | Discover projects, parse `metadata.json`, index documents, rescan | File system, SQLite |
 | **Inquiry** | Capture and validate inquiry input, drawing file reference | FluentValidation |
 | **Matching** | Rule-based, AI-assisted, and hybrid similarity search; rank top 3 | Catalog, Documents, AI adapters |
-| **Proposal** | Generate and edit manufacturing steps and quotation draft from primary match | Matching, Documents, AI adapters |
+| **Proposal** | Generate and edit manufacturing steps and contract manufacturing draft from primary match | Matching, Documents, AI adapters |
 | **Documents** | List referenced files, open folder/file, embedded PDF preview | File system, PDF preview |
-| **Export** | Clipboard copy, proposal PDF export | Proposal, Inquiry, Matching |
+| **Export** | Clipboard copy, contract manufacturing PDF export | Proposal, Inquiry, Matching |
 | **Inbox** | Fetch mailbox, categorize emails, support queue, inquiry prefill, outbound replies | Microsoft Graph, SQLite, Inquiry |
 | **Settings** | Project root, language, matching strategy, AI providers, mail account, status card, debug logging | Catalog, AI adapters, Inbox, persistence |
 | **Infrastructure** | SQLite, configuration, Ollama/OpenAI/Azure OpenAI clients, PDF libraries | External runtimes |
@@ -134,7 +134,7 @@ sequenceDiagram
   M->>M: Apply strategy (Rule / AI / Hybrid)
   M-->>R: Top 3 matches + explanations
   R->>P: Primary match selected (default: rank 1)
-  P->>P: Generate steps + quotation draft
+  P->>P: Generate steps + contract manufacturing draft
   U->>P: Review, edit, preview PDF, export
 ```
 
@@ -155,7 +155,7 @@ sequenceDiagram
 | Logging | `ILogger<T>` | Heckel ADR-005 |
 | PDF preview | **WebView2** embedded viewer | Project ADR-001 |
 | PDF text extraction | PdfPig (or equivalent) for indexing and AI-assisted matching | Project ADR-004 |
-| PDF export | QuestPDF (or equivalent) for proposal draft export | Project ADR-004 |
+| PDF export | QuestPDF (or equivalent) for Contract manufacturing draft export | Project ADR-004 |
 | Localization | RESX + `Microsoft.Extensions.Localization` | `docs/requirements.md` FR-019 |
 | AI chat / completion | Abstracted `IChatCompletionService` | Heckel ADR-006, project ADR-003 |
 | AI embeddings | Abstracted `IEmbeddingService`; Ollama-first | Heckel ADR-006, project ADR-003 |
@@ -305,7 +305,7 @@ Four primary tabs map to view models and navigation regions:
 |-----|---------------------|
 | **Inquiry** | Form fields, drawing picker, Analyze action |
 | **Results** | Heading "Top 3 Similar Projects", scores, explanations, primary match selection |
-| **Proposal Workspace** | Single scrollable page with collapsible sections |
+| **Contract manufacturing** | Single scrollable page with collapsible sections |
 | **Settings** | Project root, AI config, language, status card, rescan |
 
 ---

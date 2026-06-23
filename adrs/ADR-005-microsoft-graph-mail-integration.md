@@ -1,4 +1,4 @@
-# ADR-005: Microsoft Graph Mail Integration
+﻿# ADR-005: Microsoft Graph Mail Integration
 
 ## Status
 
@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-The pilot workflow is extended to fetch customer inquiry emails from a Microsoft 365 mailbox, categorize them, route support cases to an in-app queue, prefill contract-manufacturing inquiries, and send proposal replies by email.
+The pilot workflow is extended to fetch customer inquiry emails from a Microsoft 365 mailbox, categorize them, route support cases to an in-app queue, prefill contract-manufacturing inquiries, and send contract manufacturing replies by email.
 
 Requirements: inbox fetch, categorization, support queue, inquiry prefill, outbound mail (see `docs/requirements.md` FR-020–FR-025).
 
@@ -23,7 +23,7 @@ Integrate **Microsoft 365 mail** via **Microsoft Graph** using **MSAL** (`Micros
 | Permission | Purpose |
 |------------|---------|
 | `Mail.Read` | Fetch inbox messages and attachments |
-| `Mail.Send` | Send auto-replies and proposal replies |
+| `Mail.Send` | Send auto-replies and contract manufacturing replies |
 | `offline_access` | Refresh tokens without repeated interactive login |
 | `User.Read` | Identify signed-in account |
 
@@ -56,7 +56,7 @@ Alternatives considered:
 
 **Positive**
 
-- End-to-end demo: email in → categorize → quotation → email out
+- End-to-end demo: email in → categorize → contract manufacturing → email out
 - Reuses existing inquiry, matching, and export slices
 
 **Negative**

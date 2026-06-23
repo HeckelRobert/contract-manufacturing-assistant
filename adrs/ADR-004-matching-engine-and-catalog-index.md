@@ -1,4 +1,4 @@
-# ADR-004: Matching Engine and Catalog Index
+﻿# ADR-004: Matching Engine and Catalog Index
 
 ## Status
 
@@ -43,7 +43,7 @@ Expose `IMatchingStrategy` implementations:
 
 ### Proposal generation
 
-`ProposalService` uses the **primary match** only for manufacturing steps and quotation draft. Second and third matches appear on Results and PDF export for context only (FR-012).
+`ProposalService` uses the **primary match** only for manufacturing steps and contract manufacturing draft. Second and third matches appear on Results and PDF export for context only (FR-012).
 
 ---
 

@@ -4,7 +4,7 @@
     <OutputName>Contract manufacturing Setup</OutputName>
     <OutputType>Package</OutputType>
     <InstallerPlatform>x64</InstallerPlatform>
-    <ProductVersion>0.1.0.0</ProductVersion>
+    <ProductVersion Condition="'$(ProductVersion)' == ''">$(FileVersion)</ProductVersion>
     <DefineConstants>ProductVersion=$(ProductVersion)</DefineConstants>
     <AppPublishDir>$(MSBuildThisFileDirectory)obj\$(Configuration)\app-publish\</AppPublishDir>
   </PropertyGroup>

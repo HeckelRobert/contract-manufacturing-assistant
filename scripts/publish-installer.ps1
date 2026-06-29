@@ -1,7 +1,8 @@
 # Builds a Windows MSI installer for pilot distribution.
 param(
     [string]$OutputDirectory = "publish/installer",
-    [string]$Runtime = "win-x64"
+    [string]$Runtime = "win-x64",
+    [string]$ProductVersion = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -29,7 +30,16 @@ try {
     New-Item -ItemType Directory -Path $outputPath | Out-Null
 
     Write-Host "Building installer..."
-    dotnet build "installer/QuotationAccelerator.Installer.wixproj" -c Release
+    $buildArgs = @(
+        "build",
+        "installer/QuotationAccelerator.Installer.wixproj",
+        "-c", "Release"
+    )
+    if ($ProductVersion) {
+        Write-Host "Using product version: $ProductVersion"
+        $buildArgs += "-p:ProductVersion=$ProductVersion"
+    }
+    & dotnet @buildArgs
 
     $msiSource = Join-Path $repoRoot "installer\bin/Release\Contract manufacturing Setup.msi"
     if (-not (Test-Path $msiSource)) {

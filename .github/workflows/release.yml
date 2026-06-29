@@ -1,0 +1,70 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  DOTNET_VERSION: '10.0.x'
+  CONFIGURATION: Release
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Derive product version
+        id: version
+        shell: pwsh
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $version = $tag -replace '^v', ''
+          $parts = $version -split '\.'
+          while ($parts.Count -lt 4) {
+            $parts += '0'
+          }
+          $productVersion = ($parts | Select-Object -First 4) -join '.'
+          "product_version=$productVersion" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "release_version=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+      - name: Build MSI
+        shell: pwsh
+        run: |
+          .\scripts\publish-installer.ps1 -ProductVersion "${{ steps.version.outputs.product_version }}"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Contract manufacturing ${{ steps.version.outputs.release_version }}
+          body: |
+            **Beta demo — not for production use.**
+
+            This release is a demonstration prototype for evaluation and workshops only.
+            It uses sample data and is not a supported product.
+
+            ## Install
+
+            1. Download **Contract manufacturing Setup.msi** below.
+            2. Double-click the installer and complete the wizard.
+            3. Start **Contract manufacturing** from the Start menu or desktop shortcut.
+
+            See the [user guide](https://github.com/${{ github.repository }}/blob/main/docs/user-guide.md) for step-by-step instructions.
+
+            ## Requirements
+
+            - Windows 10 or 11 (64-bit)
+            - Administrator rights to install (not required to run after install)
+          files: publish/installer/Contract manufacturing Setup.msi
+          fail_on_unmatched_files: true

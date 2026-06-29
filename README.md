@@ -1,5 +1,7 @@
 # Contract manufacturing
 
+> **Beta demo — not for production use.** This is a prototype for evaluation and workshops only. It uses sample data, may change without notice, and is not a supported product.
+
 **Built for engineers** who prepare *Lohnfertigung* (contract manufacturing) from customer drawings — find similar past projects in seconds and reuse drawings, manufacturing steps, and historical job knowledge instead of starting from zero.
 
 **The question it answers:** *Have we manufactured something like this before?*
@@ -59,6 +61,16 @@ No commitment required — just tell us briefly what you manufacture and we will
 
 ## Or try it yourself
 
+**New to the app?** Follow the [step-by-step user guide](docs/user-guide.md) (non-technical, install and demo walkthrough).
+
+### Download
+
+| | |
+|---|---|
+| **Installer (recommended)** | [Download latest MSI](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest/download/Contract%20manufacturing%20Setup.msi) |
+| **All versions** | [GitHub Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases) |
+| **Detailed instructions** | [User guide](docs/user-guide.md) |
+
 ### Requirements
 
 - Windows 10 or 11 (64-bit)
@@ -66,11 +78,11 @@ No commitment required — just tell us briefly what you manufacture and we will
 
 ### Install and run
 
-1. Download **`Contract manufacturing Setup.msi`** (from your Heckel contact, or build it yourself — see [For developers](#for-developers) below).
-2. Double-click the installer and complete the wizard.
+1. Download **Contract manufacturing Setup.msi** using the link above.
+2. Double-click the installer and complete the wizard (see the [user guide](docs/user-guide.md) if Windows shows a security warning).
 3. Start **Contract manufacturing** from the desktop shortcut or the Windows Start menu.
 
-Uninstall later via **Windows Settings → Apps** if needed.
+Uninstall later via **Windows Settings → Apps**. Full details: [user guide — Uninstall](docs/user-guide.md#uninstall).
 
 > The technical repository and build identifiers may still use the name `QuotationAccelerator`.
 
@@ -159,6 +171,17 @@ dotnet build installer/QuotationAccelerator.Installer.wixproj -c Release
 
 MSI path: `installer/bin/Release/Contract manufacturing Setup.msi`
 
+### Publish a GitHub release
+
+Tag a version to build the MSI and publish it to GitHub Releases automatically:
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The release workflow uploads **Contract manufacturing Setup.msi** as a download asset. End users get it from [Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest).
+
 ## Solution structure
 
 ```text
@@ -177,6 +200,7 @@ tests/               Unit and architecture tests
 
 ## Documentation
 
+- [User guide](docs/user-guide.md) — install and demo walkthrough (non-technical)
 - [Requirements](docs/requirements.md)
 - [Architecture](docs/architecture.md)
 - [Security](docs/security.md)

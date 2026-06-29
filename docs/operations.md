@@ -7,7 +7,7 @@ Handbook version: **v1.3.1**
 | Environment | Purpose | Location |
 |-------------|---------|----------|
 | Development | Local build and test | Developer workstation |
-| Demonstration | Workshops and management demos | Extracted portable ZIP on business laptop |
+| Demonstration | Workshops and management demos | MSI install on business laptop |
 | Production | Not applicable for pilot | — |
 
 There is no cloud hosting, staging URL, or Azure infrastructure for this pilot.
@@ -18,22 +18,25 @@ There is no cloud hosting, staging URL, or Azure infrastructure for this pilot.
 
 ### Distribution format
 
-Primary deliverable: portable ZIP archive.
+Primary deliverable: **MSI installer** published via [GitHub Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases).
 
 ```text
-QuotationAccelerator-v{version}-win-x64.zip
-├── Contract manufacturing.exe
-├── sample-data/
-├── appsettings.json
-├── quotation-accelerator.db    (created on first run if missing)
-└── README.md
+Contract manufacturing Setup.msi
+└── Installs to Program Files:
+    ├── Contract manufacturing.exe
+    ├── sample-data/
+    ├── appsettings.json
+    └── quotation-accelerator.db    (created on first run if missing)
 ```
+
+End users download the MSI from the README or Releases page. A portable ZIP build is no longer the primary distribution path for demos; developers can still build the MSI locally with `scripts/publish-installer.ps1`.
 
 ### Prerequisites (target machine)
 
 | Prerequisite | Required | Notes |
 |--------------|----------|-------|
 | Windows 10 or 11 x64 | Yes | |
+| Administrator rights | Yes (install only) | Per-machine MSI install under Program Files |
 | WebView2 Runtime | Yes | For embedded PDF preview |
 | .NET runtime | Bundled | Self-contained publish |
 | Ollama | No | Recommended for Hybrid demo path |
@@ -41,9 +44,9 @@ QuotationAccelerator-v{version}-win-x64.zip
 
 ### Deployment steps
 
-1. Download `QuotationAccelerator-v{version}-win-x64.zip` from release assets.
-2. Extract to any writable local folder (no admin rights required).
-3. Run `Contract manufacturing.exe`.
+1. Download **Contract manufacturing Setup.msi** from [GitHub Releases](https://github.com/HeckelRobert/quotation-knowledge-assistant/releases/latest) (see [user guide](user-guide.md) for non-technical steps).
+2. Run the installer and complete the wizard (requires administrator rights).
+3. Start **Contract manufacturing** from the Start menu or desktop shortcut.
 4. On first launch, bundled `sample-data/` is used automatically if no project root is configured.
 5. Optionally install Ollama and pull recommended models:
 
@@ -57,14 +60,18 @@ QuotationAccelerator-v{version}-win-x64.zip
 ### Rollback
 
 1. Close the application.
-2. Delete the extracted folder.
-3. Extract a previous ZIP version if needed.
+2. Uninstall via **Windows Settings → Apps**, or install a previous MSI release from GitHub Releases.
 
-No uninstaller is required.
+### Release process (project team)
 
-### Future installer (optional)
+Push a version tag to trigger the release workflow:
 
-MSI package may be introduced in a later version for IT-managed deployment. Not required for pilot.
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The workflow runs tests, builds the MSI, and publishes it to GitHub Releases. See `.github/workflows/release.yml`.
 
 ---
 
@@ -103,12 +110,12 @@ Configuration is stored in `quotation-accelerator.db` and defaults in `appsettin
 
 | Asset | Procedure |
 |-------|-----------|
-| Application + settings | Copy entire extracted application folder |
+| Application + settings | Reinstall MSI, or copy `%ProgramFiles%\Contract manufacturing\` including `quotation-accelerator.db` |
 | Historical projects | Backup project root file share separately (out of app scope) |
 
 ### Restore
 
-1. Restore application folder or re-extract ZIP.
+1. Reinstall from MSI, or restore the install folder under Program Files.
 2. Restore `quotation-accelerator.db` if settings and index should be preserved.
 3. Point project root to valid `PRJ-*` directory in **Settings**.
 
@@ -131,7 +138,7 @@ Configuration is stored in `quotation-accelerator.db` and defaults in `appsettin
 
 | Area | Owner |
 |------|-------|
-| Portable ZIP build and release | Project team |
+| MSI build and GitHub release | Project team (tag push triggers `.github/workflows/release.yml`) |
 | Demo laptop setup | Presenter / customer IT |
 | Ollama installation | End user |
 | Real customer data in live demos | Presenter (GDPR responsibility) |
@@ -144,3 +151,4 @@ Configuration is stored in `quotation-accelerator.db` and defaults in `appsettin
 | Version | Date | Change |
 |---------|------|--------|
 | 0.1 | 2026-06-21 | Initial operations document for portable desktop pilot |
+| 0.2 | 2026-06-29 | MSI via GitHub Releases as primary distribution; user guide added |

@@ -15,6 +15,7 @@
 
     <Icon Id="AppIcon" SourceFile="$(var.ProjectDir)..\src\Desktop\Assets\app-icon.ico" />
     <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+    <Property Id="ARPCOMMENTS" Value="Beta demo prototype — not for production use." />
 
     <ui:WixUI Id="WixUI_InstallDir" />
     <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)License.rtf" />
